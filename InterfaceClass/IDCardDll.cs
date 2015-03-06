@@ -39,7 +39,7 @@ namespace InterfaceClass
         /// <param name="IDCvalue">IDCvalue为返回对应的信息的值指针</param>
         /// <returns>=0成功 <0 失败</returns>
         [DllImport("HG_IDcard.dll")]
-        public static extern int IDCGet(ref string IDCname, ref string IDCvalue);
+        public static extern int IDCGet(string IDCname, ref string[] IDCvalue);
 
         /// <summary>
         /// 当任何一个函数出错时，调用此函数获取错误信息
