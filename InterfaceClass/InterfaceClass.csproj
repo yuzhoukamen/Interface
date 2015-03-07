@@ -42,6 +42,7 @@
     <Compile Include="DllInvoke.cs" />
     <Compile Include="IDCard.cs" />
     <Compile Include="IDCardDll.cs" />
+    <Compile Include="InterfaceHNDll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
