@@ -19,7 +19,7 @@ namespace InterfaceClass
         /// </summary>
         /// <returns></returns>
         [DllImport("InterfaceHN.dll")]
-        public static extern long newinterface();
+        public static extern IntPtr newinterface();
 
         /// <summary>
         /// 该函数建立一个新的接口实例并将接口初始化，不需要再调用init函数。
@@ -29,7 +29,7 @@ namespace InterfaceClass
         /// <param name="Servlet">Servlet为应用服务器入口Servlet的名称</param>
         /// <returns>此函数返回接口指针p_inter，它将作为其他函数入口参数。</returns>
         [DllImport("InterfaceHN.dll")]
-        public static extern long newinterfacewithinit(string Addr, int Port, string Servlet);
+        public static extern IntPtr newinterfacewithinit(string Addr, int Port, string Servlet);
 
         /// <summary>
         /// 初始化接口
@@ -82,8 +82,8 @@ namespace InterfaceClass
         /// <summary>
         /// 该函数开始一次接口运行，直接将参数打包成送往Servlet，如果出错，将返回一个错误
         /// </summary>
-        /// <param name="p_inter">返回-1表示没有Run成功，返回大于零的值为返回参数的记录条数</param>
-        /// <returns>参数p_inter为函数newinterface()或者newinterfacewithinit的返回值</returns>
+        /// <param name="p_inter">参数p_inter为函数newinterface()或者newinterfacewithinit的返回值</param>
+        /// <returns>返回-1表示没有Run成功，返回大于零的值为返回参数的记录条数</returns>
         [DllImport("InterfaceHN.dll")]
         public static extern long run(IntPtr p_inter);
 
@@ -100,7 +100,7 @@ namespace InterfaceClass
         ///     没有记录行，其他都有记录行，通过nextrow, prevrow, firstrow, lastrow。
         ///     返回－1表示不成功，返回大于等于零的值为记录集记录数
         /// </summary>
-        /// <param name="p_inter"></param>
+        /// <param name="p_inter">参数p_inter为函数newinterface()或者newinterfacewithinit的返回值</param>
         /// <param name="result_name"></param>
         /// <returns></returns>
         [DllImport("InterfaceHN.dll")]
@@ -148,7 +148,7 @@ namespace InterfaceClass
         /// 如果送入的参数p_value为空指针(NULL)，返回该字段的长度，可以根据这个长度分配空间</param>
         /// <returns>返回值小于零, 表示没有Get成功，返回大于零表示为参数值的长度。用getmessage可以取得最近一次出错的错误信息</returns>
         [DllImport("InterfaceHN.dll")]
-        public static extern int getbyname(IntPtr p_inter, string p_name, string p_value);
+        public static extern int getbyname(IntPtr p_inter, string p_name, StringBuilder p_value);
 
         /// <summary>
         /// 该函数用来从接口取得返回的参数值
@@ -161,7 +161,7 @@ namespace InterfaceClass
         /// 如果送入的参数p_value为为空指针(NULL)，返回该字段的长度，可以根据这个长度分配空间</param>
         /// <returns>返回值小于零, 表示没有调用成功，返回值大于零, 表示参数值的长度。用getmessage可以取得最近一次出错的错误信息</returns>
         [DllImport("InterfaceHN.dll")]
-        public static extern int getbyindex(IntPtr p_inter, int index, string p_name, string p_value);
+        public static extern int getbyindex(IntPtr p_inter, int index, string p_name, StringBuilder p_value);
 
         /// <summary>
         /// 函数在所有函数出错时，调用它，
