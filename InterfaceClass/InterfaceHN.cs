@@ -11,6 +11,8 @@ namespace InterfaceClass
     /// </summary>
     public class InterfaceHN
     {
+        #region 属性
+
         /// <summary>
         /// 接口指针
         /// </summary>
@@ -95,6 +97,10 @@ namespace InterfaceClass
             set { this._ParameterList = value; }
         }
 
+        #endregion
+
+        #region 参数处理
+
         /// <summary>
         /// 添加参数
         /// </summary>
@@ -108,13 +114,18 @@ namespace InterfaceClass
         /// <summary>
         /// 清空和释放参数列表
         /// </summary>
-        public void ClearParameterList() {
+        public void ClearParameterList()
+        {
             if (this.ParameterList != null && this.ParameterList.Count > 0)
             {
                 this.ParameterList.Clear();
                 this.ParameterList = null;
             }
         }
+
+        #endregion
+
+        #region 创建和初始化接口
 
         /// <summary>
         /// 创建接口之后初始化
@@ -148,6 +159,10 @@ namespace InterfaceClass
                 throw new Exception("创建并初始化接口失败！！！");
             }
         }
+
+        #endregion
+
+        #region 获取错误消息和异常
 
         /// <summary>
         /// 获取错误消息
@@ -184,6 +199,8 @@ namespace InterfaceClass
 
             return sbException.ToString();
         }
+
+        #endregion
 
         /// <summary>
         /// 开始
@@ -320,11 +337,27 @@ namespace InterfaceClass
         }
 
         /// <summary>
-        /// 
+        /// 记录集的记录行数
+        /// </summary>
+        /// <returns></returns>
+        public long GetRowCount()
+        {
+            long value = InterfaceHNDll.getrowcount(this.P_inter);
+
+            if (0 > value)
+            {
+                throw new Exception("执行函数getrowcount错误，错误原因：" + GetMessage());
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// 释放接口实例
         /// </summary>
         public void DestoryInterface()
         {
-            if (this.P_inter != null || (int)this.P_inter > 0)
+            if (this.P_inter != null)
             {
                 InterfaceHNDll.destoryinterface(this.P_inter);
             }
