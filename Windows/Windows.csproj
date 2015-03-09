@@ -78,6 +78,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterfaceClass\InterfaceClass.csproj">
       <Project>{7896f8fd-9f7e-47d3-a906-d638b157b07a}</Project>
       <Name>InterfaceClass</Name>

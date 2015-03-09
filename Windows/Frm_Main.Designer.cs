@@ -44,6 +44,8 @@
             this.txtBoxPort = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxServlet = new System.Windows.Forms.TextBox();
+            this.btnInit = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
@@ -150,6 +152,8 @@
             this.flowLayoutPanel1.Controls.Add(this.txtBoxPort);
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.txtBoxServlet);
+            this.flowLayoutPanel1.Controls.Add(this.btnInit);
+            this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -209,6 +213,26 @@
             this.txtBoxServlet.Size = new System.Drawing.Size(100, 21);
             this.txtBoxServlet.TabIndex = 5;
             // 
+            // btnInit
+            // 
+            this.btnInit.Location = new System.Drawing.Point(509, 3);
+            this.btnInit.Name = "btnInit";
+            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.TabIndex = 6;
+            this.btnInit.Text = "初始化参数";
+            this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(590, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "修改参数";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -249,6 +273,8 @@
         private System.Windows.Forms.TextBox txtBoxPort;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxServlet;
+        private System.Windows.Forms.Button btnInit;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 
