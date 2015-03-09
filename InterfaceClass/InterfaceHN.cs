@@ -108,6 +108,12 @@ namespace InterfaceClass
         /// <param name="value">值</param>
         public void AddParameter(string name, string value)
         {
+            StringBuilder sbName = new StringBuilder();
+            StringBuilder sbValue = new StringBuilder();
+
+            sbName.Append(name);
+            sbValue.Append(value);
+
             this.ParameterList.Add(new Parameter(name, value));
         }
 
@@ -119,7 +125,6 @@ namespace InterfaceClass
             if (this.ParameterList != null && this.ParameterList.Count > 0)
             {
                 this.ParameterList.Clear();
-                this.ParameterList = null;
             }
         }
 
@@ -226,6 +231,21 @@ namespace InterfaceClass
         public long Put(long row, string name, string value)
         {
             return InterfaceHNDll.put(this.P_inter, row, name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void PutCol(string name, string value)
+        {
+            long temp=InterfaceHNDll.putcol(this.P_inter, name, value);
+
+            if (temp < 0)
+            {
+                throw new Exception("执行函数putcol错误，错误原因：" + GetMessage());
+            }
         }
 
         /// <summary>

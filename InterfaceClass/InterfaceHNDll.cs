@@ -66,8 +66,8 @@ namespace InterfaceClass
         /// <param name="p_name">p_name为参数名称，以字符串小写表示</param>
         /// <param name="p_value">p_value为参数值，可以是字符串和数值型</param>
         /// <returns>返回-1表示没有Put成功，返回大于零表示Put成功 ，此值同时为当前的行号。如果入参有多个记录集，可用setresultset函数设置要传参数的记录集</returns>
-        [DllImport("InterfaceHN.dll")]
-        public static extern long put(IntPtr p_inter, long row, string p_name, string p_value);
+        [DllImport("InterfaceHN.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "put")]
+        public static extern int put(IntPtr p_inter, long row, string p_name, string p_value);
 
         /// <summary>
         /// 该函数用来在一次接口调用中传入业务所需的参数
