@@ -16,7 +16,7 @@ namespace Windows
         /// <summary>
         /// 湖南创智接口
         /// </summary>
-        private InterfaceClass.InterfaceHN interfaceHN = new InterfaceHN();
+        private InterfaceHN interfaceHN = new InterfaceHN();
 
         /// <summary>
         /// 构造函数
