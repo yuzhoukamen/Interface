@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace InterfaceClass
 {
@@ -64,7 +63,7 @@ namespace InterfaceClass
                             IDCardDll.IDCGeterrMsg(this._ErrorInfo);
 
                             string temp = this._ErrorInfo.ToString();
-                            this._ErrorInfo.Clear();
+                            this._ErrorInfo.Remove(0, this._ErrorInfo.Length);
 
                             this._ErrorInfo.Append("获取身份证信息失败,错误原因：" + temp);
                         }
@@ -74,7 +73,7 @@ namespace InterfaceClass
                         IDCardDll.IDCGeterrMsg(this._ErrorInfo);
 
                         string temp = this._ErrorInfo.ToString();
-                        this._ErrorInfo.Clear();
+                        this._ErrorInfo.Remove(0, this._ErrorInfo.Length);
 
                         this._ErrorInfo.Append("启动身份证设备失败,错误原因：" + temp);
                     }
@@ -84,7 +83,7 @@ namespace InterfaceClass
                     IDCardDll.IDCGeterrMsg(this._ErrorInfo);
 
                     string temp = this._ErrorInfo.ToString();
-                    this._ErrorInfo.Clear();
+                    this._ErrorInfo.Remove(0,this._ErrorInfo.Length);
 
                     this._ErrorInfo.Append("清空身份证接口信息失败，失败原因：" +temp);
                 }
