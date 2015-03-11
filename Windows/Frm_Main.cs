@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Windows
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Frm_Main : Form
     {
         /// <summary>
