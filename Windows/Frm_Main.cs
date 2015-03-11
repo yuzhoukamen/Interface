@@ -156,6 +156,7 @@ namespace Windows
         {
             MessageBox.Show(msg.Trim(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -174,6 +175,11 @@ namespace Windows
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoginGet_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
