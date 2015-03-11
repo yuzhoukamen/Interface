@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Windows
 {
     /// <summary>
-    /// 
+    /// 主窗口
     /// </summary>
     public partial class Frm_Main : Form
     {
