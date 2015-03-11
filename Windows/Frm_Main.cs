@@ -253,9 +253,6 @@ namespace Windows
 
                 this.interfaceHN.Puts(0);
 
-                // this.interfaceHN.PutCol("login_id", "hexu");
-                // this.interfaceHN.PutCol("login_password", "hexu");
-
                 this.interfaceHN.Run();
 
                 MsgInfo("登陆成功！！！");
