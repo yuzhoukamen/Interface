@@ -248,13 +248,13 @@ namespace Windows
 
                 this.interfaceHN.ClearParameterList();
 
-                this.interfaceHN.AddParameter("login_id","hexu");
-                this.interfaceHN.AddParameter("login_password", "hexu");
+                this.interfaceHN.AddParameter("login_id", this.txtBoxLoginID.Text.Trim());
+                this.interfaceHN.AddParameter("login_password", this.txtBoxLoginPasswd.Text.Trim());
 
                 this.interfaceHN.Puts(0);
 
-               // this.interfaceHN.PutCol("login_id", "hexu");
-               // this.interfaceHN.PutCol("login_password", "hexu");
+                // this.interfaceHN.PutCol("login_id", "hexu");
+                // this.interfaceHN.PutCol("login_password", "hexu");
 
                 this.interfaceHN.Run();
 
