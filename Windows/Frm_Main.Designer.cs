@@ -36,6 +36,39 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.tabPageInterface = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtBoxMedicalOnceFind = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtBoxMedicalcondition = new System.Windows.Forms.TextBox();
+            this.txtBoxMedicalType = new System.Windows.Forms.TextBox();
+            this.txtBoxMedicalCenterid = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblMedicalID = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.richBoxDisResult = new System.Windows.Forms.RichTextBox();
+            this.btnDisQuery = new System.Windows.Forms.Button();
+            this.dateTimeDisQueryDate = new System.Windows.Forms.DateTimePicker();
+            this.txtBoxDisCenter_id = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblDisID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtBoxDisCode_py = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtBoxFuncID = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxIDCard = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxHospitalID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBoxBiz = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBoxCenterID = new System.Windows.Forms.TextBox();
+            this.btnBIZC131101 = new System.Windows.Forms.Button();
             this.panelParameter = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,28 +88,28 @@
             this.btnInit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInterfaceInit = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtBoxFuncID = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBoxIDCard = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBoxHospitalID = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtBoxBiz = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtBoxCenterID = new System.Windows.Forms.TextBox();
-            this.btnBIZC131101 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtBoxfirst_row = new System.Windows.Forms.TextBox();
+            this.txtBoxlast_row = new System.Windows.Forms.TextBox();
+            this.txtBoxfirst_version_id = new System.Windows.Forms.TextBox();
+            this.txtBoxlast_version_id = new System.Windows.Forms.TextBox();
+            this.btnMedicalQuery = new System.Windows.Forms.Button();
+            this.richTxtBoxMedicalResult = new System.Windows.Forms.RichTextBox();
+            this.richTxtBoxPersonInfo = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPageIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
             this.tabPageInterface.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.panelParameter.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,7 +120,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(944, 483);
+            this.tabControl1.Size = new System.Drawing.Size(1052, 553);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageIDCard
@@ -151,204 +184,217 @@
             // 
             // tabPageInterface
             // 
+            this.tabPageInterface.Controls.Add(this.groupBox3);
+            this.tabPageInterface.Controls.Add(this.groupBox2);
             this.tabPageInterface.Controls.Add(this.groupBox1);
             this.tabPageInterface.Controls.Add(this.panelParameter);
             this.tabPageInterface.Location = new System.Drawing.Point(4, 22);
             this.tabPageInterface.Name = "tabPageInterface";
             this.tabPageInterface.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInterface.Size = new System.Drawing.Size(936, 457);
+            this.tabPageInterface.Size = new System.Drawing.Size(1044, 527);
             this.tabPageInterface.TabIndex = 1;
             this.tabPageInterface.Text = "湖南创智接口访问";
             this.tabPageInterface.UseVisualStyleBackColor = true;
             // 
-            // panelParameter
+            // groupBox3
             // 
-            this.panelParameter.Controls.Add(this.flowLayoutPanel2);
-            this.panelParameter.Controls.Add(this.flowLayoutPanel1);
-            this.panelParameter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelParameter.Location = new System.Drawing.Point(3, 3);
-            this.panelParameter.Name = "panelParameter";
-            this.panelParameter.Size = new System.Drawing.Size(930, 110);
-            this.panelParameter.TabIndex = 0;
+            this.groupBox3.Controls.Add(this.richTxtBoxMedicalResult);
+            this.groupBox3.Controls.Add(this.btnMedicalQuery);
+            this.groupBox3.Controls.Add(this.txtBoxlast_version_id);
+            this.groupBox3.Controls.Add(this.txtBoxfirst_version_id);
+            this.groupBox3.Controls.Add(this.txtBoxlast_row);
+            this.groupBox3.Controls.Add(this.txtBoxfirst_row);
+            this.groupBox3.Controls.Add(this.txtBoxMedicalOnceFind);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.txtBoxMedicalcondition);
+            this.groupBox3.Controls.Add(this.txtBoxMedicalType);
+            this.groupBox3.Controls.Add(this.txtBoxMedicalCenterid);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.lblMedicalID);
+            this.groupBox3.Location = new System.Drawing.Point(499, 120);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(539, 430);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "取中心药品目录信息";
             // 
-            // flowLayoutPanel2
+            // txtBoxMedicalOnceFind
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.txtBoxLoginID);
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.txtBoxLoginPasswd);
-            this.flowLayoutPanel2.Controls.Add(this.btnLoginGet);
-            this.flowLayoutPanel2.Controls.Add(this.btnLoginUpdate);
-            this.flowLayoutPanel2.Controls.Add(this.btnLogin);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 58);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(930, 39);
-            this.flowLayoutPanel2.TabIndex = 1;
+            this.txtBoxMedicalOnceFind.Location = new System.Drawing.Point(121, 124);
+            this.txtBoxMedicalOnceFind.Name = "txtBoxMedicalOnceFind";
+            this.txtBoxMedicalOnceFind.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxMedicalOnceFind.TabIndex = 19;
+            this.txtBoxMedicalOnceFind.Text = "1";
             // 
-            // label5
+            // label17
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 7);
-            this.label5.Margin = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "登陆账号：";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 73);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 12);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "操作类型：";
             // 
-            // txtBoxLoginID
+            // label18
             // 
-            this.txtBoxLoginID.Location = new System.Drawing.Point(68, 3);
-            this.txtBoxLoginID.Name = "txtBoxLoginID";
-            this.txtBoxLoginID.Size = new System.Drawing.Size(97, 21);
-            this.txtBoxLoginID.TabIndex = 5;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(7, 127);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(113, 12);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "查询情况返回标志：";
             // 
-            // label6
+            // label16
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(173, 7);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "登陆密码：";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 98);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 12);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "查询条件：";
             // 
-            // txtBoxLoginPasswd
+            // txtBoxMedicalcondition
             // 
-            this.txtBoxLoginPasswd.Location = new System.Drawing.Point(241, 3);
-            this.txtBoxLoginPasswd.Name = "txtBoxLoginPasswd";
-            this.txtBoxLoginPasswd.Size = new System.Drawing.Size(145, 21);
-            this.txtBoxLoginPasswd.TabIndex = 7;
+            this.txtBoxMedicalcondition.Location = new System.Drawing.Point(75, 95);
+            this.txtBoxMedicalcondition.Name = "txtBoxMedicalcondition";
+            this.txtBoxMedicalcondition.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxMedicalcondition.TabIndex = 16;
+            this.txtBoxMedicalcondition.Text = "bs_medi";
             // 
-            // btnLoginGet
+            // txtBoxMedicalType
             // 
-            this.btnLoginGet.Location = new System.Drawing.Point(392, 3);
-            this.btnLoginGet.Name = "btnLoginGet";
-            this.btnLoginGet.Size = new System.Drawing.Size(87, 23);
-            this.btnLoginGet.TabIndex = 8;
-            this.btnLoginGet.Text = "获取登陆信息";
-            this.btnLoginGet.UseVisualStyleBackColor = true;
-            this.btnLoginGet.Click += new System.EventHandler(this.btnLoginGet_Click);
+            this.txtBoxMedicalType.Location = new System.Drawing.Point(75, 68);
+            this.txtBoxMedicalType.Name = "txtBoxMedicalType";
+            this.txtBoxMedicalType.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxMedicalType.TabIndex = 16;
+            this.txtBoxMedicalType.Text = "version";
             // 
-            // btnLoginUpdate
+            // txtBoxMedicalCenterid
             // 
-            this.btnLoginUpdate.Location = new System.Drawing.Point(485, 3);
-            this.btnLoginUpdate.Name = "btnLoginUpdate";
-            this.btnLoginUpdate.Size = new System.Drawing.Size(94, 23);
-            this.btnLoginUpdate.TabIndex = 9;
-            this.btnLoginUpdate.Text = "修改登陆账户";
-            this.btnLoginUpdate.UseVisualStyleBackColor = true;
-            this.btnLoginUpdate.Click += new System.EventHandler(this.btnLoginUpdate_Click);
+            this.txtBoxMedicalCenterid.Location = new System.Drawing.Point(75, 41);
+            this.txtBoxMedicalCenterid.Name = "txtBoxMedicalCenterid";
+            this.txtBoxMedicalCenterid.Size = new System.Drawing.Size(136, 21);
+            this.txtBoxMedicalCenterid.TabIndex = 15;
+            this.txtBoxMedicalCenterid.Text = "632802";
             // 
-            // btnLogin
+            // label15
             // 
-            this.btnLogin.Location = new System.Drawing.Point(585, 3);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 10;
-            this.btnLogin.Text = "接口登陆";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(4, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 12);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "中心编码：";
             // 
-            // flowLayoutPanel1
+            // lblMedicalID
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.txtBoxServer);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.txtBoxPort);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.txtBoxServlet);
-            this.flowLayoutPanel1.Controls.Add(this.btnInit);
-            this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
-            this.flowLayoutPanel1.Controls.Add(this.btnInterfaceInit);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(930, 58);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.lblMedicalID.AutoSize = true;
+            this.lblMedicalID.Location = new System.Drawing.Point(7, 21);
+            this.lblMedicalID.Name = "lblMedicalID";
+            this.lblMedicalID.Size = new System.Drawing.Size(65, 12);
+            this.lblMedicalID.TabIndex = 0;
+            this.lblMedicalID.Text = "BIZC110118";
             // 
-            // label2
+            // groupBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "服务器地址：";
+            this.groupBox2.Controls.Add(this.richBoxDisResult);
+            this.groupBox2.Controls.Add(this.btnDisQuery);
+            this.groupBox2.Controls.Add(this.dateTimeDisQueryDate);
+            this.groupBox2.Controls.Add(this.txtBoxDisCenter_id);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.lblDisID);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.txtBoxDisCode_py);
+            this.groupBox2.Location = new System.Drawing.Point(269, 119);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(223, 327);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "获取中心疾病目录信息";
             // 
-            // txtBoxServer
+            // richBoxDisResult
             // 
-            this.txtBoxServer.Location = new System.Drawing.Point(80, 3);
-            this.txtBoxServer.Name = "txtBoxServer";
-            this.txtBoxServer.Size = new System.Drawing.Size(97, 21);
-            this.txtBoxServer.TabIndex = 1;
-            this.txtBoxServer.Text = "192.168.1.254";
+            this.richBoxDisResult.Location = new System.Drawing.Point(7, 174);
+            this.richBoxDisResult.Name = "richBoxDisResult";
+            this.richBoxDisResult.Size = new System.Drawing.Size(210, 147);
+            this.richBoxDisResult.TabIndex = 16;
+            this.richBoxDisResult.Text = "";
             // 
-            // label3
+            // btnDisQuery
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(185, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "端口号：";
+            this.btnDisQuery.Location = new System.Drawing.Point(6, 144);
+            this.btnDisQuery.Name = "btnDisQuery";
+            this.btnDisQuery.Size = new System.Drawing.Size(63, 23);
+            this.btnDisQuery.TabIndex = 15;
+            this.btnDisQuery.Text = "查询";
+            this.btnDisQuery.UseVisualStyleBackColor = true;
+            this.btnDisQuery.Click += new System.EventHandler(this.btnDisQuery_Click);
             // 
-            // txtBoxPort
+            // dateTimeDisQueryDate
             // 
-            this.txtBoxPort.Location = new System.Drawing.Point(241, 3);
-            this.txtBoxPort.Name = "txtBoxPort";
-            this.txtBoxPort.Size = new System.Drawing.Size(44, 21);
-            this.txtBoxPort.TabIndex = 3;
-            this.txtBoxPort.Text = "7001";
+            this.dateTimeDisQueryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeDisQueryDate.Location = new System.Drawing.Point(77, 71);
+            this.dateTimeDisQueryDate.Name = "dateTimeDisQueryDate";
+            this.dateTimeDisQueryDate.Size = new System.Drawing.Size(136, 21);
+            this.dateTimeDisQueryDate.TabIndex = 14;
             // 
-            // label4
+            // txtBoxDisCenter_id
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(293, 7);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "入口Servlet名称：";
+            this.txtBoxDisCenter_id.Location = new System.Drawing.Point(77, 42);
+            this.txtBoxDisCenter_id.Name = "txtBoxDisCenter_id";
+            this.txtBoxDisCenter_id.Size = new System.Drawing.Size(136, 21);
+            this.txtBoxDisCenter_id.TabIndex = 13;
+            this.txtBoxDisCenter_id.Text = "632802";
             // 
-            // txtBoxServlet
+            // label12
             // 
-            this.txtBoxServlet.Location = new System.Drawing.Point(403, 3);
-            this.txtBoxServlet.Name = "txtBoxServlet";
-            this.txtBoxServlet.Size = new System.Drawing.Size(262, 21);
-            this.txtBoxServlet.TabIndex = 5;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "中心编码：";
             // 
-            // btnInit
+            // label13
             // 
-            this.btnInit.Location = new System.Drawing.Point(671, 3);
-            this.btnInit.Name = "btnInit";
-            this.btnInit.Size = new System.Drawing.Size(75, 23);
-            this.btnInit.TabIndex = 6;
-            this.btnInit.Text = "初始化参数";
-            this.btnInit.UseVisualStyleBackColor = true;
-            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 75);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "查询日期：";
             // 
-            // btnUpdate
+            // lblDisID
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(752, 3);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "修改参数";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.lblDisID.AutoSize = true;
+            this.lblDisID.Location = new System.Drawing.Point(6, 20);
+            this.lblDisID.Name = "lblDisID";
+            this.lblDisID.Size = new System.Drawing.Size(65, 12);
+            this.lblDisID.TabIndex = 0;
+            this.lblDisID.Text = "BIZC200017";
             // 
-            // btnInterfaceInit
+            // label14
             // 
-            this.btnInterfaceInit.Location = new System.Drawing.Point(3, 32);
-            this.btnInterfaceInit.Name = "btnInterfaceInit";
-            this.btnInterfaceInit.Size = new System.Drawing.Size(102, 23);
-            this.btnInterfaceInit.TabIndex = 8;
-            this.btnInterfaceInit.Text = "初始化医保接口";
-            this.btnInterfaceInit.UseVisualStyleBackColor = true;
-            this.btnInterfaceInit.Click += new System.EventHandler(this.btnInterfaceInit_Click);
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 110);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "简拼码：";
+            // 
+            // txtBoxDisCode_py
+            // 
+            this.txtBoxDisCode_py.Location = new System.Drawing.Point(77, 107);
+            this.txtBoxDisCode_py.Name = "txtBoxDisCode_py";
+            this.txtBoxDisCode_py.Size = new System.Drawing.Size(136, 21);
+            this.txtBoxDisCode_py.TabIndex = 13;
             // 
             // groupBox1
             // 
@@ -373,6 +419,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label11);
             this.flowLayoutPanel3.Controls.Add(this.txtBoxCenterID);
             this.flowLayoutPanel3.Controls.Add(this.btnBIZC131101);
+            this.flowLayoutPanel3.Controls.Add(this.richTxtBoxPersonInfo);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 17);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -479,11 +526,294 @@
             this.btnBIZC131101.UseVisualStyleBackColor = true;
             this.btnBIZC131101.Click += new System.EventHandler(this.btnBIZC131101_Click);
             // 
+            // panelParameter
+            // 
+            this.panelParameter.Controls.Add(this.flowLayoutPanel2);
+            this.panelParameter.Controls.Add(this.flowLayoutPanel1);
+            this.panelParameter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelParameter.Location = new System.Drawing.Point(3, 3);
+            this.panelParameter.Name = "panelParameter";
+            this.panelParameter.Size = new System.Drawing.Size(1038, 110);
+            this.panelParameter.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.txtBoxLoginID);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.txtBoxLoginPasswd);
+            this.flowLayoutPanel2.Controls.Add(this.btnLoginGet);
+            this.flowLayoutPanel2.Controls.Add(this.btnLoginUpdate);
+            this.flowLayoutPanel2.Controls.Add(this.btnLogin);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 58);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1038, 39);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(0, 7);
+            this.label5.Margin = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "登陆账号：";
+            // 
+            // txtBoxLoginID
+            // 
+            this.txtBoxLoginID.Location = new System.Drawing.Point(68, 3);
+            this.txtBoxLoginID.Name = "txtBoxLoginID";
+            this.txtBoxLoginID.Size = new System.Drawing.Size(97, 21);
+            this.txtBoxLoginID.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(173, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "登陆密码：";
+            // 
+            // txtBoxLoginPasswd
+            // 
+            this.txtBoxLoginPasswd.Location = new System.Drawing.Point(241, 3);
+            this.txtBoxLoginPasswd.Name = "txtBoxLoginPasswd";
+            this.txtBoxLoginPasswd.Size = new System.Drawing.Size(145, 21);
+            this.txtBoxLoginPasswd.TabIndex = 7;
+            // 
+            // btnLoginGet
+            // 
+            this.btnLoginGet.Location = new System.Drawing.Point(392, 3);
+            this.btnLoginGet.Name = "btnLoginGet";
+            this.btnLoginGet.Size = new System.Drawing.Size(87, 23);
+            this.btnLoginGet.TabIndex = 8;
+            this.btnLoginGet.Text = "获取登陆信息";
+            this.btnLoginGet.UseVisualStyleBackColor = true;
+            this.btnLoginGet.Click += new System.EventHandler(this.btnLoginGet_Click);
+            // 
+            // btnLoginUpdate
+            // 
+            this.btnLoginUpdate.Location = new System.Drawing.Point(485, 3);
+            this.btnLoginUpdate.Name = "btnLoginUpdate";
+            this.btnLoginUpdate.Size = new System.Drawing.Size(94, 23);
+            this.btnLoginUpdate.TabIndex = 9;
+            this.btnLoginUpdate.Text = "修改登陆账户";
+            this.btnLoginUpdate.UseVisualStyleBackColor = true;
+            this.btnLoginUpdate.Click += new System.EventHandler(this.btnLoginUpdate_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(585, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 10;
+            this.btnLogin.Text = "接口登陆";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.txtBoxServer);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.txtBoxPort);
+            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.txtBoxServlet);
+            this.flowLayoutPanel1.Controls.Add(this.btnInit);
+            this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
+            this.flowLayoutPanel1.Controls.Add(this.btnInterfaceInit);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1038, 58);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "服务器地址：";
+            // 
+            // txtBoxServer
+            // 
+            this.txtBoxServer.Location = new System.Drawing.Point(80, 3);
+            this.txtBoxServer.Name = "txtBoxServer";
+            this.txtBoxServer.Size = new System.Drawing.Size(97, 21);
+            this.txtBoxServer.TabIndex = 1;
+            this.txtBoxServer.Text = "192.168.1.254";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(185, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "端口号：";
+            // 
+            // txtBoxPort
+            // 
+            this.txtBoxPort.Location = new System.Drawing.Point(241, 3);
+            this.txtBoxPort.Name = "txtBoxPort";
+            this.txtBoxPort.Size = new System.Drawing.Size(44, 21);
+            this.txtBoxPort.TabIndex = 3;
+            this.txtBoxPort.Text = "7001";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(293, 7);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 7, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "入口Servlet名称：";
+            // 
+            // txtBoxServlet
+            // 
+            this.txtBoxServlet.Location = new System.Drawing.Point(403, 3);
+            this.txtBoxServlet.Name = "txtBoxServlet";
+            this.txtBoxServlet.Size = new System.Drawing.Size(262, 21);
+            this.txtBoxServlet.TabIndex = 5;
+            // 
+            // btnInit
+            // 
+            this.btnInit.Location = new System.Drawing.Point(671, 3);
+            this.btnInit.Name = "btnInit";
+            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.TabIndex = 6;
+            this.btnInit.Text = "初始化参数";
+            this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(752, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "修改参数";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnInterfaceInit
+            // 
+            this.btnInterfaceInit.Location = new System.Drawing.Point(833, 3);
+            this.btnInterfaceInit.Name = "btnInterfaceInit";
+            this.btnInterfaceInit.Size = new System.Drawing.Size(102, 23);
+            this.btnInterfaceInit.TabIndex = 8;
+            this.btnInterfaceInit.Text = "初始化医保接口";
+            this.btnInterfaceInit.UseVisualStyleBackColor = true;
+            this.btnInterfaceInit.Click += new System.EventHandler(this.btnInterfaceInit_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 154);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(89, 12);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "查询起始行数：";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 176);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 12);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "查询结束行数：";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 198);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 12);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "查询起始版本号：";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 219);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(101, 12);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "查询结束版本号：";
+            // 
+            // txtBoxfirst_row
+            // 
+            this.txtBoxfirst_row.Location = new System.Drawing.Point(89, 151);
+            this.txtBoxfirst_row.Name = "txtBoxfirst_row";
+            this.txtBoxfirst_row.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxfirst_row.TabIndex = 19;
+            this.txtBoxfirst_row.Text = "1";
+            // 
+            // txtBoxlast_row
+            // 
+            this.txtBoxlast_row.Location = new System.Drawing.Point(89, 173);
+            this.txtBoxlast_row.Name = "txtBoxlast_row";
+            this.txtBoxlast_row.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxlast_row.TabIndex = 19;
+            this.txtBoxlast_row.Text = "1";
+            // 
+            // txtBoxfirst_version_id
+            // 
+            this.txtBoxfirst_version_id.Location = new System.Drawing.Point(99, 195);
+            this.txtBoxfirst_version_id.Name = "txtBoxfirst_version_id";
+            this.txtBoxfirst_version_id.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxfirst_version_id.TabIndex = 19;
+            this.txtBoxfirst_version_id.Text = "1";
+            // 
+            // txtBoxlast_version_id
+            // 
+            this.txtBoxlast_version_id.Location = new System.Drawing.Point(99, 219);
+            this.txtBoxlast_version_id.Name = "txtBoxlast_version_id";
+            this.txtBoxlast_version_id.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxlast_version_id.TabIndex = 19;
+            this.txtBoxlast_version_id.Text = "1";
+            // 
+            // btnMedicalQuery
+            // 
+            this.btnMedicalQuery.Location = new System.Drawing.Point(9, 255);
+            this.btnMedicalQuery.Name = "btnMedicalQuery";
+            this.btnMedicalQuery.Size = new System.Drawing.Size(63, 23);
+            this.btnMedicalQuery.TabIndex = 17;
+            this.btnMedicalQuery.Text = "查询";
+            this.btnMedicalQuery.UseVisualStyleBackColor = true;
+            this.btnMedicalQuery.Click += new System.EventHandler(this.btnMedicalQuery_Click);
+            // 
+            // richTxtBoxMedicalResult
+            // 
+            this.richTxtBoxMedicalResult.Location = new System.Drawing.Point(227, 16);
+            this.richTxtBoxMedicalResult.Name = "richTxtBoxMedicalResult";
+            this.richTxtBoxMedicalResult.Size = new System.Drawing.Size(306, 383);
+            this.richTxtBoxMedicalResult.TabIndex = 20;
+            this.richTxtBoxMedicalResult.Text = "";
+            // 
+            // richTxtBoxPersonInfo
+            // 
+            this.richTxtBoxPersonInfo.Location = new System.Drawing.Point(3, 167);
+            this.richTxtBoxPersonInfo.Name = "richTxtBoxPersonInfo";
+            this.richTxtBoxPersonInfo.Size = new System.Drawing.Size(243, 137);
+            this.richTxtBoxPersonInfo.TabIndex = 13;
+            this.richTxtBoxPersonInfo.Text = "";
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 483);
+            this.ClientSize = new System.Drawing.Size(1052, 553);
             this.Controls.Add(this.tabControl1);
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -496,14 +826,18 @@
             this.tabPageIDCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).EndInit();
             this.tabPageInterface.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.panelParameter.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -550,6 +884,37 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBoxCenterID;
         private System.Windows.Forms.Button btnBIZC131101;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtBoxDisCenter_id;
+        private System.Windows.Forms.DateTimePicker dateTimeDisQueryDate;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblDisID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtBoxDisCode_py;
+        private System.Windows.Forms.Button btnDisQuery;
+        private System.Windows.Forms.RichTextBox richBoxDisResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtBoxMedicalcondition;
+        private System.Windows.Forms.TextBox txtBoxMedicalType;
+        private System.Windows.Forms.TextBox txtBoxMedicalCenterid;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblMedicalID;
+        private System.Windows.Forms.TextBox txtBoxMedicalOnceFind;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtBoxlast_version_id;
+        private System.Windows.Forms.TextBox txtBoxfirst_version_id;
+        private System.Windows.Forms.TextBox txtBoxlast_row;
+        private System.Windows.Forms.TextBox txtBoxfirst_row;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.RichTextBox richTxtBoxMedicalResult;
+        private System.Windows.Forms.Button btnMedicalQuery;
+        private System.Windows.Forms.RichTextBox richTxtBoxPersonInfo;
     }
 }
 

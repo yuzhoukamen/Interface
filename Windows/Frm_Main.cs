@@ -131,10 +131,11 @@ namespace Windows
                 this.interfaceHN.Addr = this.txtBoxServer.Text.Trim();
                 this.interfaceHN.Port = int.Parse(this.txtBoxPort.Text.Trim());
                 this.interfaceHN.Servlet = this.txtBoxServlet.Text.Trim();
+                this.interfaceHN.Oper_centerid = "632802";
+                this.interfaceHN.Oper_hospitalid = "632802002";
+                this.interfaceHN.Oper_staffid = "000";
 
-                //this.interfaceHN.NewInterfaceWithInit();
-
-                this.interfaceHN.NewInterfaceAfterInit();
+                this.interfaceHN.NewInterfaceWithInit();
             }
             catch (Exception ee)
             {
@@ -167,6 +168,16 @@ namespace Windows
         /// <param name="e"></param>
         private void Frm_Main_Load(object sender, EventArgs e)
         {
+            this.txtBoxServer.Text = "200.100.1.20";
+            this.txtBoxPort.Text = "7001";
+            this.txtBoxServlet.Text = "Insur_HXZTEST/ProcessAll";
+            this.txtBoxLoginID.Text = "632802002";
+            this.txtBoxLoginPasswd.Text = "632802002";
+
+            this.txtBoxCenterID.Text = "632802";
+            this.txtBoxHospitalID.Text = "632802002";
+
+            this.dateTimeDisQueryDate.CustomFormat = "yyyy-MM-dd";
         }
 
         /// <summary>
@@ -284,12 +295,7 @@ namespace Windows
                 this.interfaceHN.AddParameter("biz_type", this.txtBoxBiz.Text.Trim());
                 this.interfaceHN.AddParameter("center_id", this.txtBoxCenterID.Text.Trim());
 
-                //this.interfaceHN.Puts(1);
-
-                this.interfaceHN.PutCol("idcard", this.txtBoxIDCard.Text.Trim());
-                this.interfaceHN.PutCol("hospital_id", this.txtBoxHospitalID.Text.Trim());
-                this.interfaceHN.PutCol("biz_type", this.txtBoxBiz.Text.Trim());
-                this.interfaceHN.PutCol("center_id", this.txtBoxCenterID.Text.Trim());
+                this.interfaceHN.Puts(1);
 
                 this.interfaceHN.Run();
 
@@ -298,6 +304,175 @@ namespace Windows
                 List<string> listName = new List<string>();
 
                 this.interfaceHN.GetsByName("name", ref listName);
+
+                foreach (string str in listName)
+                {
+                    this.richTxtBoxPersonInfo.AppendText(str);
+                }
+            }
+            catch (Exception ee)
+            {
+                MsgError(ee.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDisQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.interfaceHN.Func_ID = this.lblDisID.Text.Trim();
+
+                this.interfaceHN.Start();
+
+                this.interfaceHN.ClearParameterList();
+
+                this.interfaceHN.AddParameter("center_id", this.txtBoxDisCenter_id.Text.Trim());
+                this.interfaceHN.AddParameter("code_py", this.txtBoxDisCode_py.Text.Trim());
+                this.interfaceHN.AddParameter("querydate", this.dateTimeDisQueryDate.Text.Trim());
+
+                this.interfaceHN.Puts(1);
+
+                this.interfaceHN.Run();
+
+                this.interfaceHN.SetResultset("diseaseinfo");
+
+                string value = string.Empty;
+
+                this.interfaceHN.GetByName("icd", ref value);
+
+                richBoxDisResult.AppendText("疾病编码:" + value + "\n");
+
+                this.interfaceHN.GetByName("disease", ref value);
+
+                richBoxDisResult.AppendText("疾病名称:" + value + "\n");
+
+                this.interfaceHN.GetByName("code_wb", ref value);
+
+                richBoxDisResult.AppendText("五笔码:" + value + "\n");
+
+                this.interfaceHN.GetByName("code_py", ref value);
+
+                richBoxDisResult.AppendText("首拼码:" + value + "\n");
+            }
+            catch (Exception ee)
+            {
+                MsgError(ee.Message);
+            }
+        }
+
+        private void btnMedicalQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+
+                this.interfaceHN.Func_ID = this.lblMedicalID.Text.Trim();
+
+                this.interfaceHN.Start();
+
+                this.interfaceHN.ClearParameterList();
+
+                this.interfaceHN.AddParameter("center_id", this.txtBoxMedicalCenterid.Text.Trim());
+                this.interfaceHN.AddParameter("type", this.txtBoxMedicalType.Text.Trim());
+                this.interfaceHN.AddParameter("condition", this.txtBoxMedicalcondition.Text.Trim());
+                this.interfaceHN.AddParameter("once_find", this.txtBoxMedicalOnceFind.Text.Trim());
+                this.interfaceHN.AddParameter("first_row", this.txtBoxfirst_row.Text.Trim());
+                this.interfaceHN.AddParameter("last_row", this.txtBoxlast_row.Text.Trim());
+                this.interfaceHN.AddParameter("first_version_id", this.txtBoxfirst_version_id.Text.Trim());
+                this.interfaceHN.AddParameter("last_version_id", this.txtBoxlast_version_id.Text.Trim());
+
+                this.interfaceHN.Puts(1);
+
+                this.interfaceHN.Run();
+
+                this.interfaceHN.SetResultset("count");
+                string value = string.Empty;
+                this.interfaceHN.GetByName("count", ref value);
+                sb.Append(value + "\n");
+
+                this.interfaceHN.SetResultset("pageinfo");
+
+                string table = string.Format(@"INSERT INTO [HN_ChuangZhi_HIS_Interface].[dbo].[Center_Medical]([ID], [medi_code], [medi_name], [english_name], [model], [medi_item_type], [stat_type], [code_wb], [code_py], [price], [staple_flag], [effect_date], [expire_date], [otc], [mt_flag], [wl_flag], [bo_flag], [sp_flag])");
+
+                do
+                {
+                    string str = string.Empty;
+
+                    sb.AppendLine(table);
+
+                    sb.Append("select ");
+
+                    this.interfaceHN.GetByName("medi_code", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("medi_name", ref str);
+                    sb.Append("'" + str + "'" + " ,");
+
+                    this.interfaceHN.GetByName("english_name", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("model", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("medi_item_type", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("stat_type", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("code_wb", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("code_py", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("price", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("staple_flag", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("effect_date", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("expire_date", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("otc", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("mt_flag", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("wl_flag", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("bo_flag", ref str);
+                    sb.Append("'" + str + "'" + ",");
+
+                    this.interfaceHN.GetByName("sp_flag", ref str);
+                    sb.AppendLine("'" + str + "'");
+                }
+                while (0 < this.interfaceHN.NextRow());
+
+                string path = System.IO.Path.Combine(Application.StartupPath, "sql");
+
+                if (!System.IO.Directory.Exists(path))
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }
+
+                path = System.IO.Path.Combine(path, "sql.txt");
+
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(path, true);
+                sw.WriteLine(sb.ToString());
+                sw.Close();
+                sw.Dispose();
             }
             catch (Exception ee)
             {

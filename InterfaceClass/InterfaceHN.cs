@@ -82,6 +82,28 @@ namespace InterfaceClass
             set { this._Func_ID = value; }
         }
 
+        private string _oper_centerid = string.Empty;
+
+        public string Oper_centerid
+        {
+            get { return this._oper_centerid; }
+            set { this._oper_centerid = value; }
+        }
+
+        private string _oper_hospitalid = string.Empty;
+
+        public string Oper_hospitalid {
+            get { return this._oper_hospitalid; }
+            set { this._oper_hospitalid = value; }
+        }
+
+        private string _oper_staffid = string.Empty;
+
+        public string Oper_staffid {
+            get { return this._oper_staffid; }
+            set { this._oper_staffid = value; }
+        }
+
         /// <summary>
         /// 参数列表
         /// </summary>
@@ -212,6 +234,12 @@ namespace InterfaceClass
         /// <returns></returns>
         public void Start()
         {
+            List<Parameter> listParameters = new List<Parameter>();
+
+            listParameters.Add(new Parameter("oper_centerid", this.Oper_centerid));
+            listParameters.Add(new Parameter("oper_hospitalid", this.Oper_hospitalid));
+            listParameters.Add(new Parameter("oper_staffid", this.Oper_staffid));
+
             long value = InterfaceHNDll.start(this.P_inter, this.Func_ID);
 
             if (-1 == value)
@@ -229,7 +257,7 @@ namespace InterfaceClass
         /// <returns></returns>
         public long Put(long row, string name, string value)
         {
-            return InterfaceHNDll.put(this.P_inter, row, name, value);
+            return InterfaceHNDll.put(this.P_inter, (int)row, name, value);
         }
 
         /// <summary>
@@ -270,6 +298,19 @@ namespace InterfaceClass
         public void Puts(long row)
         {
             foreach (Parameter parameter in this.ParameterList)
+            {
+                long value = Put(row, parameter.Name, parameter.Value);
+
+                if (0 > value)
+                {
+                    throw new Exception("传入业务所需的参数\"" + parameter.Name + ":" + parameter.Value + "\"失败!!!");
+                }
+            }
+        }
+
+        public void Puts(long row, List<Parameter> listParameters)
+        {
+            foreach (Parameter parameter in listParameters)
             {
                 long value = Put(row, parameter.Name, parameter.Value);
 
