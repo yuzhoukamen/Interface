@@ -86,7 +86,16 @@ namespace Windows
                                         END AS 备注
                                 FROM    HIS_InterfaceHN.dbo.FuncPara
                                         INNER JOIN HIS_InterfaceHN.dbo.FuncParaList ON HIS_InterfaceHN.dbo.FuncPara.ID = His_InterfaceHN.dbo.FuncParaList.ParaID
-                                WHERE   HIS_InterfaceHN.dbo.FuncPara.FuncID = '{0}';", id);
+                                WHERE   HIS_InterfaceHN.dbo.FuncPara.FuncID = '{0}';
+
+                                SELECT  HIS_InterfaceHN.dbo.FuncDataset.NAME AS 数据集 ,
+                                        HIS_InterfaceHN.dbo.FuncDatasetList.NAME AS 字段 ,
+                                        HIS_InterfaceHN.dbo.FuncDatasetList.NameDesc AS 字段说明 ,
+                                        HIS_InterfaceHN.dbo.FuncDatasetList.MaxLength AS 最大长度 ,
+                                        HIS_InterfaceHN.dbo.FuncDatasetList.Details AS 备注
+                                FROM    HIS_InterfaceHN.dbo.FuncDataset
+                                        INNER JOIN HIS_InterfaceHN.dbo.FuncDatasetList ON HIS_InterfaceHN.dbo.FuncDatasetList.DatasetID = HIS_InterfaceHN.dbo.FuncDataset.ID
+                                WHERE   FuncID = '{0}';", id);
 
             try
             {

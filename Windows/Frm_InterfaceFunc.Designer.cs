@@ -51,6 +51,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -164,6 +165,7 @@
             this.groupBox3.Controls.Add(this.richTxtBoxDetails);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.lblID);
+            this.groupBox3.Controls.Add(this.btnAdd);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.lblNameID);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -176,7 +178,6 @@
             // 
             // c1FlexGridFunc
             // 
-            this.c1FlexGridFunc.AllowEditing = false;
             this.c1FlexGridFunc.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridFunc.ColumnInfo = "10,1,0,0,0,100,Columns:";
             this.c1FlexGridFunc.Dock = System.Windows.Forms.DockStyle.Left;
@@ -263,15 +264,16 @@
             // 
             // c1FlexGridDataset
             // 
-            this.c1FlexGridDataset.AllowEditing = false;
             this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridDataset.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
             this.c1FlexGridDataset.Location = new System.Drawing.Point(3, 3);
             this.c1FlexGridDataset.Name = "c1FlexGridDataset";
             this.c1FlexGridDataset.Rows.DefaultSize = 20;
             this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
             this.c1FlexGridDataset.TabIndex = 11;
+            this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
             // 
             // tabControl1
             // 
@@ -307,16 +309,27 @@
             // 
             // c1FlexGridPara
             // 
-            this.c1FlexGridPara.AllowEditing = false;
             this.c1FlexGridPara.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
             this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridPara.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
             this.c1FlexGridPara.Location = new System.Drawing.Point(4, 6);
             this.c1FlexGridPara.Name = "c1FlexGridPara";
             this.c1FlexGridPara.Rows.DefaultSize = 20;
             this.c1FlexGridPara.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.c1FlexGridPara.Size = new System.Drawing.Size(684, 339);
             this.c1FlexGridPara.TabIndex = 9;
+            this.c1FlexGridPara.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridPara_OwnerDrawCell);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(654, 22);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(42, 23);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "添加";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // Frm_InterfaceFunc
             // 
@@ -372,6 +385,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridPara;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnAdd;
 
     }
 }

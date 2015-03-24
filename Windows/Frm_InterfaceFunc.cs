@@ -31,9 +31,6 @@ namespace Windows
             */
 
             QueryInterfaceFunc(string.Empty, string.Empty, true);
-
-            this.richTxtBoxDetails.ReadOnly = true;
-            this.richTextBoxReturnValue.ReadOnly = true;
         }
 
         /// <summary>
@@ -130,7 +127,13 @@ namespace Windows
                 this.lblNameID.Text = string.Format("{0}({1})", ds.Tables[0].Rows[0]["Name"].ToString().Trim(), ds.Tables[0].Rows[0]["ID"].ToString().Trim());
                 this.lblID.Text = ds.Tables[0].Rows[0]["ID"].ToString().Trim();
                 this.richTxtBoxDetails.Text = ds.Tables[0].Rows[0]["Details"].ToString().Trim();
-                this.richTextBoxReturnValue.Text = ds.Tables[1].Rows[0]["返回值说明"].ToString().Trim();
+
+                this.richTextBoxReturnValue.Clear();
+
+                foreach (DataRow dr in ds.Tables[1].Rows)
+                {
+                    this.richTextBoxReturnValue.AppendText(dr["返回值说明"].ToString().Trim() + "\n");
+                }
 
                 this.c1FlexGridPara.DataSource = ds.Tables[2];
 
@@ -142,10 +145,37 @@ namespace Windows
                 this.c1FlexGridPara.Cols["最大长度"].Width = 60;
                 this.c1FlexGridPara.Cols["是否为空"].Width = 60;
                 this.c1FlexGridPara.Cols["备注"].Width = 220;
+
+                if (ds.Tables.Count > 3)
+                {
+                    this.c1FlexGridDataset.DataSource = ds.Tables[3];
+
+                    this.c1FlexGridDataset.Cols["数据集"].Width = 60;
+                    this.c1FlexGridDataset.Cols["最大长度"].Width = 60;
+                    this.c1FlexGridDataset.Cols["备注"].Width = 320;
+                }
             }
             catch (Exception e)
             {
                 MsgError(e.Message);
+            }
+        }
+
+        private void c1FlexGridDataset_OwnerDrawCell(object sender, C1.Win.C1FlexGrid.OwnerDrawCellEventArgs e)
+        {
+            if (e.Row >= this.c1FlexGridDataset.Rows.Fixed)
+            {
+                // 添加行号
+                this.c1FlexGridDataset.Rows[e.Row][0] = e.Row - this.c1FlexGridDataset.Rows.Fixed + 1;
+            }
+        }
+
+        private void c1FlexGridPara_OwnerDrawCell(object sender, C1.Win.C1FlexGrid.OwnerDrawCellEventArgs e)
+        {
+            if (e.Row >= this.c1FlexGridPara.Rows.Fixed)
+            {
+                // 添加行号
+                this.c1FlexGridPara.Rows[e.Row][0] = e.Row - this.c1FlexGridPara.Rows.Fixed + 1;
             }
         }
     }
