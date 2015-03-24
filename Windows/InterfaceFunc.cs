@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -24,6 +25,10 @@ namespace Windows
         /// </summary>
         public InterfaceFunc() { }
 
+        public DataSet GetInterfaceFunc() {
+            DataSet ds = new DataSet();
 
+            return ds;
+        }
     }
 }
