@@ -23,12 +23,17 @@ namespace Windows
         /// <param name="e"></param>
         private void Frm_InterfaceFunc_Load(object sender, EventArgs e)
         {
+            /*
             this.Top = 0;
             this.Left = 0;
             this.Width = Screen.PrimaryScreen.WorkingArea.Width;
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            */
 
             QueryInterfaceFunc(string.Empty, string.Empty, true);
+
+            this.richTxtBoxDetails.ReadOnly = true;
+            this.richTextBoxReturnValue.ReadOnly = true;
         }
 
         /// <summary>
@@ -95,7 +100,52 @@ namespace Windows
             {
                 // 添加行号
                 this.c1FlexGridFunc.Rows[e.Row][0] = e.Row - this.c1FlexGridFunc.Rows.Fixed + 1;
+            }
+        }
 
+        private void c1FlexGridFunc_SelChange(object sender, EventArgs e)
+        {
+            int rowIndex = this.c1FlexGridFunc.MouseRow;
+
+            if (rowIndex < 0)
+            {
+                return;
+            }
+
+            string id = this.c1FlexGridFunc.Rows[rowIndex][1].ToString().Trim();
+
+            QueryInterfaceDetailInfo(id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        private void QueryInterfaceDetailInfo(string id)
+        {
+            try
+            {
+                DataSet ds = InterfaceFunc.GetInstance().GetInterfaceFuncDetails(id);
+
+                this.lblNameID.Text = string.Format("{0}({1})", ds.Tables[0].Rows[0]["Name"].ToString().Trim(), ds.Tables[0].Rows[0]["ID"].ToString().Trim());
+                this.lblID.Text = ds.Tables[0].Rows[0]["ID"].ToString().Trim();
+                this.richTxtBoxDetails.Text = ds.Tables[0].Rows[0]["Details"].ToString().Trim();
+                this.richTextBoxReturnValue.Text = ds.Tables[1].Rows[0]["返回值说明"].ToString().Trim();
+
+                this.c1FlexGridPara.DataSource = ds.Tables[2];
+
+                for (int i = 0; i < this.c1FlexGridPara.Rows.Count; i++)
+                {
+                    this.c1FlexGridPara.Rows[i].AllowMerging = true;
+                }
+
+                this.c1FlexGridPara.Cols["最大长度"].Width = 60;
+                this.c1FlexGridPara.Cols["是否为空"].Width = 60;
+                this.c1FlexGridPara.Cols["备注"].Width = 220;
+            }
+            catch (Exception e)
+            {
+                MsgError(e.Message);
             }
         }
     }

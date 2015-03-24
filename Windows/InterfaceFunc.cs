@@ -54,5 +54,50 @@ namespace Windows
 
             return ds;
         }
+
+        /// <summary>
+        /// 获取接口编码对应的详细信息
+        /// </summary>
+        /// <param name="id">接口功能编码</param>
+        /// <returns></returns>
+        public DataSet GetInterfaceFuncDetails(string id)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendFormat(@"SELECT  ID ,
+                                        Name ,
+                                        Details
+                                FROM    HIS_InterfaceHN.dbo.Func
+                                WHERE   ID = '{0}';
+
+                                SELECT  ReturnValueDesc AS 返回值说明
+                                FROM    HIS_InterfaceHN.dbo.FuncReturnValue
+                                WHERE   FuncID = '{0}';
+
+                                SELECT  CASE WHEN HIS_InterfaceHN.dbo.FuncPara.NAME IS NULL THEN '默认参数'
+                                             ELSE HIS_InterfaceHN.dbo.FuncPara.NAME
+                                        END AS 参数说明 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.NAME AS 入参 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.NameDesc AS 入参说明 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.MaxLength AS 最大长度 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.IsNull AS 是否为空 ,
+                                        CASE WHEN HIS_InterfaceHN.dbo.FuncParaList.Details IS NULL THEN ''
+                                             ELSE HIS_InterfaceHN.dbo.FuncParaList.Details
+                                        END AS 备注
+                                FROM    HIS_InterfaceHN.dbo.FuncPara
+                                        INNER JOIN HIS_InterfaceHN.dbo.FuncParaList ON HIS_InterfaceHN.dbo.FuncPara.ID = His_InterfaceHN.dbo.FuncParaList.ParaID
+                                WHERE   HIS_InterfaceHN.dbo.FuncPara.FuncID = '{0}';", id);
+
+            try
+            {
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(sb.ToString());
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(string.Format("获取接口编码【{0}】的详细信息失败，失败原因：{1}", id, e.Message));
+            }
+        }
     }
 }

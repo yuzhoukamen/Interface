@@ -34,14 +34,33 @@
             this.txtBoxID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxName = new System.Windows.Forms.TextBox();
+            this.chBoxFuzzy = new System.Windows.Forms.CheckBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.chBoxFuzzy = new System.Windows.Forms.CheckBox();
+            this.lblNameID = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.richTxtBoxDetails = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.richTextBoxReturnValue = new System.Windows.Forms.RichTextBox();
+            this.c1FlexGridDataset = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -50,7 +69,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(889, 47);
+            this.groupBox1.Size = new System.Drawing.Size(1116, 47);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -65,7 +84,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 17);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(883, 27);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1110, 27);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -102,40 +121,6 @@
             this.txtBoxName.Size = new System.Drawing.Size(174, 21);
             this.txtBoxName.TabIndex = 3;
             // 
-            // btnQuery
-            // 
-            this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuery.Location = new System.Drawing.Point(521, 3);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 23);
-            this.btnQuery.TabIndex = 4;
-            this.btnQuery.Text = "检索";
-            this.btnQuery.UseVisualStyleBackColor = true;
-            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.c1FlexGridFunc);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 47);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(889, 443);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            // 
-            // c1FlexGridFunc
-            // 
-            this.c1FlexGridFunc.AllowEditing = false;
-            this.c1FlexGridFunc.ColumnInfo = "10,1,0,0,0,100,Columns:";
-            this.c1FlexGridFunc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.c1FlexGridFunc.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
-            this.c1FlexGridFunc.Location = new System.Drawing.Point(3, 17);
-            this.c1FlexGridFunc.Name = "c1FlexGridFunc";
-            this.c1FlexGridFunc.Rows.DefaultSize = 20;
-            this.c1FlexGridFunc.Size = new System.Drawing.Size(405, 423);
-            this.c1FlexGridFunc.TabIndex = 1;
-            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
-            // 
             // chBoxFuzzy
             // 
             this.chBoxFuzzy.AutoSize = true;
@@ -149,11 +134,195 @@
             this.chBoxFuzzy.Text = "模糊查询";
             this.chBoxFuzzy.UseVisualStyleBackColor = true;
             // 
+            // btnQuery
+            // 
+            this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuery.Location = new System.Drawing.Point(521, 3);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(75, 23);
+            this.btnQuery.TabIndex = 4;
+            this.btnQuery.Text = "检索";
+            this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.c1FlexGridFunc);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 47);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1116, 642);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tabControl1);
+            this.groupBox3.Controls.Add(this.richTextBoxReturnValue);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.richTxtBoxDetails);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.lblID);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.lblNameID);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(408, 17);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(705, 622);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "接口功能编码详细信息";
+            // 
+            // c1FlexGridFunc
+            // 
+            this.c1FlexGridFunc.AllowEditing = false;
+            this.c1FlexGridFunc.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridFunc.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridFunc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.c1FlexGridFunc.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this.c1FlexGridFunc.Location = new System.Drawing.Point(3, 17);
+            this.c1FlexGridFunc.Name = "c1FlexGridFunc";
+            this.c1FlexGridFunc.Rows.DefaultSize = 20;
+            this.c1FlexGridFunc.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridFunc.Size = new System.Drawing.Size(405, 622);
+            this.c1FlexGridFunc.TabIndex = 1;
+            this.c1FlexGridFunc.SelChange += new System.EventHandler(this.c1FlexGridFunc_SelChange);
+            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
+            // 
+            // lblNameID
+            // 
+            this.lblNameID.AutoSize = true;
+            this.lblNameID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblNameID.ForeColor = System.Drawing.Color.Green;
+            this.lblNameID.Location = new System.Drawing.Point(9, 22);
+            this.lblNameID.Margin = new System.Windows.Forms.Padding(5, 5, 3, 0);
+            this.lblNameID.Name = "lblNameID";
+            this.lblNameID.Size = new System.Drawing.Size(353, 16);
+            this.lblNameID.TabIndex = 1;
+            this.lblNameID.Text = "取中心针对本单位消息记录数（SYSC980003）";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(9, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "功能编码：";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblID.ForeColor = System.Drawing.Color.Red;
+            this.lblID.Location = new System.Drawing.Point(93, 49);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(98, 16);
+            this.lblID.TabIndex = 3;
+            this.lblID.Text = "SYSC980003";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(9, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "功能描述：";
+            // 
+            // richTxtBoxDetails
+            // 
+            this.richTxtBoxDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTxtBoxDetails.Location = new System.Drawing.Point(94, 73);
+            this.richTxtBoxDetails.Name = "richTxtBoxDetails";
+            this.richTxtBoxDetails.Size = new System.Drawing.Size(602, 74);
+            this.richTxtBoxDetails.TabIndex = 5;
+            this.richTxtBoxDetails.Text = "根据查询条件，取医保中心针对本单位有多少条未读消息。";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(6, 159);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "返回值说明：";
+            // 
+            // richTextBoxReturnValue
+            // 
+            this.richTextBoxReturnValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxReturnValue.Location = new System.Drawing.Point(9, 178);
+            this.richTextBoxReturnValue.Name = "richTextBoxReturnValue";
+            this.richTextBoxReturnValue.Size = new System.Drawing.Size(687, 64);
+            this.richTextBoxReturnValue.TabIndex = 9;
+            this.richTextBoxReturnValue.Text = "返回值≥0,执行成功,返回值为记录数；";
+            // 
+            // c1FlexGridDataset
+            // 
+            this.c1FlexGridDataset.AllowEditing = false;
+            this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridDataset.Location = new System.Drawing.Point(3, 3);
+            this.c1FlexGridDataset.Name = "c1FlexGridDataset";
+            this.c1FlexGridDataset.Rows.DefaultSize = 20;
+            this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
+            this.c1FlexGridDataset.TabIndex = 11;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(6, 248);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(696, 374);
+            this.tabControl1.TabIndex = 12;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.c1FlexGridPara);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(688, 348);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "入参定义";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.c1FlexGridDataset);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(688, 348);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "返回数据集名称及其内容";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // c1FlexGridPara
+            // 
+            this.c1FlexGridPara.AllowEditing = false;
+            this.c1FlexGridPara.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
+            this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridPara.Location = new System.Drawing.Point(4, 6);
+            this.c1FlexGridPara.Name = "c1FlexGridPara";
+            this.c1FlexGridPara.Rows.DefaultSize = 20;
+            this.c1FlexGridPara.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridPara.Size = new System.Drawing.Size(684, 339);
+            this.c1FlexGridPara.TabIndex = 9;
+            // 
             // Frm_InterfaceFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 490);
+            this.ClientSize = new System.Drawing.Size(1116, 689);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -166,7 +335,14 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,6 +359,19 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridFunc;
         private System.Windows.Forms.CheckBox chBoxFuzzy;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblNameID;
+        private System.Windows.Forms.RichTextBox richTxtBoxDetails;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblID;
+        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridDataset;
+        private System.Windows.Forms.RichTextBox richTextBoxReturnValue;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridPara;
+        private System.Windows.Forms.TabPage tabPage2;
 
     }
 }
