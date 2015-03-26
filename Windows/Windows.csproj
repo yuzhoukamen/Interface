@@ -70,7 +70,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20133.795, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1Input.2, Version=2.0.20133.33326, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
