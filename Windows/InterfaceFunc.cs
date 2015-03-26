@@ -39,9 +39,9 @@ namespace Windows
             {
                 StringBuilder sb = new StringBuilder();
 
-                sb.AppendFormat(@"SELECT  ID AS 编码,Name AS 名称
+                sb.AppendFormat(@"SELECT    ID,FuncID AS 编码,Name AS 名称
                                     FROM    HIS_InterfaceHN.dbo.Func
-                                    WHERE   ID LIKE '{2}{0}%'
+                                    WHERE   FuncID LIKE '{2}{0}%'
                                             AND Name LIKE '{2}{1}%'
                                     ORDER BY ID", id, name, fuzzy ? "%" : string.Empty);
 
@@ -64,7 +64,8 @@ namespace Windows
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat(@"SELECT  ID ,
+            sb.AppendFormat(@"SELECT    ID,
+                                        FuncID ,
                                         Name ,
                                         Details
                                 FROM    HIS_InterfaceHN.dbo.Func
@@ -72,11 +73,13 @@ namespace Windows
 
                                 SELECT  ReturnValueDesc AS 返回值说明
                                 FROM    HIS_InterfaceHN.dbo.FuncReturnValue
-                                WHERE   FuncID = '{0}';
+                                WHERE   HIS_InterfaceHN.dbo.FuncReturnValue.FuncID = '{0}';
 
-                                SELECT  CASE WHEN HIS_InterfaceHN.dbo.FuncPara.NAME IS NULL THEN '默认参数'
+                                SELECT  
+                                        CASE WHEN HIS_InterfaceHN.dbo.FuncPara.NAME IS NULL THEN '默认参数'
                                              ELSE HIS_InterfaceHN.dbo.FuncPara.NAME
                                         END AS 参数说明 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.ID ,
                                         HIS_InterfaceHN.dbo.FuncParaList.NAME AS 入参 ,
                                         HIS_InterfaceHN.dbo.FuncParaList.NameDesc AS 入参说明 ,
                                         HIS_InterfaceHN.dbo.FuncParaList.MaxLength AS 最大长度 ,
@@ -95,7 +98,7 @@ namespace Windows
                                         HIS_InterfaceHN.dbo.FuncDatasetList.Details AS 备注
                                 FROM    HIS_InterfaceHN.dbo.FuncDataset
                                         INNER JOIN HIS_InterfaceHN.dbo.FuncDatasetList ON HIS_InterfaceHN.dbo.FuncDatasetList.DatasetID = HIS_InterfaceHN.dbo.FuncDataset.ID
-                                WHERE   FuncID = '{0}';", id);
+                                WHERE   HIS_InterfaceHN.dbo.FuncDataset.FuncID = '{0}';", id);
 
             try
             {

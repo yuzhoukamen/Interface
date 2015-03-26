@@ -84,11 +84,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFunctions.cs" />
     <Compile Include="Frm_InterfaceFunc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_InterfaceFunc.Designer.cs">
       <DependentUpon>Frm_InterfaceFunc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_InterfaceFuncAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_InterfaceFuncAdd.Designer.cs">
+      <DependentUpon>Frm_InterfaceFuncAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Main.cs">
       <SubType>Form</SubType>
@@ -101,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm_InterfaceFunc.resx">
       <DependentUpon>Frm_InterfaceFunc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_InterfaceFuncAdd.resx">
+      <DependentUpon>Frm_InterfaceFuncAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Main.resx">
       <DependentUpon>Frm_Main.cs</DependentUpon>

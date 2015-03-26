@@ -139,26 +139,8 @@ namespace Windows
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="msg"></param>
-        private void MsgError(string msg)
-        {
-            MessageBox.Show(msg.Trim(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="msg"></param>
-        private void MsgInfo(string msg)
-        {
-            MessageBox.Show(msg.Trim(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -211,7 +193,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
 
@@ -231,16 +213,16 @@ namespace Windows
                                                                             this.txtBoxLoginPasswd.Text.Trim()));
                 if (temp > 0)
                 {
-                    MsgInfo("修改成功！！！");
+                    CommonFunctions.MsgError("修改成功！！！");
                 }
                 else
                 {
-                    MsgError("没有修改任何记录！！！");
+                    CommonFunctions.MsgError("没有修改任何记录！！！");
                 }
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
 
@@ -266,12 +248,12 @@ namespace Windows
 
                 this.interfaceHN.Run();
 
-                MsgInfo("登陆成功！！！");
+                CommonFunctions.MsgError("登陆成功！！！");
 
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
 
@@ -312,7 +294,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
 
@@ -361,7 +343,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
 
@@ -476,7 +458,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
-                MsgError(ee.Message);
+                CommonFunctions.MsgError(ee.Message);
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,32 +37,44 @@
             this.txtBoxName = new System.Windows.Forms.TextBox();
             this.chBoxFuzzy = new System.Windows.Forms.CheckBox();
             this.btnQuery = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.lblNameID = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.richTxtBoxDetails = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.richTextBoxReturnValue = new System.Windows.Forms.RichTextBox();
-            this.c1FlexGridDataset = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.contextMenuStripPara = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ToolStripMenuItemAddPara = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDelPara = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.c1FlexGridDataset = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.richTextBoxReturnValue = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.richTxtBoxDetails = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblNameID = new System.Windows.Forms.Label();
+            this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.contextMenuStripDataset = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemAddParaDesc = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemAddDataset = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).BeginInit();
+            this.contextMenuStripPara.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
+            this.contextMenuStripDataset.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -82,6 +95,7 @@
             this.flowLayoutPanel1.Controls.Add(this.txtBoxName);
             this.flowLayoutPanel1.Controls.Add(this.chBoxFuzzy);
             this.flowLayoutPanel1.Controls.Add(this.btnQuery);
+            this.flowLayoutPanel1.Controls.Add(this.btnAdd);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 17);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -140,11 +154,22 @@
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuery.Location = new System.Drawing.Point(521, 3);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 23);
+            this.btnQuery.Size = new System.Drawing.Size(42, 23);
             this.btnQuery.TabIndex = 4;
             this.btnQuery.Text = "检索";
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(569, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(42, 23);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "添加";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox2
             // 
@@ -165,7 +190,6 @@
             this.groupBox3.Controls.Add(this.richTxtBoxDetails);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.lblID);
-            this.groupBox3.Controls.Add(this.btnAdd);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.lblNameID);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,105 +199,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "接口功能编码详细信息";
-            // 
-            // c1FlexGridFunc
-            // 
-            this.c1FlexGridFunc.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
-            this.c1FlexGridFunc.ColumnInfo = "10,1,0,0,0,100,Columns:";
-            this.c1FlexGridFunc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.c1FlexGridFunc.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
-            this.c1FlexGridFunc.Location = new System.Drawing.Point(3, 17);
-            this.c1FlexGridFunc.Name = "c1FlexGridFunc";
-            this.c1FlexGridFunc.Rows.DefaultSize = 20;
-            this.c1FlexGridFunc.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.c1FlexGridFunc.Size = new System.Drawing.Size(405, 622);
-            this.c1FlexGridFunc.TabIndex = 1;
-            this.c1FlexGridFunc.SelChange += new System.EventHandler(this.c1FlexGridFunc_SelChange);
-            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
-            // 
-            // lblNameID
-            // 
-            this.lblNameID.AutoSize = true;
-            this.lblNameID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblNameID.ForeColor = System.Drawing.Color.Green;
-            this.lblNameID.Location = new System.Drawing.Point(9, 22);
-            this.lblNameID.Margin = new System.Windows.Forms.Padding(5, 5, 3, 0);
-            this.lblNameID.Name = "lblNameID";
-            this.lblNameID.Size = new System.Drawing.Size(353, 16);
-            this.lblNameID.TabIndex = 1;
-            this.lblNameID.Text = "取中心针对本单位消息记录数（SYSC980003）";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(9, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "功能编码：";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblID.ForeColor = System.Drawing.Color.Red;
-            this.lblID.Location = new System.Drawing.Point(93, 49);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(98, 16);
-            this.lblID.TabIndex = 3;
-            this.lblID.Text = "SYSC980003";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(9, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 16);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "功能描述：";
-            // 
-            // richTxtBoxDetails
-            // 
-            this.richTxtBoxDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTxtBoxDetails.Location = new System.Drawing.Point(94, 73);
-            this.richTxtBoxDetails.Name = "richTxtBoxDetails";
-            this.richTxtBoxDetails.Size = new System.Drawing.Size(602, 74);
-            this.richTxtBoxDetails.TabIndex = 5;
-            this.richTxtBoxDetails.Text = "根据查询条件，取医保中心针对本单位有多少条未读消息。";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(6, 159);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "返回值说明：";
-            // 
-            // richTextBoxReturnValue
-            // 
-            this.richTextBoxReturnValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxReturnValue.Location = new System.Drawing.Point(9, 178);
-            this.richTextBoxReturnValue.Name = "richTextBoxReturnValue";
-            this.richTextBoxReturnValue.Size = new System.Drawing.Size(687, 64);
-            this.richTextBoxReturnValue.TabIndex = 9;
-            this.richTextBoxReturnValue.Text = "返回值≥0,执行成功,返回值为记录数；";
-            // 
-            // c1FlexGridDataset
-            // 
-            this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
-            this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
-            this.c1FlexGridDataset.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
-            this.c1FlexGridDataset.Location = new System.Drawing.Point(3, 3);
-            this.c1FlexGridDataset.Name = "c1FlexGridDataset";
-            this.c1FlexGridDataset.Rows.DefaultSize = 20;
-            this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
-            this.c1FlexGridDataset.TabIndex = 11;
-            this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
             // 
             // tabControl1
             // 
@@ -296,6 +221,47 @@
             this.tabPage1.Text = "入参定义";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // c1FlexGridPara
+            // 
+            this.c1FlexGridPara.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
+            this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridPara.ContextMenuStrip = this.contextMenuStripPara;
+            this.c1FlexGridPara.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this.c1FlexGridPara.Location = new System.Drawing.Point(4, 6);
+            this.c1FlexGridPara.Name = "c1FlexGridPara";
+            this.c1FlexGridPara.Rows.DefaultSize = 20;
+            this.c1FlexGridPara.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridPara.Size = new System.Drawing.Size(684, 339);
+            this.c1FlexGridPara.TabIndex = 9;
+            this.c1FlexGridPara.AfterSelChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGridPara_AfterSelChange);
+            this.c1FlexGridPara.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridPara_AfterEdit);
+            this.c1FlexGridPara.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridPara_OwnerDrawCell);
+            // 
+            // contextMenuStripPara
+            // 
+            this.contextMenuStripPara.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemAddPara,
+            this.toolStripMenuItemAddParaDesc,
+            this.toolStripSeparator1,
+            this.ToolStripMenuItemDelPara});
+            this.contextMenuStripPara.Name = "contextMenuStripPara";
+            this.contextMenuStripPara.Size = new System.Drawing.Size(181, 76);
+            // 
+            // ToolStripMenuItemAddPara
+            // 
+            this.ToolStripMenuItemAddPara.Name = "ToolStripMenuItemAddPara";
+            this.ToolStripMenuItemAddPara.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemAddPara.Text = "添加入参";
+            this.ToolStripMenuItemAddPara.Click += new System.EventHandler(this.ToolStripMenuItemAddPara_Click);
+            // 
+            // ToolStripMenuItemDelPara
+            // 
+            this.ToolStripMenuItemDelPara.Name = "ToolStripMenuItemDelPara";
+            this.ToolStripMenuItemDelPara.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemDelPara.Text = "删除入参";
+            this.ToolStripMenuItemDelPara.Click += new System.EventHandler(this.ToolStripMenuItemDelPara_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.c1FlexGridDataset);
@@ -307,29 +273,154 @@
             this.tabPage2.Text = "返回数据集名称及其内容";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // c1FlexGridPara
+            // c1FlexGridDataset
             // 
-            this.c1FlexGridPara.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
-            this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
-            this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
-            this.c1FlexGridPara.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
-            this.c1FlexGridPara.Location = new System.Drawing.Point(4, 6);
-            this.c1FlexGridPara.Name = "c1FlexGridPara";
-            this.c1FlexGridPara.Rows.DefaultSize = 20;
-            this.c1FlexGridPara.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.c1FlexGridPara.Size = new System.Drawing.Size(684, 339);
-            this.c1FlexGridPara.TabIndex = 9;
-            this.c1FlexGridPara.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridPara_OwnerDrawCell);
+            this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridDataset.ContextMenuStrip = this.contextMenuStripDataset;
+            this.c1FlexGridDataset.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this.c1FlexGridDataset.Location = new System.Drawing.Point(3, 3);
+            this.c1FlexGridDataset.Name = "c1FlexGridDataset";
+            this.c1FlexGridDataset.Rows.DefaultSize = 20;
+            this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
+            this.c1FlexGridDataset.TabIndex = 11;
+            this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
             // 
-            // btnAdd
+            // richTextBoxReturnValue
             // 
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(654, 22);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(42, 23);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "添加";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.richTextBoxReturnValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxReturnValue.Location = new System.Drawing.Point(9, 178);
+            this.richTextBoxReturnValue.Name = "richTextBoxReturnValue";
+            this.richTextBoxReturnValue.Size = new System.Drawing.Size(687, 64);
+            this.richTextBoxReturnValue.TabIndex = 9;
+            this.richTextBoxReturnValue.Text = "返回值≥0,执行成功,返回值为记录数；";
+            this.richTextBoxReturnValue.Validated += new System.EventHandler(this.richTextBoxReturnValue_Validated);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(6, 159);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "返回值说明：";
+            // 
+            // richTxtBoxDetails
+            // 
+            this.richTxtBoxDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTxtBoxDetails.Location = new System.Drawing.Point(94, 73);
+            this.richTxtBoxDetails.Name = "richTxtBoxDetails";
+            this.richTxtBoxDetails.Size = new System.Drawing.Size(602, 74);
+            this.richTxtBoxDetails.TabIndex = 5;
+            this.richTxtBoxDetails.Text = "根据查询条件，取医保中心针对本单位有多少条未读消息。";
+            this.richTxtBoxDetails.Validated += new System.EventHandler(this.richTxtBoxDetails_Validated);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(9, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "功能描述：";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblID.ForeColor = System.Drawing.Color.Red;
+            this.lblID.Location = new System.Drawing.Point(93, 49);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(98, 16);
+            this.lblID.TabIndex = 3;
+            this.lblID.Text = "SYSC980003";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(9, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "功能编码：";
+            // 
+            // lblNameID
+            // 
+            this.lblNameID.AutoSize = true;
+            this.lblNameID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblNameID.ForeColor = System.Drawing.Color.Green;
+            this.lblNameID.Location = new System.Drawing.Point(9, 22);
+            this.lblNameID.Margin = new System.Windows.Forms.Padding(5, 5, 3, 0);
+            this.lblNameID.Name = "lblNameID";
+            this.lblNameID.Size = new System.Drawing.Size(353, 16);
+            this.lblNameID.TabIndex = 1;
+            this.lblNameID.Text = "取中心针对本单位消息记录数（SYSC980003）";
+            // 
+            // c1FlexGridFunc
+            // 
+            this.c1FlexGridFunc.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
+            this.c1FlexGridFunc.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridFunc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.c1FlexGridFunc.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this.c1FlexGridFunc.Location = new System.Drawing.Point(3, 17);
+            this.c1FlexGridFunc.Name = "c1FlexGridFunc";
+            this.c1FlexGridFunc.Rows.DefaultSize = 20;
+            this.c1FlexGridFunc.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this.c1FlexGridFunc.Size = new System.Drawing.Size(405, 622);
+            this.c1FlexGridFunc.TabIndex = 1;
+            this.c1FlexGridFunc.SelChange += new System.EventHandler(this.c1FlexGridFunc_SelChange);
+            this.c1FlexGridFunc.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridFunc_AfterEdit);
+            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
+            // 
+            // contextMenuStripDataset
+            // 
+            this.contextMenuStripDataset.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAdd,
+            this.toolStripMenuItemAddDataset,
+            this.toolStripSeparator2,
+            this.toolStripMenuItemDel});
+            this.contextMenuStripDataset.Name = "contextMenuStripDataset";
+            this.contextMenuStripDataset.Size = new System.Drawing.Size(193, 76);
+            // 
+            // toolStripMenuItemAdd
+            // 
+            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
+            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemAdd.Text = "添加出参字段";
+            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
+            // 
+            // toolStripMenuItemDel
+            // 
+            this.toolStripMenuItemDel.Name = "toolStripMenuItemDel";
+            this.toolStripMenuItemDel.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemDel.Text = "删除出参字段";
+            this.toolStripMenuItemDel.Click += new System.EventHandler(this.toolStripMenuItemDel_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripMenuItemAddParaDesc
+            // 
+            this.toolStripMenuItemAddParaDesc.Name = "toolStripMenuItemAddParaDesc";
+            this.toolStripMenuItemAddParaDesc.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemAddParaDesc.Text = "添加入参(参数说明)";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
+            // 
+            // toolStripMenuItemAddDataset
+            // 
+            this.toolStripMenuItemAddDataset.Name = "toolStripMenuItemAddDataset";
+            this.toolStripMenuItemAddDataset.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemAddDataset.Text = "添加出参字段(数据集)";
             // 
             // Frm_InterfaceFunc
             // 
@@ -350,12 +441,14 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).EndInit();
+            this.contextMenuStripPara.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).EndInit();
+            this.contextMenuStripDataset.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -386,6 +479,16 @@
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridPara;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripPara;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddPara;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelPara;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripDataset;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAdd;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDel;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddParaDesc;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddDataset;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
     }
 }
