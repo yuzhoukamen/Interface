@@ -37,8 +37,18 @@
             this.btnCheck = new System.Windows.Forms.Button();
             this.tabPageInterface = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.richTxtBoxMedicalResult = new System.Windows.Forms.RichTextBox();
+            this.btnMedicalQuery = new System.Windows.Forms.Button();
+            this.txtBoxlast_version_id = new System.Windows.Forms.TextBox();
+            this.txtBoxfirst_version_id = new System.Windows.Forms.TextBox();
+            this.txtBoxlast_row = new System.Windows.Forms.TextBox();
+            this.txtBoxfirst_row = new System.Windows.Forms.TextBox();
             this.txtBoxMedicalOnceFind = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtBoxMedicalcondition = new System.Windows.Forms.TextBox();
@@ -69,6 +79,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtBoxCenterID = new System.Windows.Forms.TextBox();
             this.btnBIZC131101 = new System.Windows.Forms.Button();
+            this.richTxtBoxPersonInfo = new System.Windows.Forms.RichTextBox();
             this.panelParameter = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,17 +99,6 @@
             this.btnInit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInterfaceInit = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtBoxfirst_row = new System.Windows.Forms.TextBox();
-            this.txtBoxlast_row = new System.Windows.Forms.TextBox();
-            this.txtBoxfirst_version_id = new System.Windows.Forms.TextBox();
-            this.txtBoxlast_version_id = new System.Windows.Forms.TextBox();
-            this.btnMedicalQuery = new System.Windows.Forms.Button();
-            this.richTxtBoxMedicalResult = new System.Windows.Forms.RichTextBox();
-            this.richTxtBoxPersonInfo = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPageIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
@@ -133,7 +133,7 @@
             this.tabPageIDCard.Location = new System.Drawing.Point(4, 22);
             this.tabPageIDCard.Name = "tabPageIDCard";
             this.tabPageIDCard.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageIDCard.Size = new System.Drawing.Size(936, 457);
+            this.tabPageIDCard.Size = new System.Drawing.Size(1044, 527);
             this.tabPageIDCard.TabIndex = 0;
             this.tabPageIDCard.Text = "身份证验证";
             this.tabPageIDCard.UseVisualStyleBackColor = true;
@@ -224,6 +224,56 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "取中心药品目录信息";
             // 
+            // richTxtBoxMedicalResult
+            // 
+            this.richTxtBoxMedicalResult.Location = new System.Drawing.Point(227, 16);
+            this.richTxtBoxMedicalResult.Name = "richTxtBoxMedicalResult";
+            this.richTxtBoxMedicalResult.Size = new System.Drawing.Size(306, 383);
+            this.richTxtBoxMedicalResult.TabIndex = 20;
+            this.richTxtBoxMedicalResult.Text = "";
+            // 
+            // btnMedicalQuery
+            // 
+            this.btnMedicalQuery.Location = new System.Drawing.Point(9, 255);
+            this.btnMedicalQuery.Name = "btnMedicalQuery";
+            this.btnMedicalQuery.Size = new System.Drawing.Size(63, 23);
+            this.btnMedicalQuery.TabIndex = 17;
+            this.btnMedicalQuery.Text = "查询";
+            this.btnMedicalQuery.UseVisualStyleBackColor = true;
+            this.btnMedicalQuery.Click += new System.EventHandler(this.btnMedicalQuery_Click);
+            // 
+            // txtBoxlast_version_id
+            // 
+            this.txtBoxlast_version_id.Location = new System.Drawing.Point(99, 219);
+            this.txtBoxlast_version_id.Name = "txtBoxlast_version_id";
+            this.txtBoxlast_version_id.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxlast_version_id.TabIndex = 19;
+            this.txtBoxlast_version_id.Text = "1";
+            // 
+            // txtBoxfirst_version_id
+            // 
+            this.txtBoxfirst_version_id.Location = new System.Drawing.Point(99, 195);
+            this.txtBoxfirst_version_id.Name = "txtBoxfirst_version_id";
+            this.txtBoxfirst_version_id.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxfirst_version_id.TabIndex = 19;
+            this.txtBoxfirst_version_id.Text = "1";
+            // 
+            // txtBoxlast_row
+            // 
+            this.txtBoxlast_row.Location = new System.Drawing.Point(89, 173);
+            this.txtBoxlast_row.Name = "txtBoxlast_row";
+            this.txtBoxlast_row.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxlast_row.TabIndex = 19;
+            this.txtBoxlast_row.Text = "1";
+            // 
+            // txtBoxfirst_row
+            // 
+            this.txtBoxfirst_row.Location = new System.Drawing.Point(89, 151);
+            this.txtBoxfirst_row.Name = "txtBoxfirst_row";
+            this.txtBoxfirst_row.Size = new System.Drawing.Size(100, 21);
+            this.txtBoxfirst_row.TabIndex = 19;
+            this.txtBoxfirst_row.Text = "1";
+            // 
             // txtBoxMedicalOnceFind
             // 
             this.txtBoxMedicalOnceFind.Location = new System.Drawing.Point(121, 124);
@@ -240,6 +290,42 @@
             this.label17.Size = new System.Drawing.Size(65, 12);
             this.label17.TabIndex = 18;
             this.label17.Text = "操作类型：";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 219);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(101, 12);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "查询结束版本号：";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 198);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 12);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "查询起始版本号：";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 176);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 12);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "查询结束行数：";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 154);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(89, 12);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "查询起始行数：";
             // 
             // label18
             // 
@@ -526,6 +612,14 @@
             this.btnBIZC131101.UseVisualStyleBackColor = true;
             this.btnBIZC131101.Click += new System.EventHandler(this.btnBIZC131101_Click);
             // 
+            // richTxtBoxPersonInfo
+            // 
+            this.richTxtBoxPersonInfo.Location = new System.Drawing.Point(3, 167);
+            this.richTxtBoxPersonInfo.Name = "richTxtBoxPersonInfo";
+            this.richTxtBoxPersonInfo.Size = new System.Drawing.Size(243, 137);
+            this.richTxtBoxPersonInfo.TabIndex = 13;
+            this.richTxtBoxPersonInfo.Text = "";
+            // 
             // panelParameter
             // 
             this.panelParameter.Controls.Add(this.flowLayoutPanel2);
@@ -715,106 +809,13 @@
             this.btnInterfaceInit.UseVisualStyleBackColor = true;
             this.btnInterfaceInit.Click += new System.EventHandler(this.btnInterfaceInit_Click);
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(4, 154);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 12);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "查询起始行数：";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 176);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 12);
-            this.label20.TabIndex = 17;
-            this.label20.Text = "查询结束行数：";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 198);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(101, 12);
-            this.label21.TabIndex = 17;
-            this.label21.Text = "查询起始版本号：";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 219);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(101, 12);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "查询结束版本号：";
-            // 
-            // txtBoxfirst_row
-            // 
-            this.txtBoxfirst_row.Location = new System.Drawing.Point(89, 151);
-            this.txtBoxfirst_row.Name = "txtBoxfirst_row";
-            this.txtBoxfirst_row.Size = new System.Drawing.Size(100, 21);
-            this.txtBoxfirst_row.TabIndex = 19;
-            this.txtBoxfirst_row.Text = "1";
-            // 
-            // txtBoxlast_row
-            // 
-            this.txtBoxlast_row.Location = new System.Drawing.Point(89, 173);
-            this.txtBoxlast_row.Name = "txtBoxlast_row";
-            this.txtBoxlast_row.Size = new System.Drawing.Size(100, 21);
-            this.txtBoxlast_row.TabIndex = 19;
-            this.txtBoxlast_row.Text = "1";
-            // 
-            // txtBoxfirst_version_id
-            // 
-            this.txtBoxfirst_version_id.Location = new System.Drawing.Point(99, 195);
-            this.txtBoxfirst_version_id.Name = "txtBoxfirst_version_id";
-            this.txtBoxfirst_version_id.Size = new System.Drawing.Size(100, 21);
-            this.txtBoxfirst_version_id.TabIndex = 19;
-            this.txtBoxfirst_version_id.Text = "1";
-            // 
-            // txtBoxlast_version_id
-            // 
-            this.txtBoxlast_version_id.Location = new System.Drawing.Point(99, 219);
-            this.txtBoxlast_version_id.Name = "txtBoxlast_version_id";
-            this.txtBoxlast_version_id.Size = new System.Drawing.Size(100, 21);
-            this.txtBoxlast_version_id.TabIndex = 19;
-            this.txtBoxlast_version_id.Text = "1";
-            // 
-            // btnMedicalQuery
-            // 
-            this.btnMedicalQuery.Location = new System.Drawing.Point(9, 255);
-            this.btnMedicalQuery.Name = "btnMedicalQuery";
-            this.btnMedicalQuery.Size = new System.Drawing.Size(63, 23);
-            this.btnMedicalQuery.TabIndex = 17;
-            this.btnMedicalQuery.Text = "查询";
-            this.btnMedicalQuery.UseVisualStyleBackColor = true;
-            this.btnMedicalQuery.Click += new System.EventHandler(this.btnMedicalQuery_Click);
-            // 
-            // richTxtBoxMedicalResult
-            // 
-            this.richTxtBoxMedicalResult.Location = new System.Drawing.Point(227, 16);
-            this.richTxtBoxMedicalResult.Name = "richTxtBoxMedicalResult";
-            this.richTxtBoxMedicalResult.Size = new System.Drawing.Size(306, 383);
-            this.richTxtBoxMedicalResult.TabIndex = 20;
-            this.richTxtBoxMedicalResult.Text = "";
-            // 
-            // richTxtBoxPersonInfo
-            // 
-            this.richTxtBoxPersonInfo.Location = new System.Drawing.Point(3, 167);
-            this.richTxtBoxPersonInfo.Name = "richTxtBoxPersonInfo";
-            this.richTxtBoxPersonInfo.Size = new System.Drawing.Size(243, 137);
-            this.richTxtBoxPersonInfo.TabIndex = 13;
-            this.richTxtBoxPersonInfo.Text = "";
-            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 553);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "欢迎使用湖南创智医保接口";

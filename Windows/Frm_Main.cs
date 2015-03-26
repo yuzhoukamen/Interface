@@ -13,7 +13,7 @@ namespace Windows
     /// <summary>
     /// 主窗口
     /// </summary>
-    public partial class Frm_Main : Form
+    public partial class Frm_Main : BaseForm
     {
         /// <summary>
         /// 湖南创智接口
@@ -23,7 +23,7 @@ namespace Windows
         /// <summary>
         /// 构造函数
         /// </summary>
-        public Frm_Main()
+        public Frm_Main(long userID)
         {
             InitializeComponent();
         }
@@ -150,6 +150,8 @@ namespace Windows
         /// <param name="e"></param>
         private void Frm_Main_Load(object sender, EventArgs e)
         {
+            InitFormInfo(this);
+
             this.txtBoxServer.Text = "200.100.1.20";
             this.txtBoxPort.Text = "7001";
             this.txtBoxServlet.Text = "Insur_HXZTEST/ProcessAll";
@@ -351,7 +353,7 @@ namespace Windows
         {
             try
             {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder(100 * 1024 * 1024);
 
                 this.interfaceHN.Func_ID = this.lblMedicalID.Text.Trim();
 

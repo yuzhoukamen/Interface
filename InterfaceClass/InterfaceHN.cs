@@ -325,14 +325,9 @@ namespace InterfaceClass
         /// 运行
         /// </summary>
         /// <returns></returns>
-        public void Run()
+        public long Run()
         {
-            long value = InterfaceHNDll.run(this.P_inter);
-
-            if (-1 == value)
-            {
-                throw new Exception("运行接口失败，失败原因：" + GetMessage());
-            }
+            return InterfaceHNDll.run(this.P_inter);
         }
 
         /// <summary>
@@ -429,7 +424,7 @@ namespace InterfaceClass
         ~InterfaceHN()
         {
             ClearParameterList();
-            DestoryInterface();
+            //DestoryInterface();
         }
     }
 }

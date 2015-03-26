@@ -60,13 +60,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseInterface.cs" />
     <Compile Include="DllInvoke.cs" />
+    <Compile Include="HN\PublicFunctions\Card.cs" />
+    <Compile Include="HN\PublicFunctions\ICCard.cs" />
+    <Compile Include="HN\System\System.cs" />
     <Compile Include="IDCard.cs" />
     <Compile Include="IDCardDll.cs" />
     <Compile Include="InterfaceHN.cs" />
     <Compile Include="InterfaceHNDll.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HN\BusCostInfo\" />
+    <Folder Include="HN\BuyMedic\" />
+    <Folder Include="HN\CivilServantsHealthyManage\" />
+    <Folder Include="HN\HealthNews\" />
+    <Folder Include="HN\HosDirManage\" />
+    <Folder Include="HN\InjuryJobMZ\" />
+    <Folder Include="HN\InjuryJobZY\" />
+    <Folder Include="HN\MZSpecialDis\" />
+    <Folder Include="HN\MZ\" />
+    <Folder Include="HN\PayDeclare\" />
+    <Folder Include="HN\SpecialBusApplication\" />
+    <Folder Include="HN\StatisticalReporters\" />
+    <Folder Include="HN\ZYAdviceWriteQuery\" />
+    <Folder Include="HN\ZY\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
