@@ -60,7 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseInterface.cs" />
+    <Compile Include="Func\Func.cs" />
+    <Compile Include="HN\HealthNews\HealthMessage.cs" />
+    <Compile Include="HN\HealthNews\Message.cs" />
+    <Compile Include="HN\HosDirManage\Info.cs" />
+    <Compile Include="HN\HosDirManage\Medic.cs" />
+    <Compile Include="Interface.cs" />
     <Compile Include="DllInvoke.cs" />
     <Compile Include="HN\PublicFunctions\Card.cs" />
     <Compile Include="HN\PublicFunctions\ICCard.cs" />
@@ -76,8 +81,6 @@
     <Folder Include="HN\BusCostInfo\" />
     <Folder Include="HN\BuyMedic\" />
     <Folder Include="HN\CivilServantsHealthyManage\" />
-    <Folder Include="HN\HealthNews\" />
-    <Folder Include="HN\HosDirManage\" />
     <Folder Include="HN\InjuryJobMZ\" />
     <Folder Include="HN\InjuryJobZY\" />
     <Folder Include="HN\MZSpecialDis\" />
@@ -87,6 +90,12 @@
     <Folder Include="HN\StatisticalReporters\" />
     <Folder Include="HN\ZYAdviceWriteQuery\" />
     <Folder Include="HN\ZY\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

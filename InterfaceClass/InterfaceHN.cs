@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -10,6 +11,37 @@ namespace InterfaceClass
     /// </summary>
     public class InterfaceHN
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public InterfaceHN()
+        {
+            InitPara();
+
+            NewInterfaceWithInit();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <param name="port"></param>
+        /// <param name="servlet"></param>
+        /// <param name="operCenterID"></param>
+        /// <param name="operHospitalID"></param>
+        /// <param name="operStaffID"></param>
+        public InterfaceHN(string ip, int port, string servlet, string operCenterID, string operHospitalID, string operStaffID)
+        {
+            this.Addr = ip;
+            this.Port = port;
+            this.Servlet = servlet;
+            this.Oper_centerid = operCenterID;
+            this.Oper_hospitalid = operHospitalID;
+            this.Oper_staffid = operStaffID;
+
+            NewInterfaceWithInit();
+        }
+
         #region 属性
 
         /// <summary>
@@ -82,24 +114,45 @@ namespace InterfaceClass
             set { this._Func_ID = value; }
         }
 
+        /// <summary>
+        /// 操作中心编号
+        /// </summary>
         private string _oper_centerid = string.Empty;
 
+        /// <summary>
+        /// 操作中心编号
+        /// </summary>
         public string Oper_centerid
         {
             get { return this._oper_centerid; }
             set { this._oper_centerid = value; }
         }
 
+        /// <summary>
+        /// 操作医院编号
+        /// </summary>
         private string _oper_hospitalid = string.Empty;
 
-        public string Oper_hospitalid {
+        /// <summary>
+        /// 操作医院编号
+        /// </summary>
+        public string Oper_hospitalid
+        {
             get { return this._oper_hospitalid; }
             set { this._oper_hospitalid = value; }
         }
 
+
+        /// <summary>
+        /// 操作员工号
+        /// </summary>
         private string _oper_staffid = string.Empty;
 
-        public string Oper_staffid {
+        /// <summary>
+        /// 操作员工号
+        /// </summary>
+        public string Oper_staffid
+        {
             get { return this._oper_staffid; }
             set { this._oper_staffid = value; }
         }
@@ -267,7 +320,7 @@ namespace InterfaceClass
         /// <param name="value"></param>
         public void PutCol(string name, string value)
         {
-            long temp=InterfaceHNDll.putcol(this.P_inter, name, value);
+            long temp = InterfaceHNDll.putcol(this.P_inter, name, value);
 
             if (temp < 0)
             {
@@ -425,6 +478,37 @@ namespace InterfaceClass
         {
             ClearParameterList();
             //DestoryInterface();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void InitPara()
+        {
+            string SQLString = string.Format(@"SELECT  [IP] ,
+                                                    [Port] ,
+                                                    [Servlet] ,
+                                                    [OperCenterID] ,
+                                                    [OperHospitalID] ,
+                                                    [OperStaffID]
+                                            FROM    [HIS_InterfaceHN].[dbo].[JC_ServerInfo]");
+
+            try
+            {
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+
+                this.Addr = ds.Tables[0].Rows[0]["IP"].ToString().Trim();
+                this.Port = int.Parse(ds.Tables[0].Rows[0]["Port"].ToString().Trim());
+                this.Servlet = ds.Tables[0].Rows[0]["Servlet"].ToString().Trim();
+                this.Oper_centerid = ds.Tables[0].Rows[0]["OperCenterID"].ToString().Trim();
+                this.Oper_hospitalid = ds.Tables[0].Rows[0]["OperHospitalID"].ToString().Trim();
+                this.Oper_staffid = ds.Tables[0].Rows[0]["OperStaffID"].ToString().Trim();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("初始化接口服务器参数失败," + e.Message);
+            }
         }
     }
 }

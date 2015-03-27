@@ -11,8 +11,19 @@ namespace Windows
 {
     public partial class Frm_Interface : BaseForm
     {
+        /// <summary>
+        /// 用户编号
+        /// </summary>
+        private long userID = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
         public Frm_Interface(long userID)
         {
+            this.userID = userID;
+
             InitializeComponent();
         }
 
@@ -26,6 +37,10 @@ namespace Windows
             InitFormInfo(this);
 
             this.menuStripInterface.Renderer = new Class.MyMenuRender();
+            QueryAndSetUserInfo();
+
+            this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>
@@ -40,6 +55,11 @@ namespace Windows
             AddFormToPanelInterface(frm);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItemTest_Click(object sender, EventArgs e)
         {
             Frm_Main frm = new Frm_Main(71);
@@ -59,6 +79,10 @@ namespace Windows
             this.lblCurrentTime.Text = string.Format("当前时间：{0}", dateTime.ToString());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="frm"></param>
         private void AddFormToPanelInterface(Form frm)
         {
             Frm_Tips frm_tips = new Frm_Tips();
@@ -74,10 +98,48 @@ namespace Windows
             frm.Dock = DockStyle.Fill;
 
             this.panelInterface.Controls.Add(frm);
+            this.lblFrmTitle.Text = string.Format("当前操作窗体：{0}", frm.Text.Trim());
 
             frm.Show();
 
             frm_tips.Close();
+        }
+
+        /// <summary>
+        /// 查询和设置用户信息
+        /// </summary>
+        private void QueryAndSetUserInfo()
+        {
+            string SQLString = string.Format(@"SELECT  UnitName ,
+                                                        UserName
+                                                FROM    alfHospital.dbo.TbMedicalPersonInfo
+                                                        INNER JOIN alfHospital.dbo.TbUnitInfo ON alfHospital.dbo.TbUnitInfo.UnitID = alfHospital.dbo.TbMedicalPersonInfo.UnitID
+                                                WHERE   ID = {0}", this.userID);
+
+            try
+            {
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+
+                this.lblUnitName.Text = string.Format("单位：{0}", ds.Tables[0].Rows[0]["UnitName"].ToString().Trim());
+
+                this.lblUserName.Text = string.Format("操作人员：{0}", ds.Tables[0].Rows[0]["UserName"].ToString().Trim());
+            }
+            catch (Exception e)
+            {
+                CommonFunctions.MsgError("获取用户信息失败，失败原因：" + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemFuncTest_Click(object sender, EventArgs e)
+        {
+            Frm_FuncTest frm = new Frm_FuncTest();
+
+            AddFormToPanelInterface(frm);
         }
     }
 }

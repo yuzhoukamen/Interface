@@ -96,6 +96,12 @@
     <Compile Include="DEncrypt\DESEncrypt.cs" />
     <Compile Include="DEncrypt\HashEncode.cs" />
     <Compile Include="DEncrypt\RSACryption.cs" />
+    <Compile Include="Frm_FuncTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_FuncTest.Designer.cs">
+      <DependentUpon>Frm_FuncTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Interface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_FuncTest.resx">
+      <DependentUpon>Frm_FuncTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Interface.resx">
       <DependentUpon>Frm_Interface.cs</DependentUpon>

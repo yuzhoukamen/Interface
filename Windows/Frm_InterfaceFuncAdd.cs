@@ -70,16 +70,10 @@ namespace Windows
                                             INSERT  INTO HIS_InterfaceHN.dbo.Func
                                                     ( FuncID ,
                                                         Name ,
-                                                        ParaDesc ,
-                                                        DatasetNumber ,
-                                                        DatasetDesc ,
                                                         Details
 		                                            )
                                             VALUES  ( N'{0}' , -- ID - nvarchar(50)
                                                         N'{1}' , -- Name - nvarchar(50)
-                                                        N'' , -- ParaDesc - nvarchar(512)
-                                                        0 , -- DatasetNumber - int
-                                                        N'' , -- DatasetDesc - nvarchar(512)
                                                         N''  -- Details - nvarchar(512)
 		                                            )
                                         END", id, name);

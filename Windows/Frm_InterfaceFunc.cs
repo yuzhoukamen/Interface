@@ -160,6 +160,7 @@ namespace Windows
                         this.c1FlexGridDataset.Cols[i].AllowMerging = true;
                     }
 
+                    this.c1FlexGridDataset.Cols["ID"].Visible = false;
                     this.c1FlexGridDataset.Cols["数据集"].Width = 60;
                     this.c1FlexGridDataset.Cols["最大长度"].Width = 60;
                     this.c1FlexGridDataset.Cols["备注"].Width = 320;
@@ -446,7 +447,39 @@ namespace Windows
         /// <param name="e"></param>
         private void toolStripMenuItemAdd_Click(object sender, EventArgs e)
         {
+            string id = this.lblID.Tag.ToString().Trim();
+            string name = string.Empty;
+            string details = string.Empty;
 
+            string SQLString = String.Format(@"IF NOT EXISTS ( SELECT  *
+                                                                FROM    HIS_InterfaceHN.dbo.FuncDataset
+                                                                WHERE   FuncID = {0} )
+                                                    BEGIN
+                                                        INSERT  INTO HIS_InterfaceHN.dbo.FuncDataset
+                                                                ( FuncID, Name, Details )
+                                                        VALUES  ( N'{0}', -- FuncID - nvarchar(50)
+                                                                  N'{1}', -- Name - nchar(20)
+                                                                  N'{2}'  -- Details - nvarchar(512)
+                                                                  )
+                                                    END
+
+                                                INSERT  INTO HIS_InterfaceHN.dbo.FuncDatasetList
+                                                            ( DatasetID
+                                                            )
+                                                            SELECT  ID
+                                                            FROM    HIS_InterfaceHN.dbo.FuncDataset
+                                                            WHERE   FuncID = {0}", id, name, details);
+
+            try
+            {
+                Alif.DBUtility.DbHelperSQL.ExecuteSql(SQLString);
+
+                QueryInterfaceDetailInfo(id);
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError("添加数据集字段发生错误，错误原因：" + ee.Message);
+            }
         }
 
         /// <summary>
@@ -457,6 +490,47 @@ namespace Windows
         private void toolStripMenuItemDel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void c1FlexGridDataset_AfterEdit(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
+        {
+            string id = this.lblID.Tag.ToString().Trim();
+
+            int rowIndex = e.Row;
+            int colIndex = e.Col;
+
+            string SQLString = string.Format(@"UPDATE  A
+                                                SET     Name = N'{5}'
+                                                FROM    HIS_InterfaceHN.dbo.FuncDataset A
+                                                        INNER JOIN HIS_InterfaceHN.dbo.FuncDatasetList B ON B.DatasetID = A.ID
+                                                WHERE   B.ID = {4};
+
+                                                UPDATE  [HIS_InterfaceHN].[dbo].[FuncDatasetList]
+                                                SET     [Name] = N'{0}' --<Name, nchar(20),>
+                                                        ,
+                                                        [NameDesc] = N'{1}' --<NameDesc, nvarchar(50),>
+                                                        ,
+                                                        [MaxLength] = N'{2}'-- <MaxLength, int,>
+                                                        ,
+                                                        [Details] = N'{3}'--<Details, nvarchar(512),>
+                                                WHERE   ID = {4}", this.c1FlexGridDataset.Rows[rowIndex]["字段"].ToString().Trim(),
+                                                                 this.c1FlexGridDataset.Rows[rowIndex]["字段说明"].ToString().Trim(),
+                                                                 this.c1FlexGridDataset.Rows[rowIndex]["最大长度"].ToString().Trim(),
+                                                                 this.c1FlexGridDataset.Rows[rowIndex]["备注"].ToString().Trim(),
+                                                                 this.c1FlexGridDataset.Rows[rowIndex]["ID"].ToString().Trim(),
+                                                                 this.c1FlexGridDataset.Rows[rowIndex]["数据集"].ToString().Trim());
+
+            try
+            {
+                Alif.DBUtility.DbHelperSQL.ExecuteSql(SQLString);
+
+                QueryInterfaceDetailInfo(id);
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError(string.Format("修改编号{0}的数据集字段失败，失败原因：{1}",
+                    this.c1FlexGridPara.Rows[rowIndex]["ID"].ToString().Trim(), ee.Message));
+            }
         }
     }
 }

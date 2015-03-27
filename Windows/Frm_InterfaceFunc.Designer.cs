@@ -45,9 +45,16 @@
             this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.contextMenuStripPara = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemAddPara = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddParaDesc = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItemDelPara = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.c1FlexGridDataset = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.contextMenuStripDataset = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddDataset = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemDel = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBoxReturnValue = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.richTxtBoxDetails = new System.Windows.Forms.RichTextBox();
@@ -56,13 +63,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNameID = new System.Windows.Forms.Label();
             this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.contextMenuStripDataset = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemAddParaDesc = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemAddDataset = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,8 +73,8 @@
             this.contextMenuStripPara.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
             this.contextMenuStripDataset.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -255,6 +255,17 @@
             this.ToolStripMenuItemAddPara.Text = "添加入参";
             this.ToolStripMenuItemAddPara.Click += new System.EventHandler(this.ToolStripMenuItemAddPara_Click);
             // 
+            // toolStripMenuItemAddParaDesc
+            // 
+            this.toolStripMenuItemAddParaDesc.Name = "toolStripMenuItemAddParaDesc";
+            this.toolStripMenuItemAddParaDesc.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemAddParaDesc.Text = "添加入参(参数说明)";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // ToolStripMenuItemDelPara
             // 
             this.ToolStripMenuItemDelPara.Name = "ToolStripMenuItemDelPara";
@@ -285,7 +296,43 @@
             this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
             this.c1FlexGridDataset.TabIndex = 11;
+            this.c1FlexGridDataset.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridDataset_AfterEdit);
             this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
+            // 
+            // contextMenuStripDataset
+            // 
+            this.contextMenuStripDataset.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAdd,
+            this.toolStripMenuItemAddDataset,
+            this.toolStripSeparator2,
+            this.toolStripMenuItemDel});
+            this.contextMenuStripDataset.Name = "contextMenuStripDataset";
+            this.contextMenuStripDataset.Size = new System.Drawing.Size(193, 76);
+            // 
+            // toolStripMenuItemAdd
+            // 
+            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
+            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemAdd.Text = "添加出参字段";
+            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
+            // 
+            // toolStripMenuItemAddDataset
+            // 
+            this.toolStripMenuItemAddDataset.Name = "toolStripMenuItemAddDataset";
+            this.toolStripMenuItemAddDataset.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemAddDataset.Text = "添加出参字段(数据集)";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
+            // 
+            // toolStripMenuItemDel
+            // 
+            this.toolStripMenuItemDel.Name = "toolStripMenuItemDel";
+            this.toolStripMenuItemDel.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItemDel.Text = "删除出参字段";
+            this.toolStripMenuItemDel.Click += new System.EventHandler(this.toolStripMenuItemDel_Click);
             // 
             // richTextBoxReturnValue
             // 
@@ -376,52 +423,6 @@
             this.c1FlexGridFunc.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridFunc_AfterEdit);
             this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
             // 
-            // contextMenuStripDataset
-            // 
-            this.contextMenuStripDataset.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemAdd,
-            this.toolStripMenuItemAddDataset,
-            this.toolStripSeparator2,
-            this.toolStripMenuItemDel});
-            this.contextMenuStripDataset.Name = "contextMenuStripDataset";
-            this.contextMenuStripDataset.Size = new System.Drawing.Size(193, 76);
-            // 
-            // toolStripMenuItemAdd
-            // 
-            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
-            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItemAdd.Text = "添加出参字段";
-            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
-            // 
-            // toolStripMenuItemDel
-            // 
-            this.toolStripMenuItemDel.Name = "toolStripMenuItemDel";
-            this.toolStripMenuItemDel.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItemDel.Text = "删除出参字段";
-            this.toolStripMenuItemDel.Click += new System.EventHandler(this.toolStripMenuItemDel_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripMenuItemAddParaDesc
-            // 
-            this.toolStripMenuItemAddParaDesc.Name = "toolStripMenuItemAddParaDesc";
-            this.toolStripMenuItemAddParaDesc.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItemAddParaDesc.Text = "添加入参(参数说明)";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
-            // 
-            // toolStripMenuItemAddDataset
-            // 
-            this.toolStripMenuItemAddDataset.Name = "toolStripMenuItemAddDataset";
-            this.toolStripMenuItemAddDataset.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItemAddDataset.Text = "添加出参字段(数据集)";
-            // 
             // Frm_InterfaceFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -447,8 +448,8 @@
             this.contextMenuStripPara.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).EndInit();
             this.contextMenuStripDataset.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).EndInit();
             this.ResumeLayout(false);
 
         }

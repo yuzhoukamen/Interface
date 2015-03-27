@@ -99,6 +99,7 @@
             this.btnInit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInterfaceInit = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPageIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
@@ -116,6 +117,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageIDCard);
             this.tabControl1.Controls.Add(this.tabPageInterface);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -809,6 +811,15 @@
             this.btnInterfaceInit.UseVisualStyleBackColor = true;
             this.btnInterfaceInit.Click += new System.EventHandler(this.btnInterfaceInit_Click);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1044, 527);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "测试功能编码";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -916,6 +927,7 @@
         private System.Windows.Forms.RichTextBox richTxtBoxMedicalResult;
         private System.Windows.Forms.Button btnMedicalQuery;
         private System.Windows.Forms.RichTextBox richTxtBoxPersonInfo;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
