@@ -246,12 +246,14 @@ namespace Windows
                 this.interfaceHN.AddParameter("login_id", this.txtBoxLoginID.Text.Trim());
                 this.interfaceHN.AddParameter("login_password", this.txtBoxLoginPasswd.Text.Trim());
 
-                this.interfaceHN.Puts(0);
+                this.interfaceHN.PutCols();
 
-                this.interfaceHN.Run();
+                long value = this.interfaceHN.Run();
 
-                CommonFunctions.MsgError("登陆成功！！！");
-
+                if (value == 0)
+                {
+                    CommonFunctions.MsgError("登陆成功！！！");
+                }
             }
             catch (Exception ee)
             {
@@ -279,7 +281,7 @@ namespace Windows
                 this.interfaceHN.AddParameter("biz_type", this.txtBoxBiz.Text.Trim());
                 this.interfaceHN.AddParameter("center_id", this.txtBoxCenterID.Text.Trim());
 
-                this.interfaceHN.Puts(1);
+                this.interfaceHN.PutCols();
 
                 this.interfaceHN.Run();
 
@@ -319,7 +321,7 @@ namespace Windows
                 this.interfaceHN.AddParameter("code_py", this.txtBoxDisCode_py.Text.Trim());
                 this.interfaceHN.AddParameter("querydate", this.dateTimeDisQueryDate.Text.Trim());
 
-                this.interfaceHN.Puts(1);
+                this.interfaceHN.PutCols();
 
                 this.interfaceHN.Run();
 
@@ -370,7 +372,7 @@ namespace Windows
                 this.interfaceHN.AddParameter("first_version_id", this.txtBoxfirst_version_id.Text.Trim());
                 this.interfaceHN.AddParameter("last_version_id", this.txtBoxlast_version_id.Text.Trim());
 
-                this.interfaceHN.Puts(1);
+                this.interfaceHN.PutCols();
 
                 this.interfaceHN.Run();
 

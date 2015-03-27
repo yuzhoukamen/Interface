@@ -142,49 +142,61 @@ namespace Windows
         /// <param name="e"></param>
         private void btnExec_Click(object sender, EventArgs e)
         {
-            InterfaceClass.Interface inter = new InterfaceClass.Interface(baseInterfaceHN);
-
-            List<Parameter> listPara = new List<Parameter>();
-
-            foreach (C1.Win.C1FlexGrid.Row row in this.c1FlexGridPara.Rows)
+            try
             {
-                listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["备注"].ToString().Trim()));
-            }
+                InterfaceClass.Interface inter = new InterfaceClass.Interface(baseInterfaceHN);
 
-            long value = inter.ExecInterface(this.lblID.Text.Trim(), listPara);
+                List<Parameter> listPara = new List<Parameter>();
 
-            this.lblReturnValue.Text = string.Format(@"返回值：{0}", value.ToString());
-
-            inter.SetResultset(this.txtBoxDatasetName.Text.Trim());
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("Value");
-
-            string str = string.Empty;
-            int temp = 0;
-
-            do
-            {
-                foreach (DataRow dr in this.interfacHNDataset.Rows)
+                foreach (C1.Win.C1FlexGrid.Row row in this.c1FlexGridPara.Rows)
                 {
-                    temp++;
-
-                    str = string.Empty;
-
-                    inter.GetByName(dr["字段"].ToString().Trim(), ref str);
-
-                    DataRow dataRow = dt.NewRow();
-
-                    dataRow["ID"] = temp;
-                    dataRow["Name"] = dr["字段"].ToString();
-                    dataRow["Value"] = str;
-
-                    dt.Rows.Add(dataRow);
+                    if (row.Index > 0)
+                    {
+                        listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["备注"].ToString().Trim()));
+                    }
                 }
-            } while (0 < inter.NextRow());
+
+                long value = inter.ExecInterface(this.lblID.Text.Trim(), listPara);
+
+                this.lblReturnValue.Text = string.Format(@"返回值：{0}", value.ToString());
+
+                inter.SetResultset(this.txtBoxDatasetName.Text.Trim());
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("ID");
+                dt.Columns.Add("Name");
+                dt.Columns.Add("Value");
+
+                string str = string.Empty;
+                int temp = 0;
+
+                do
+                {
+                    foreach (DataRow dr in this.interfacHNDataset.Rows)
+                    {
+                        temp++;
+
+                        str = string.Empty;
+
+                        inter.GetByName(dr["字段"].ToString().Trim(), ref str);
+
+                        DataRow dataRow = dt.NewRow();
+
+                        dataRow["ID"] = temp;
+                        dataRow["Name"] = dr["字段"].ToString();
+                        dataRow["Value"] = str;
+
+                        dt.Rows.Add(dataRow);
+                    }
+                } while (0 < inter.NextRow());
+
+                this.c1FlexGridDataset.DataSource = dt;
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError(ee.Message);
+            }
         }
     }
 }

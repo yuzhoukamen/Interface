@@ -50,9 +50,9 @@
             this.lblUnitName = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCurrentTime = new System.Windows.Forms.Label();
+            this.lblFrmTitle = new System.Windows.Forms.Label();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.panelInterface = new System.Windows.Forms.Panel();
-            this.lblFrmTitle = new System.Windows.Forms.Label();
             this.menuStripInterface.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -243,6 +243,18 @@
             this.lblCurrentTime.TabIndex = 3;
             this.lblCurrentTime.Text = "当前时间：2015-03-26 00:00:00";
             // 
+            // lblFrmTitle
+            // 
+            this.lblFrmTitle.AutoSize = true;
+            this.lblFrmTitle.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblFrmTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblFrmTitle.Location = new System.Drawing.Point(649, 8);
+            this.lblFrmTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblFrmTitle.Name = "lblFrmTitle";
+            this.lblFrmTitle.Size = new System.Drawing.Size(122, 12);
+            this.lblFrmTitle.TabIndex = 0;
+            this.lblFrmTitle.Text = "操作窗体：接口测试";
+            // 
             // timerCurrentTime
             // 
             this.timerCurrentTime.Enabled = true;
@@ -255,18 +267,6 @@
             this.panelInterface.Name = "panelInterface";
             this.panelInterface.Size = new System.Drawing.Size(1039, 582);
             this.panelInterface.TabIndex = 2;
-            // 
-            // lblFrmTitle
-            // 
-            this.lblFrmTitle.AutoSize = true;
-            this.lblFrmTitle.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblFrmTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblFrmTitle.Location = new System.Drawing.Point(649, 8);
-            this.lblFrmTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.lblFrmTitle.Name = "lblFrmTitle";
-            this.lblFrmTitle.Size = new System.Drawing.Size(122, 12);
-            this.lblFrmTitle.TabIndex = 0;
-            this.lblFrmTitle.Text = "操作窗体：接口测试";
             // 
             // Frm_Interface
             // 
@@ -281,7 +281,6 @@
             this.Name = "Frm_Interface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Interface";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Interface_Load);
             this.menuStripInterface.ResumeLayout(false);
             this.menuStripInterface.PerformLayout();

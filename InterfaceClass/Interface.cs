@@ -65,7 +65,7 @@ namespace InterfaceClass
                 this.InterfaceHN.AddParameter(para.Name, para.Value);
             }
 
-            this.InterfaceHN.Puts(0);
+            this.InterfaceHN.PutCols();
 
             return this.InterfaceHN.Run();
         }

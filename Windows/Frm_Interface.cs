@@ -25,6 +25,10 @@ namespace Windows
             this.userID = userID;
 
             InitializeComponent();
+
+            baseInterfaceHN = new InterfaceClass.InterfaceHN();
+
+            SetDebug();
         }
 
         /// <summary>

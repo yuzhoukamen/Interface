@@ -18,7 +18,19 @@ namespace InterfaceClass
         {
             InitPara();
 
-            NewInterfaceWithInit();
+            NewInterfaceAfterInit();
+        }
+
+        /// <summary>
+        /// 设置接口的运行模式
+        /// </summary>
+        public int SetDebug(string filePath)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(filePath);
+
+            return InterfaceHNDll.setdebug(this.P_inter, 1, sb);
         }
 
         /// <summary>
@@ -318,13 +330,31 @@ namespace InterfaceClass
         /// </summary>
         /// <param name="name"></param>
         /// <param name="value"></param>
-        public void PutCol(string name, string value)
+        public long PutCol(string name, string value)
         {
             long temp = InterfaceHNDll.putcol(this.P_inter, name, value);
 
             if (temp < 0)
             {
                 throw new Exception("执行函数putcol错误，错误原因：" + GetMessage());
+            }
+
+            return temp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void PutCols()
+        {
+            foreach (Parameter parameter in this.ParameterList)
+            {
+                long value = PutCol(parameter.Name, parameter.Value);
+
+                if (0 > value)
+                {
+                    throw new Exception("传入业务所需的参数\"" + parameter.Name + ":" + parameter.Value + "\"失败!!!");
+                }
             }
         }
 
@@ -341,23 +371,6 @@ namespace InterfaceClass
             if (-1 == returnValue)
             {
                 throw new Exception("传入业务所需的参数失败，失败原因：" + GetMessage());
-            }
-        }
-
-        /// <summary>
-        /// 放置参数
-        /// </summary>
-        /// <param name="row"></param>
-        public void Puts(long row)
-        {
-            foreach (Parameter parameter in this.ParameterList)
-            {
-                long value = Put(row, parameter.Name, parameter.Value);
-
-                if (0 > value)
-                {
-                    throw new Exception("传入业务所需的参数\"" + parameter.Name + ":" + parameter.Value + "\"失败!!!");
-                }
             }
         }
 
@@ -406,7 +419,7 @@ namespace InterfaceClass
         /// <returns>返回值小于零, 表示没有Get成功，返回大于零表示为参数值的长度。用getmessage可以取得最近一次出错的错误信息</returns>
         public void GetByName(string name, ref string value)
         {
-            StringBuilder sbValue = new StringBuilder();
+            StringBuilder sbValue = new StringBuilder(1024);
 
             int returnValue = InterfaceHNDll.getbyname(this.P_inter, name, sbValue);
 

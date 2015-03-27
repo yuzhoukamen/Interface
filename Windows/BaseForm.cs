@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using InterfaceClass;
 
 namespace Windows
 {
     public class BaseForm : Form
     {
-        public static InterfaceClass.InterfaceHN baseInterfaceHN = new InterfaceClass.InterfaceHN();
+        public static InterfaceClass.InterfaceHN baseInterfaceHN = null;
 
         /// <summary>
         /// 
@@ -22,7 +23,6 @@ namespace Windows
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "BaseForm";
             this.ResumeLayout(false);
-
         }
 
         /// <summary>
@@ -118,6 +118,11 @@ namespace Windows
         public void SetC1FlexGridSelectionMode(C1.Win.C1FlexGrid.C1FlexGrid flexGrid, C1.Win.C1FlexGrid.SelectionModeEnum selectionMode)
         {
             flexGrid.SelectionMode = selectionMode;
+        }
+
+        public void SetDebug()
+        {
+           
         }
     }
 }
