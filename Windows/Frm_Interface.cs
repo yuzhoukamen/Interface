@@ -145,5 +145,17 @@ namespace Windows
 
             AddFormToPanelInterface(frm);
         }
+
+        /// <summary>
+        /// 接口字典维护
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemInterfaceDic_Click(object sender, EventArgs e)
+        {
+            Frm_Dictionary frm = new Frm_Dictionary();
+
+            AddFormToPanelInterface(frm);
+        }
     }
 }

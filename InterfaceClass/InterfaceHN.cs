@@ -299,11 +299,11 @@ namespace InterfaceClass
         /// <returns></returns>
         public void Start()
         {
-            List<Parameter> listParameters = new List<Parameter>();
+            this.ParameterList.Add(new Parameter("oper_centerid", this.Oper_centerid));
+            this.ParameterList.Add(new Parameter("oper_hospitalid", this.Oper_hospitalid));
+            this.ParameterList.Add(new Parameter("oper_staffid", this.Oper_staffid));
 
-            listParameters.Add(new Parameter("oper_centerid", this.Oper_centerid));
-            listParameters.Add(new Parameter("oper_hospitalid", this.Oper_hospitalid));
-            listParameters.Add(new Parameter("oper_staffid", this.Oper_staffid));
+            PutCols();
 
             long value = InterfaceHNDll.start(this.P_inter, this.Func_ID);
 
@@ -429,6 +429,32 @@ namespace InterfaceClass
             {
                 throw new Exception("执行函数getbyname发生错误，错误原因：" + GetMessage());
             }
+
+            sbValue = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public int GetByIndex(int index, ref string name, ref string value)
+        {
+            StringBuilder sbName = new StringBuilder(1024);
+
+            StringBuilder sbValue = new StringBuilder(1024);
+
+            int temp = InterfaceHNDll.getbyindex(this.P_inter, index, sbName, sbValue);
+
+            name = sbName.ToString();
+            value = sbValue.ToString();
+
+            if (temp < 0)
+            {
+                throw new Exception("执行函数getbyindex发生错误，错误原因：" + GetMessage());
+            }
+            return temp;
         }
 
         /// <summary>

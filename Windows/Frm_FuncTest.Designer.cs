@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.cBoxDataset = new System.Windows.Forms.ComboBox();
+            this.lblReturnValue = new System.Windows.Forms.Label();
+            this.txtBoxID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnExec = new System.Windows.Forms.Button();
             this.c1FlexGridDataset = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.txtBoxDatasetName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
@@ -43,13 +46,44 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNameID = new System.Windows.Forms.Label();
             this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxID = new System.Windows.Forms.TextBox();
-            this.lblReturnValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cBoxDataset
+            // 
+            this.cBoxDataset.FormattingEnabled = true;
+            this.cBoxDataset.Location = new System.Drawing.Point(423, 242);
+            this.cBoxDataset.Name = "cBoxDataset";
+            this.cBoxDataset.Size = new System.Drawing.Size(137, 20);
+            this.cBoxDataset.TabIndex = 27;
+            // 
+            // lblReturnValue
+            // 
+            this.lblReturnValue.AutoSize = true;
+            this.lblReturnValue.ForeColor = System.Drawing.Color.Red;
+            this.lblReturnValue.Location = new System.Drawing.Point(767, 245);
+            this.lblReturnValue.Name = "lblReturnValue";
+            this.lblReturnValue.Size = new System.Drawing.Size(59, 12);
+            this.lblReturnValue.TabIndex = 26;
+            this.lblReturnValue.Text = "返回值：0";
+            // 
+            // txtBoxID
+            // 
+            this.txtBoxID.Location = new System.Drawing.Point(50, 10);
+            this.txtBoxID.Name = "txtBoxID";
+            this.txtBoxID.Size = new System.Drawing.Size(174, 21);
+            this.txtBoxID.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "编码：";
             // 
             // btnExec
             // 
@@ -65,6 +99,9 @@
             // c1FlexGridDataset
             // 
             this.c1FlexGridDataset.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
+            this.c1FlexGridDataset.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
             this.c1FlexGridDataset.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
@@ -74,13 +111,6 @@
             this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.c1FlexGridDataset.Size = new System.Drawing.Size(754, 396);
             this.c1FlexGridDataset.TabIndex = 22;
-            // 
-            // txtBoxDatasetName
-            // 
-            this.txtBoxDatasetName.Location = new System.Drawing.Point(423, 242);
-            this.txtBoxDatasetName.Name = "txtBoxDatasetName";
-            this.txtBoxDatasetName.Size = new System.Drawing.Size(171, 21);
-            this.txtBoxDatasetName.TabIndex = 21;
             // 
             // label2
             // 
@@ -104,6 +134,8 @@
             // c1FlexGridPara
             // 
             this.c1FlexGridPara.AllowMerging = C1.Win.C1FlexGrid.AllowMergingEnum.Custom;
+            this.c1FlexGridPara.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
             this.c1FlexGridPara.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
@@ -205,43 +237,17 @@
             this.c1FlexGridFunc.Size = new System.Drawing.Size(360, 318);
             this.c1FlexGridFunc.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "编码：";
-            // 
-            // txtBoxID
-            // 
-            this.txtBoxID.Location = new System.Drawing.Point(50, 10);
-            this.txtBoxID.Name = "txtBoxID";
-            this.txtBoxID.Size = new System.Drawing.Size(174, 21);
-            this.txtBoxID.TabIndex = 25;
-            // 
-            // lblReturnValue
-            // 
-            this.lblReturnValue.AutoSize = true;
-            this.lblReturnValue.ForeColor = System.Drawing.Color.Red;
-            this.lblReturnValue.Location = new System.Drawing.Point(767, 245);
-            this.lblReturnValue.Name = "lblReturnValue";
-            this.lblReturnValue.Size = new System.Drawing.Size(59, 12);
-            this.lblReturnValue.TabIndex = 26;
-            this.lblReturnValue.Text = "返回值：0";
-            // 
             // Frm_FuncTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 662);
+            this.Controls.Add(this.cBoxDataset);
             this.Controls.Add(this.lblReturnValue);
             this.Controls.Add(this.txtBoxID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnExec);
             this.Controls.Add(this.c1FlexGridDataset);
-            this.Controls.Add(this.txtBoxDatasetName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.c1FlexGridPara);
@@ -279,11 +285,11 @@
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridPara;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxDatasetName;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridDataset;
         private System.Windows.Forms.Button btnExec;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBoxID;
         private System.Windows.Forms.Label lblReturnValue;
+        private System.Windows.Forms.ComboBox cBoxDataset;
     }
 }

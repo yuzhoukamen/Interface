@@ -37,6 +37,9 @@ namespace Windows
             SetC1FlexGridSelectionMode(this.c1FlexGridPara, C1.Win.C1FlexGrid.SelectionModeEnum.Row);
             BindC1FlexGridDisplayLineNumbers(this.c1FlexGridPara);
 
+            BindC1FlexGridDisplayLineNumbers(this.c1FlexGridDataset);
+            SetC1FlexGridNullDataTable(this.c1FlexGridDataset);
+
             InitBind();
         }
 
@@ -111,14 +114,11 @@ namespace Windows
                 this.c1FlexGridPara.Cols["参数说明"].Visible = false;
                 this.c1FlexGridPara.Cols["最大长度"].Visible = false;
                 this.c1FlexGridPara.Cols["是否为空"].Visible = false;
+                this.c1FlexGridPara.Cols["备注"].Visible = false;
 
-                this.c1FlexGridPara.Cols["备注"].Caption = "值";
-
-
-                foreach (C1.Win.C1FlexGrid.Row row in this.c1FlexGridPara.Rows)
-                {
-                    row["备注"] = "";
-                }
+                this.interfacHNDataset.Clear();
+                this.cBoxDataset.DataSource = null;
+                this.c1FlexGridDataset.DataSource = null;
 
                 if (ds.Tables.Count > 3)
                 {
@@ -127,6 +127,14 @@ namespace Windows
                         this.interfacHNDataset.Clear();
                     }
                     this.interfacHNDataset = ds.Tables[3];
+                }
+
+                if (ds.Tables.Count > 4)
+                {
+                    this.cBoxDataset.DataSource = ds.Tables[4];
+
+                    this.cBoxDataset.DisplayMember = "Name";
+                    this.cBoxDataset.ValueMember = "Name";
                 }
             }
             catch (Exception e)
@@ -144,6 +152,8 @@ namespace Windows
         {
             try
             {
+                SetC1FlexGridNullDataTable(this.c1FlexGridDataset);
+
                 InterfaceClass.Interface inter = new InterfaceClass.Interface(baseInterfaceHN);
 
                 List<Parameter> listPara = new List<Parameter>();
@@ -152,7 +162,7 @@ namespace Windows
                 {
                     if (row.Index > 0)
                     {
-                        listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["备注"].ToString().Trim()));
+                        listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["默认值"].ToString().Trim()));
                     }
                 }
 
@@ -160,35 +170,40 @@ namespace Windows
 
                 this.lblReturnValue.Text = string.Format(@"返回值：{0}", value.ToString());
 
-                inter.SetResultset(this.txtBoxDatasetName.Text.Trim());
+                inter.SetResultset(this.cBoxDataset.Text.Trim());
 
                 DataTable dt = new DataTable();
 
-                dt.Columns.Add("ID");
-                dt.Columns.Add("Name");
-                dt.Columns.Add("Value");
+                string p_name = string.Empty;
+                string p_value = string.Empty;
+
+                foreach (DataRow dr in this.interfacHNDataset.Rows)
+                {
+                    DataColumn dc = new DataColumn();
+
+                    dc.ColumnName = dr["字段"].ToString().Trim();
+                    dc.Caption = dr["字段说明"].ToString().Trim();
+
+                    dt.Columns.Add(dc);
+                }
 
                 string str = string.Empty;
                 int temp = 0;
 
                 do
                 {
-                    foreach (DataRow dr in this.interfacHNDataset.Rows)
+                    DataRow dataRow = dt.NewRow();
+
+                    foreach (DataColumn dc in dt.Columns)
                     {
                         temp++;
 
                         str = string.Empty;
 
-                        inter.GetByName(dr["字段"].ToString().Trim(), ref str);
-
-                        DataRow dataRow = dt.NewRow();
-
-                        dataRow["ID"] = temp;
-                        dataRow["Name"] = dr["字段"].ToString();
-                        dataRow["Value"] = str;
-
-                        dt.Rows.Add(dataRow);
+                        inter.GetByName(dc.ColumnName, ref str);
+                        dataRow[dc.ColumnName] = str;
                     }
+                    dt.Rows.Add(dataRow);
                 } while (0 < inter.NextRow());
 
                 this.c1FlexGridDataset.DataSource = dt;

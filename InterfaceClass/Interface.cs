@@ -108,5 +108,10 @@ namespace InterfaceClass
         {
             return this.InterfaceHN.NextRow();
         }
+
+        public int GetByIndex(int index, ref string name, ref string value)
+        {
+            return this.InterfaceHN.GetByIndex(index, ref name, ref value);
+        }
     }
 }

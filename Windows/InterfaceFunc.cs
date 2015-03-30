@@ -82,6 +82,7 @@ namespace Windows
                                         HIS_InterfaceHN.dbo.FuncParaList.ID ,
                                         HIS_InterfaceHN.dbo.FuncParaList.NAME AS 入参 ,
                                         HIS_InterfaceHN.dbo.FuncParaList.NameDesc AS 入参说明 ,
+                                        HIS_InterfaceHN.dbo.FuncParaList.DefaultValue AS 默认值 ,
                                         HIS_InterfaceHN.dbo.FuncParaList.MaxLength AS 最大长度 ,
                                         HIS_InterfaceHN.dbo.FuncParaList.IsNull AS 是否为空 ,
                                         CASE WHEN HIS_InterfaceHN.dbo.FuncParaList.Details IS NULL THEN ''
@@ -99,7 +100,11 @@ namespace Windows
                                         HIS_InterfaceHN.dbo.FuncDatasetList.Details AS 备注
                                 FROM    HIS_InterfaceHN.dbo.FuncDataset
                                         INNER JOIN HIS_InterfaceHN.dbo.FuncDatasetList ON HIS_InterfaceHN.dbo.FuncDatasetList.DatasetID = HIS_InterfaceHN.dbo.FuncDataset.ID
-                                WHERE   HIS_InterfaceHN.dbo.FuncDataset.FuncID = '{0}';", id);
+                                WHERE   HIS_InterfaceHN.dbo.FuncDataset.FuncID = '{0}';
+
+                                SELECT  *
+                                FROM    HIS_InterfaceHN.dbo.FuncDataset
+                                WHERE   FuncID = {0}", id);
 
             try
             {

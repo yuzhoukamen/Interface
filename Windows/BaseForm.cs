@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -120,9 +121,67 @@ namespace Windows
             flexGrid.SelectionMode = selectionMode;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void SetDebug()
         {
-           
+            int value = 0;
+            try
+            {
+                string filePath = System.IO.Path.Combine(Application.StartupPath, "log/" + DateTime.Now.ToString("yy-MM-dd"));
+
+                if ((!System.IO.Directory.Exists(filePath)))
+                {
+                    System.IO.Directory.CreateDirectory(filePath);
+                }
+
+                value = baseInterfaceHN.SetDebug(filePath);
+            }
+            catch (Exception e)
+            {
+                CommonFunctions.MsgError("设置调试模式出错，错误原因：" + e.Message);
+            }
+            if (value < 0)
+            {
+                CommonFunctions.MsgError("设置调试模式失败！！！");
+            }
+        }
+
+        /// <summary>
+        /// 空表格
+        /// </summary>
+        /// <param name="flexGrid"></param>
+        public void SetC1FlexGridNullDataTable(C1.Win.C1FlexGrid.C1FlexGrid flexGrid)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("内容");
+
+            DataRow dr=dt.NewRow();
+
+            dr["内容"]="无数据，请通过条件检索数据......";
+
+            dt.Rows.Add(dr);
+
+            flexGrid.DataSource = dt;
+            flexGrid.Cols["内容"].Width = flexGrid.Width;
+        }
+
+        /// <summary>
+        /// 返回数据列
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <param name="caption"></param>
+        /// <returns></returns>
+        public DataColumn GetDataColumn(string columnName, string caption)
+        {
+            DataColumn dc = new DataColumn();
+
+            dc.ColumnName = columnName;
+            dc.Caption = caption;
+
+            return dc;
         }
     }
 }

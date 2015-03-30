@@ -202,6 +202,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(6, 248);
@@ -227,12 +230,13 @@
             this.c1FlexGridPara.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridPara.ColumnInfo = "10,1,0,0,0,100,Columns:";
             this.c1FlexGridPara.ContextMenuStrip = this.contextMenuStripPara;
+            this.c1FlexGridPara.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1FlexGridPara.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
-            this.c1FlexGridPara.Location = new System.Drawing.Point(4, 6);
+            this.c1FlexGridPara.Location = new System.Drawing.Point(3, 3);
             this.c1FlexGridPara.Name = "c1FlexGridPara";
             this.c1FlexGridPara.Rows.DefaultSize = 20;
             this.c1FlexGridPara.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.c1FlexGridPara.Size = new System.Drawing.Size(684, 339);
+            this.c1FlexGridPara.Size = new System.Drawing.Size(682, 342);
             this.c1FlexGridPara.TabIndex = 9;
             this.c1FlexGridPara.AfterSelChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGridPara_AfterSelChange);
             this.c1FlexGridPara.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridPara_AfterEdit);
@@ -289,13 +293,15 @@
             this.c1FlexGridDataset.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.Light3D;
             this.c1FlexGridDataset.ColumnInfo = "10,1,0,0,0,100,Columns:";
             this.c1FlexGridDataset.ContextMenuStrip = this.contextMenuStripDataset;
+            this.c1FlexGridDataset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1FlexGridDataset.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
             this.c1FlexGridDataset.Location = new System.Drawing.Point(3, 3);
             this.c1FlexGridDataset.Name = "c1FlexGridDataset";
             this.c1FlexGridDataset.Rows.DefaultSize = 20;
             this.c1FlexGridDataset.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.c1FlexGridDataset.Size = new System.Drawing.Size(696, 343);
+            this.c1FlexGridDataset.Size = new System.Drawing.Size(682, 342);
             this.c1FlexGridDataset.TabIndex = 11;
+            this.c1FlexGridDataset.AfterSelChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGridDataset_AfterSelChange);
             this.c1FlexGridDataset.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridDataset_AfterEdit);
             this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
             // 

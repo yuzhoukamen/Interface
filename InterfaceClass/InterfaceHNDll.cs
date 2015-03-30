@@ -160,7 +160,7 @@ namespace InterfaceClass
         /// 如果送入的参数p_value为为空指针(NULL)，返回该字段的长度，可以根据这个长度分配空间</param>
         /// <returns>返回值小于零, 表示没有调用成功，返回值大于零, 表示参数值的长度。用getmessage可以取得最近一次出错的错误信息</returns>
         [DllImport("InterfaceHN.dll")]
-        public static extern int getbyindex(IntPtr p_inter, int index, string p_name, StringBuilder p_value);
+        public static extern int getbyindex(IntPtr p_inter, int index, StringBuilder p_name, StringBuilder p_value);
 
         /// <summary>
         /// 函数在所有函数出错时，调用它，

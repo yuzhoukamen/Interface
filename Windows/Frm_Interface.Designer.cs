@@ -53,6 +53,8 @@
             this.lblFrmTitle = new System.Windows.Forms.Label();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.panelInterface = new System.Windows.Forms.Panel();
+            this.ToolStripMenuItemInterfaceDic = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripInterface.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -135,10 +137,12 @@
             // 基础字典维护ToolStripMenuItem
             // 
             this.基础字典维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemInterfaceDic,
             this.类型对照表维护ToolStripMenuItem,
+            this.toolStripSeparator2,
             this.ToolStripMenuItemInterfaceFunc,
-            this.ToolStripMenuItemTest,
-            this.ToolStripMenuItemFuncTest});
+            this.ToolStripMenuItemFuncTest,
+            this.ToolStripMenuItemTest});
             this.基础字典维护ToolStripMenuItem.Name = "基础字典维护ToolStripMenuItem";
             this.基础字典维护ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
             this.基础字典维护ToolStripMenuItem.Text = "基础字典维护";
@@ -146,27 +150,27 @@
             // 类型对照表维护ToolStripMenuItem
             // 
             this.类型对照表维护ToolStripMenuItem.Name = "类型对照表维护ToolStripMenuItem";
-            this.类型对照表维护ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.类型对照表维护ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.类型对照表维护ToolStripMenuItem.Text = "类型对照表维护";
             // 
             // ToolStripMenuItemInterfaceFunc
             // 
             this.ToolStripMenuItemInterfaceFunc.Name = "ToolStripMenuItemInterfaceFunc";
-            this.ToolStripMenuItemInterfaceFunc.Size = new System.Drawing.Size(160, 22);
+            this.ToolStripMenuItemInterfaceFunc.Size = new System.Drawing.Size(196, 22);
             this.ToolStripMenuItemInterfaceFunc.Text = "接口维护";
             this.ToolStripMenuItemInterfaceFunc.Click += new System.EventHandler(this.ToolStripMenuItemInterfaceFunc_Click);
             // 
             // ToolStripMenuItemTest
             // 
             this.ToolStripMenuItemTest.Name = "ToolStripMenuItemTest";
-            this.ToolStripMenuItemTest.Size = new System.Drawing.Size(160, 22);
+            this.ToolStripMenuItemTest.Size = new System.Drawing.Size(196, 22);
             this.ToolStripMenuItemTest.Text = "测试";
             this.ToolStripMenuItemTest.Click += new System.EventHandler(this.ToolStripMenuItemTest_Click);
             // 
             // ToolStripMenuItemFuncTest
             // 
             this.ToolStripMenuItemFuncTest.Name = "ToolStripMenuItemFuncTest";
-            this.ToolStripMenuItemFuncTest.Size = new System.Drawing.Size(160, 22);
+            this.ToolStripMenuItemFuncTest.Size = new System.Drawing.Size(196, 22);
             this.ToolStripMenuItemFuncTest.Text = "接口测试";
             this.ToolStripMenuItemFuncTest.Click += new System.EventHandler(this.ToolStripMenuItemFuncTest_Click);
             // 
@@ -268,6 +272,18 @@
             this.panelInterface.Size = new System.Drawing.Size(1039, 582);
             this.panelInterface.TabIndex = 2;
             // 
+            // ToolStripMenuItemInterfaceDic
+            // 
+            this.ToolStripMenuItemInterfaceDic.Name = "ToolStripMenuItemInterfaceDic";
+            this.ToolStripMenuItemInterfaceDic.Size = new System.Drawing.Size(196, 22);
+            this.ToolStripMenuItemInterfaceDic.Text = "接口基础数据字典维护";
+            this.ToolStripMenuItemInterfaceDic.Click += new System.EventHandler(this.ToolStripMenuItemInterfaceDic_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            // 
             // Frm_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -318,5 +334,7 @@
         private System.Windows.Forms.Panel panelInterface;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemFuncTest;
         private System.Windows.Forms.Label lblFrmTitle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemInterfaceDic;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

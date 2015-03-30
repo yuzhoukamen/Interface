@@ -92,10 +92,22 @@
     <Compile Include="Class\ColorConfig.cs" />
     <Compile Include="Class\MyMenuRender.cs" />
     <Compile Include="CommonFunctions.cs" />
+    <Compile Include="Control\PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\PagerControl.Designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DEncrypt\DEncrypt.cs" />
     <Compile Include="DEncrypt\DESEncrypt.cs" />
     <Compile Include="DEncrypt\HashEncode.cs" />
     <Compile Include="DEncrypt\RSACryption.cs" />
+    <Compile Include="Frm_Dictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Dictionary.Designer.cs">
+      <DependentUpon>Frm_Dictionary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_FuncTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,12 @@
     </Compile>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\PagerControl.resx">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Dictionary.resx">
+      <DependentUpon>Frm_Dictionary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_FuncTest.resx">
       <DependentUpon>Frm_FuncTest.cs</DependentUpon>
@@ -231,6 +249,29 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\arrow\accept.png" />
+    <Content Include="Pictures\arrow\add.png" />
+    <Content Include="Pictures\arrow\arrow_branch.png" />
+    <Content Include="Pictures\arrow\arrow_divide.png" />
+    <Content Include="Pictures\arrow\arrow_down.png" />
+    <Content Include="Pictures\arrow\arrow_green.png" />
+    <Content Include="Pictures\arrow\arrow_in.png" />
+    <Content Include="Pictures\arrow\arrow_inout.png" />
+    <Content Include="Pictures\arrow\arrow_join.png" />
+    <Content Include="Pictures\arrow\arrow_left.png" />
+    <Content Include="Pictures\arrow\arrow_merge.png" />
+    <Content Include="Pictures\arrow\arrow_out.png" />
+    <Content Include="Pictures\arrow\arrow_redo.png" />
+    <Content Include="Pictures\arrow\arrow_refresh.png" />
+    <Content Include="Pictures\arrow\arrow_refresh_small.png" />
+    <Content Include="Pictures\arrow\arrow_rotate_anticlockwise.png" />
+    <Content Include="Pictures\arrow\arrow_rotate_clockwise.png" />
+    <Content Include="Pictures\arrow\arrow_switch.png" />
+    <Content Include="Pictures\arrow\arrow_turn_left.png" />
+    <Content Include="Pictures\arrow\arrow_turn_right.png" />
+    <Content Include="Pictures\arrow\arrow_undo.png" />
+    <Content Include="Pictures\arrow\arrow_up.png" />
+    <Content Include="Pictures\arrow\cross.png" />
     <Content Include="Pictures\cancel.png" />
     <Content Include="Pictures\delete.png" />
     <Content Include="Pictures\Interface.ico">

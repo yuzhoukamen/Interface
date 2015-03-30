@@ -13,6 +13,8 @@ namespace Windows
     {
         private int _paraSelectRowIndex = 0;
         private int _paraSelectColIndex = 0;
+        private int _datasetSelectRowIndex = 0;
+        private int _datasetSelectColIndex = 0;
 
         public Frm_InterfaceFunc()
         {
@@ -340,6 +342,8 @@ namespace Windows
                                                 UPDATE  [HIS_InterfaceHN].[dbo].[FuncParaList]
                                                 SET     [Name] = N'{0}' --<Name, nchar(20),>
                                                         ,
+                                                        [DefaultValue] = N'{7}'--<DefaultValue, nvarchar(512),>
+                                                        ,
                                                         [NameDesc] = N'{1}' --<NameDesc, nvarchar(50),>
                                                         ,
                                                         [MaxLength] = N'{2}'-- <MaxLength, int,>
@@ -353,7 +357,8 @@ namespace Windows
                                                                  this.c1FlexGridPara.Rows[rowIndex]["是否为空"].ToString().Trim(),
                                                                  this.c1FlexGridPara.Rows[rowIndex]["备注"].ToString().Trim(),
                                                                  this.c1FlexGridPara.Rows[rowIndex]["ID"].ToString().Trim(),
-                                                                 this.c1FlexGridPara.Rows[rowIndex]["参数说明"].ToString().Trim());
+                                                                 this.c1FlexGridPara.Rows[rowIndex]["参数说明"].ToString().Trim(),
+                                                                 this.c1FlexGridPara.Rows[rowIndex]["默认值"].ToString().Trim());
 
             try
             {
@@ -375,24 +380,25 @@ namespace Windows
         /// <param name="e"></param>
         private void ToolStripMenuItemDelPara_Click(object sender, EventArgs e)
         {
-            string id = this.lblID.Tag.ToString().Trim();
-
             if (this._paraSelectColIndex < 0 || this._paraSelectRowIndex < 0)
             {
                 return;
             }
 
-            string SQLString = "delete HIS_InterfaceHN.dbo.FuncParaList where ID = " + this.c1FlexGridPara.Rows[this._paraSelectRowIndex]["ID"].ToString().Trim();
+            string FuncID = this.lblID.Tag.ToString().Trim();
+            string paraID = this.c1FlexGridPara.Rows[this._paraSelectRowIndex]["ID"].ToString().Trim();
+
+            string SQLString = "delete HIS_InterfaceHN.dbo.FuncParaList where ID = " + paraID;
 
             try
             {
                 Alif.DBUtility.DbHelperSQL.ExecuteSql(SQLString);
 
-                QueryInterfaceDetailInfo(id);
+                QueryInterfaceDetailInfo(FuncID);
             }
             catch (Exception ee)
             {
-                CommonFunctions.MsgError(string.Format("删除编号为{0}的参数失败，失败原因：{1}", id, ee.Message));
+                CommonFunctions.MsgError(string.Format("删除编号为{0}的参数失败，失败原因：{1}", paraID, ee.Message));
             }
         }
 
@@ -489,9 +495,33 @@ namespace Windows
         /// <param name="e"></param>
         private void toolStripMenuItemDel_Click(object sender, EventArgs e)
         {
+            if (this._datasetSelectRowIndex < 0 || this._datasetSelectColIndex < 0)
+            {
+                return;
+            }
 
+            string funcID = this.lblID.Tag.ToString().Trim();
+            string datasetListID = this.c1FlexGridDataset.Rows[this._datasetSelectRowIndex]["ID"].ToString().Trim();
+
+            string SQLString = "delete HIS_InterfaceHN.dbo.FuncDatasetList where ID = " + datasetListID;
+
+            try
+            {
+                Alif.DBUtility.DbHelperSQL.ExecuteSql(SQLString);
+
+                QueryInterfaceDetailInfo(funcID);
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError(string.Format("删除编号为{0}的数据字段失败，失败原因：{1}", datasetListID, ee.Message));
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void c1FlexGridDataset_AfterEdit(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
         {
             string id = this.lblID.Tag.ToString().Trim();
@@ -531,6 +561,12 @@ namespace Windows
                 CommonFunctions.MsgError(string.Format("修改编号{0}的数据集字段失败，失败原因：{1}",
                     this.c1FlexGridPara.Rows[rowIndex]["ID"].ToString().Trim(), ee.Message));
             }
+        }
+
+        private void c1FlexGridDataset_AfterSelChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            this._datasetSelectRowIndex = this.c1FlexGridDataset.MouseRow;
+            this._datasetSelectColIndex = this.c1FlexGridDataset.MouseCol;
         }
     }
 }
