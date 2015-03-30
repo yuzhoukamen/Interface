@@ -29,21 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStripInterface = new System.Windows.Forms.MenuStrip();
-            this.住院业务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.普通门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.门诊特殊病ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工伤门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.省直购药ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.住院业务ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.普通住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工伤住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.基础字典维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.类型对照表维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemInterfaceFunc = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemFuncTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
+            this.panelInterface = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTips = new System.Windows.Forms.Label();
@@ -51,128 +38,40 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.lblFrmTitle = new System.Windows.Forms.Label();
-            this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
-            this.panelInterface = new System.Windows.Forms.Panel();
+            this.menuStripInterface = new System.Windows.Forms.MenuStrip();
+            this.住院业务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.普通门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.门诊特殊病ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工伤门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItemBuyMedic = new System.Windows.Forms.ToolStripMenuItem();
+            this.住院业务ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.普通住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工伤住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.基础字典维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemInterfaceDic = new System.Windows.Forms.ToolStripMenuItem();
+            this.类型对照表维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuStripInterface.SuspendLayout();
+            this.ToolStripMenuItemInterfaceFunc = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemFuncTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemTest = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.menuStripInterface.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStripInterface
+            // timerCurrentTime
             // 
-            this.menuStripInterface.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.住院业务ToolStripMenuItem,
-            this.住院业务ToolStripMenuItem1,
-            this.基础字典维护ToolStripMenuItem});
-            this.menuStripInterface.Location = new System.Drawing.Point(0, 0);
-            this.menuStripInterface.Name = "menuStripInterface";
-            this.menuStripInterface.Size = new System.Drawing.Size(1039, 25);
-            this.menuStripInterface.TabIndex = 0;
-            this.menuStripInterface.Text = "menuStrip1";
+            this.timerCurrentTime.Enabled = true;
+            this.timerCurrentTime.Tick += new System.EventHandler(this.timerCurrentTime_Tick);
             // 
-            // 住院业务ToolStripMenuItem
+            // panelInterface
             // 
-            this.住院业务ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.普通门诊ToolStripMenuItem,
-            this.门诊特殊病ToolStripMenuItem,
-            this.工伤门诊ToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.省直购药ToolStripMenuItem});
-            this.住院业务ToolStripMenuItem.Name = "住院业务ToolStripMenuItem";
-            this.住院业务ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.住院业务ToolStripMenuItem.Text = "门诊业务";
-            // 
-            // 普通门诊ToolStripMenuItem
-            // 
-            this.普通门诊ToolStripMenuItem.Name = "普通门诊ToolStripMenuItem";
-            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.普通门诊ToolStripMenuItem.Text = "普通门诊";
-            // 
-            // 门诊特殊病ToolStripMenuItem
-            // 
-            this.门诊特殊病ToolStripMenuItem.Name = "门诊特殊病ToolStripMenuItem";
-            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.门诊特殊病ToolStripMenuItem.Text = "门诊特殊病";
-            // 
-            // 工伤门诊ToolStripMenuItem
-            // 
-            this.工伤门诊ToolStripMenuItem.Name = "工伤门诊ToolStripMenuItem";
-            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.工伤门诊ToolStripMenuItem.Text = "工伤门诊";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
-            // 
-            // 省直购药ToolStripMenuItem
-            // 
-            this.省直购药ToolStripMenuItem.Name = "省直购药ToolStripMenuItem";
-            this.省直购药ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.省直购药ToolStripMenuItem.Text = "(省直)购药";
-            // 
-            // 住院业务ToolStripMenuItem1
-            // 
-            this.住院业务ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.普通住院ToolStripMenuItem,
-            this.工伤住院ToolStripMenuItem});
-            this.住院业务ToolStripMenuItem1.Name = "住院业务ToolStripMenuItem1";
-            this.住院业务ToolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
-            this.住院业务ToolStripMenuItem1.Text = "住院业务";
-            // 
-            // 普通住院ToolStripMenuItem
-            // 
-            this.普通住院ToolStripMenuItem.Name = "普通住院ToolStripMenuItem";
-            this.普通住院ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.普通住院ToolStripMenuItem.Text = "普通住院";
-            // 
-            // 工伤住院ToolStripMenuItem
-            // 
-            this.工伤住院ToolStripMenuItem.Name = "工伤住院ToolStripMenuItem";
-            this.工伤住院ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.工伤住院ToolStripMenuItem.Text = "工伤住院";
-            // 
-            // 基础字典维护ToolStripMenuItem
-            // 
-            this.基础字典维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemInterfaceDic,
-            this.类型对照表维护ToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.ToolStripMenuItemInterfaceFunc,
-            this.ToolStripMenuItemFuncTest,
-            this.ToolStripMenuItemTest});
-            this.基础字典维护ToolStripMenuItem.Name = "基础字典维护ToolStripMenuItem";
-            this.基础字典维护ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.基础字典维护ToolStripMenuItem.Text = "基础字典维护";
-            // 
-            // 类型对照表维护ToolStripMenuItem
-            // 
-            this.类型对照表维护ToolStripMenuItem.Name = "类型对照表维护ToolStripMenuItem";
-            this.类型对照表维护ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.类型对照表维护ToolStripMenuItem.Text = "类型对照表维护";
-            // 
-            // ToolStripMenuItemInterfaceFunc
-            // 
-            this.ToolStripMenuItemInterfaceFunc.Name = "ToolStripMenuItemInterfaceFunc";
-            this.ToolStripMenuItemInterfaceFunc.Size = new System.Drawing.Size(196, 22);
-            this.ToolStripMenuItemInterfaceFunc.Text = "接口维护";
-            this.ToolStripMenuItemInterfaceFunc.Click += new System.EventHandler(this.ToolStripMenuItemInterfaceFunc_Click);
-            // 
-            // ToolStripMenuItemTest
-            // 
-            this.ToolStripMenuItemTest.Name = "ToolStripMenuItemTest";
-            this.ToolStripMenuItemTest.Size = new System.Drawing.Size(196, 22);
-            this.ToolStripMenuItemTest.Text = "测试";
-            this.ToolStripMenuItemTest.Click += new System.EventHandler(this.ToolStripMenuItemTest_Click);
-            // 
-            // ToolStripMenuItemFuncTest
-            // 
-            this.ToolStripMenuItemFuncTest.Name = "ToolStripMenuItemFuncTest";
-            this.ToolStripMenuItemFuncTest.Size = new System.Drawing.Size(196, 22);
-            this.ToolStripMenuItemFuncTest.Text = "接口测试";
-            this.ToolStripMenuItemFuncTest.Click += new System.EventHandler(this.ToolStripMenuItemFuncTest_Click);
+            this.panelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInterface.Location = new System.Drawing.Point(0, 25);
+            this.panelInterface.Name = "panelInterface";
+            this.panelInterface.Size = new System.Drawing.Size(1039, 582);
+            this.panelInterface.TabIndex = 2;
             // 
             // panel1
             // 
@@ -259,30 +158,144 @@
             this.lblFrmTitle.TabIndex = 0;
             this.lblFrmTitle.Text = "操作窗体：接口测试";
             // 
-            // timerCurrentTime
+            // menuStripInterface
             // 
-            this.timerCurrentTime.Enabled = true;
-            this.timerCurrentTime.Tick += new System.EventHandler(this.timerCurrentTime_Tick);
+            this.menuStripInterface.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.住院业务ToolStripMenuItem,
+            this.住院业务ToolStripMenuItem1,
+            this.基础字典维护ToolStripMenuItem});
+            this.menuStripInterface.Location = new System.Drawing.Point(0, 0);
+            this.menuStripInterface.Name = "menuStripInterface";
+            this.menuStripInterface.Size = new System.Drawing.Size(1039, 25);
+            this.menuStripInterface.TabIndex = 0;
+            this.menuStripInterface.Text = "menuStrip1";
             // 
-            // panelInterface
+            // 住院业务ToolStripMenuItem
             // 
-            this.panelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInterface.Location = new System.Drawing.Point(0, 25);
-            this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(1039, 582);
-            this.panelInterface.TabIndex = 2;
+            this.住院业务ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.普通门诊ToolStripMenuItem,
+            this.门诊特殊病ToolStripMenuItem,
+            this.工伤门诊ToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.ToolStripMenuItemBuyMedic});
+            this.住院业务ToolStripMenuItem.Image = global::Windows.ResImage.user;
+            this.住院业务ToolStripMenuItem.Name = "住院业务ToolStripMenuItem";
+            this.住院业务ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
+            this.住院业务ToolStripMenuItem.Text = "门诊业务";
+            // 
+            // 普通门诊ToolStripMenuItem
+            // 
+            this.普通门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_green;
+            this.普通门诊ToolStripMenuItem.Name = "普通门诊ToolStripMenuItem";
+            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.普通门诊ToolStripMenuItem.Text = "普通门诊";
+            // 
+            // 门诊特殊病ToolStripMenuItem
+            // 
+            this.门诊特殊病ToolStripMenuItem.Image = global::Windows.ResImage.user_red;
+            this.门诊特殊病ToolStripMenuItem.Name = "门诊特殊病ToolStripMenuItem";
+            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.门诊特殊病ToolStripMenuItem.Text = "门诊特殊病";
+            // 
+            // 工伤门诊ToolStripMenuItem
+            // 
+            this.工伤门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_gray;
+            this.工伤门诊ToolStripMenuItem.Name = "工伤门诊ToolStripMenuItem";
+            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.工伤门诊ToolStripMenuItem.Text = "工伤门诊";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // ToolStripMenuItemBuyMedic
+            // 
+            this.ToolStripMenuItemBuyMedic.Image = global::Windows.ResImage.stop;
+            this.ToolStripMenuItemBuyMedic.Name = "ToolStripMenuItemBuyMedic";
+            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemBuyMedic.Text = "(省直)购药";
+            // 
+            // 住院业务ToolStripMenuItem1
+            // 
+            this.住院业务ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.普通住院ToolStripMenuItem,
+            this.工伤住院ToolStripMenuItem});
+            this.住院业务ToolStripMenuItem1.Image = global::Windows.ResImage.group;
+            this.住院业务ToolStripMenuItem1.Name = "住院业务ToolStripMenuItem1";
+            this.住院业务ToolStripMenuItem1.Size = new System.Drawing.Size(84, 21);
+            this.住院业务ToolStripMenuItem1.Text = "住院业务";
+            // 
+            // 普通住院ToolStripMenuItem
+            // 
+            this.普通住院ToolStripMenuItem.Image = global::Windows.ResImage.group_add;
+            this.普通住院ToolStripMenuItem.Name = "普通住院ToolStripMenuItem";
+            this.普通住院ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.普通住院ToolStripMenuItem.Text = "普通住院";
+            // 
+            // 工伤住院ToolStripMenuItem
+            // 
+            this.工伤住院ToolStripMenuItem.Image = global::Windows.ResImage.group_error;
+            this.工伤住院ToolStripMenuItem.Name = "工伤住院ToolStripMenuItem";
+            this.工伤住院ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.工伤住院ToolStripMenuItem.Text = "工伤住院";
+            // 
+            // 基础字典维护ToolStripMenuItem
+            // 
+            this.基础字典维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemInterfaceDic,
+            this.类型对照表维护ToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.ToolStripMenuItemInterfaceFunc,
+            this.ToolStripMenuItemFuncTest,
+            this.ToolStripMenuItemTest});
+            this.基础字典维护ToolStripMenuItem.Image = global::Windows.ResImage.arrow_branch;
+            this.基础字典维护ToolStripMenuItem.Name = "基础字典维护ToolStripMenuItem";
+            this.基础字典维护ToolStripMenuItem.Size = new System.Drawing.Size(108, 21);
+            this.基础字典维护ToolStripMenuItem.Text = "基础字典维护";
             // 
             // ToolStripMenuItemInterfaceDic
             // 
+            this.ToolStripMenuItemInterfaceDic.Image = global::Windows.ResImage.application_key;
             this.ToolStripMenuItemInterfaceDic.Name = "ToolStripMenuItemInterfaceDic";
             this.ToolStripMenuItemInterfaceDic.Size = new System.Drawing.Size(196, 22);
             this.ToolStripMenuItemInterfaceDic.Text = "接口基础数据字典维护";
             this.ToolStripMenuItemInterfaceDic.Click += new System.EventHandler(this.ToolStripMenuItemInterfaceDic_Click);
             // 
+            // 类型对照表维护ToolStripMenuItem
+            // 
+            this.类型对照表维护ToolStripMenuItem.Image = global::Windows.ResImage.arrow_in;
+            this.类型对照表维护ToolStripMenuItem.Name = "类型对照表维护ToolStripMenuItem";
+            this.类型对照表维护ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.类型对照表维护ToolStripMenuItem.Text = "类型对照表维护";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            // 
+            // ToolStripMenuItemInterfaceFunc
+            // 
+            this.ToolStripMenuItemInterfaceFunc.Image = global::Windows.ResImage.application_view_tile;
+            this.ToolStripMenuItemInterfaceFunc.Name = "ToolStripMenuItemInterfaceFunc";
+            this.ToolStripMenuItemInterfaceFunc.Size = new System.Drawing.Size(196, 22);
+            this.ToolStripMenuItemInterfaceFunc.Text = "接口维护";
+            this.ToolStripMenuItemInterfaceFunc.Click += new System.EventHandler(this.ToolStripMenuItemInterfaceFunc_Click);
+            // 
+            // ToolStripMenuItemFuncTest
+            // 
+            this.ToolStripMenuItemFuncTest.Image = global::Windows.ResImage.disconnect;
+            this.ToolStripMenuItemFuncTest.Name = "ToolStripMenuItemFuncTest";
+            this.ToolStripMenuItemFuncTest.Size = new System.Drawing.Size(196, 22);
+            this.ToolStripMenuItemFuncTest.Text = "接口测试";
+            this.ToolStripMenuItemFuncTest.Click += new System.EventHandler(this.ToolStripMenuItemFuncTest_Click);
+            // 
+            // ToolStripMenuItemTest
+            // 
+            this.ToolStripMenuItemTest.Name = "ToolStripMenuItemTest";
+            this.ToolStripMenuItemTest.Size = new System.Drawing.Size(196, 22);
+            this.ToolStripMenuItemTest.Text = "测试";
+            this.ToolStripMenuItemTest.Click += new System.EventHandler(this.ToolStripMenuItemTest_Click);
             // 
             // Frm_Interface
             // 
@@ -298,11 +311,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Interface";
             this.Load += new System.EventHandler(this.Frm_Interface_Load);
-            this.menuStripInterface.ResumeLayout(false);
-            this.menuStripInterface.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.menuStripInterface.ResumeLayout(false);
+            this.menuStripInterface.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +331,7 @@
         private System.Windows.Forms.ToolStripMenuItem 门诊特殊病ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工伤门诊ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem 省直购药ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemBuyMedic;
         private System.Windows.Forms.ToolStripMenuItem 普通住院ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工伤住院ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 类型对照表维护ToolStripMenuItem;

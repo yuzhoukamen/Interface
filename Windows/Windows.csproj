@@ -249,6 +249,83 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\applications\anchor.png" />
+    <Content Include="Pictures\applications\application.png" />
+    <Content Include="Pictures\applications\application_add.png" />
+    <Content Include="Pictures\applications\application_cascade.png" />
+    <Content Include="Pictures\applications\application_delete.png" />
+    <Content Include="Pictures\applications\application_double.png" />
+    <Content Include="Pictures\applications\application_edit.png" />
+    <Content Include="Pictures\applications\application_error.png" />
+    <Content Include="Pictures\applications\application_form.png" />
+    <Content Include="Pictures\applications\application_form_add.png" />
+    <Content Include="Pictures\applications\application_form_delete.png" />
+    <Content Include="Pictures\applications\application_form_edit.png" />
+    <Content Include="Pictures\applications\application_form_magnify.png" />
+    <Content Include="Pictures\applications\application_get.png" />
+    <Content Include="Pictures\applications\application_go.png" />
+    <Content Include="Pictures\applications\application_home.png" />
+    <Content Include="Pictures\applications\application_key.png" />
+    <Content Include="Pictures\applications\application_lightning.png" />
+    <Content Include="Pictures\applications\application_link.png" />
+    <Content Include="Pictures\applications\application_osx.png" />
+    <Content Include="Pictures\applications\application_osx_terminal.png" />
+    <Content Include="Pictures\applications\application_put.png" />
+    <Content Include="Pictures\applications\application_side_boxes.png" />
+    <Content Include="Pictures\applications\application_side_contract.png" />
+    <Content Include="Pictures\applications\application_side_expand.png" />
+    <Content Include="Pictures\applications\application_side_list.png" />
+    <Content Include="Pictures\applications\application_side_tree.png" />
+    <Content Include="Pictures\applications\application_split.png" />
+    <Content Include="Pictures\applications\application_tile_horizontal.png" />
+    <Content Include="Pictures\applications\application_tile_vertical.png" />
+    <Content Include="Pictures\applications\application_view_columns.png" />
+    <Content Include="Pictures\applications\application_view_detail.png" />
+    <Content Include="Pictures\applications\application_view_gallery.png" />
+    <Content Include="Pictures\applications\application_view_icons.png" />
+    <Content Include="Pictures\applications\application_view_list.png" />
+    <Content Include="Pictures\applications\application_view_tile.png" />
+    <Content Include="Pictures\applications\application_xp.png" />
+    <Content Include="Pictures\applications\application_xp_terminal.png" />
+    <Content Include="Pictures\applications\attach.png" />
+    <Content Include="Pictures\applications\bomb.png" />
+    <Content Include="Pictures\applications\box.png" />
+    <Content Include="Pictures\applications\briefcase.png" />
+    <Content Include="Pictures\applications\cake.png" />
+    <Content Include="Pictures\applications\cancel.png" />
+    <Content Include="Pictures\applications\compress.png" />
+    <Content Include="Pictures\applications\connect.png" />
+    <Content Include="Pictures\applications\creditcards.png" />
+    <Content Include="Pictures\applications\cursor.png" />
+    <Content Include="Pictures\applications\database.png" />
+    <Content Include="Pictures\applications\delete.png" />
+    <Content Include="Pictures\applications\disconnect.png" />
+    <Content Include="Pictures\applications\exclamation.png" />
+    <Content Include="Pictures\applications\eye.png" />
+    <Content Include="Pictures\applications\female.png" />
+    <Content Include="Pictures\applications\find.png" />
+    <Content Include="Pictures\applications\help.png" />
+    <Content Include="Pictures\applications\information.png" />
+    <Content Include="Pictures\applications\layers.png" />
+    <Content Include="Pictures\applications\male.png" />
+    <Content Include="Pictures\applications\music.png" />
+    <Content Include="Pictures\applications\new.png" />
+    <Content Include="Pictures\applications\paintbrush.png" />
+    <Content Include="Pictures\applications\paintcan.png" />
+    <Content Include="Pictures\applications\palette.png" />
+    <Content Include="Pictures\applications\pilcrow.png" />
+    <Content Include="Pictures\applications\rainbow.png" />
+    <Content Include="Pictures\applications\rosette.png" />
+    <Content Include="Pictures\applications\shading.png" />
+    <Content Include="Pictures\applications\spellcheck.png" />
+    <Content Include="Pictures\applications\star.png" />
+    <Content Include="Pictures\applications\stop.png" />
+    <Content Include="Pictures\applications\sum.png" />
+    <Content Include="Pictures\applications\tag.png" />
+    <Content Include="Pictures\applications\tick.png" />
+    <Content Include="Pictures\applications\tux.png" />
+    <Content Include="Pictures\applications\vector.png" />
+    <Content Include="Pictures\applications\wand.png" />
     <Content Include="Pictures\arrow\accept.png" />
     <Content Include="Pictures\arrow\add.png" />
     <Content Include="Pictures\arrow\arrow_branch.png" />
@@ -274,6 +351,15 @@
     <Content Include="Pictures\arrow\cross.png" />
     <Content Include="Pictures\cancel.png" />
     <Content Include="Pictures\delete.png" />
+    <Content Include="Pictures\group\group.png" />
+    <Content Include="Pictures\group\group_add.png" />
+    <Content Include="Pictures\group\group_delete.png" />
+    <Content Include="Pictures\group\group_edit.png" />
+    <Content Include="Pictures\group\group_error.png" />
+    <Content Include="Pictures\group\group_gear.png" />
+    <Content Include="Pictures\group\group_go.png" />
+    <Content Include="Pictures\group\group_key.png" />
+    <Content Include="Pictures\group\group_link.png" />
     <Content Include="Pictures\Interface.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -283,6 +369,19 @@
     <Content Include="Pictures\Tips.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pictures\user\user.png" />
+    <Content Include="Pictures\user\user_add.png" />
+    <Content Include="Pictures\user\user_comment.png" />
+    <Content Include="Pictures\user\user_delete.png" />
+    <Content Include="Pictures\user\user_edit.png" />
+    <Content Include="Pictures\user\user_edit32.png" />
+    <Content Include="Pictures\user\user_female.png" />
+    <Content Include="Pictures\user\user_go.png" />
+    <Content Include="Pictures\user\user_gray.png" />
+    <Content Include="Pictures\user\user_green.png" />
+    <Content Include="Pictures\user\user_orange.png" />
+    <Content Include="Pictures\user\user_red.png" />
+    <Content Include="Pictures\user\user_suit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
