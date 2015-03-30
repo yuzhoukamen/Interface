@@ -157,5 +157,12 @@ namespace Windows
 
             AddFormToPanelInterface(frm);
         }
+
+        private void ToolStripMenuItemJCType_Click(object sender, EventArgs e)
+        {
+            Frm_JCType frm = new Frm_JCType();
+
+            AddFormToPanelInterface(frm);
+        }
     }
 }

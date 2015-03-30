@@ -132,6 +132,12 @@
     <Compile Include="Frm_InterfaceFuncAdd.Designer.cs">
       <DependentUpon>Frm_InterfaceFuncAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_JCType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_JCType.Designer.cs">
+      <DependentUpon>Frm_JCType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_InterfaceFuncAdd.resx">
       <DependentUpon>Frm_InterfaceFuncAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_JCType.resx">
+      <DependentUpon>Frm_JCType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>

@@ -65,6 +65,8 @@
     <Compile Include="HN\HealthNews\Message.cs" />
     <Compile Include="HN\HosDirManage\Info.cs" />
     <Compile Include="HN\HosDirManage\Medic.cs" />
+    <Compile Include="HN\HosDirManage\Disease.cs" />
+    <Compile Include="HN\HosDirManage\Project.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="DllInvoke.cs" />
     <Compile Include="HN\PublicFunctions\Card.cs" />

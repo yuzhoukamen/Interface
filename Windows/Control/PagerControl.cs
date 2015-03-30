@@ -260,5 +260,44 @@ namespace Windows.Control
             this.RecordCount = count;
             this.lblTotalCount.Text = count.ToString();
         }
+
+        private void txtPageSize_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int result = 0;
+
+                if (int.TryParse(this.txtPageSize.Text.Trim(), out result))
+                {
+                    this.PageSize = result;
+                    DrawControl(true);
+                }
+                else
+                {
+                    this.txtPageSize.Clear();
+                    this.txtPageSize.Focus();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtPageSize_TextChanged(object sender, EventArgs e)
+        {
+            int result = 0;
+
+            if (!int.TryParse(this.txtPageSize.Text.Trim(), out result))
+            {
+                this.txtPageSize.Clear();
+                this.txtPageSize.Focus();
+            }
+            else
+            {
+                SetPageSize(result);  
+            }
+        }
     }
 }

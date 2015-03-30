@@ -49,7 +49,7 @@
             // 
             this.lblPageCount.AutoSize = true;
             this.lblPageCount.ForeColor = System.Drawing.Color.Red;
-            this.lblPageCount.Location = new System.Drawing.Point(46, 9);
+            this.lblPageCount.Location = new System.Drawing.Point(57, 9);
             this.lblPageCount.Name = "lblPageCount";
             this.lblPageCount.Size = new System.Drawing.Size(11, 12);
             this.lblPageCount.TabIndex = 72;
@@ -58,7 +58,7 @@
             // lblSept
             // 
             this.lblSept.AutoSize = true;
-            this.lblSept.Location = new System.Drawing.Point(29, 9);
+            this.lblSept.Location = new System.Drawing.Point(34, 9);
             this.lblSept.Name = "lblSept";
             this.lblSept.Size = new System.Drawing.Size(11, 12);
             this.lblSept.TabIndex = 71;
@@ -130,6 +130,7 @@
             this.btnGo.TabIndex = 64;
             this.btnGo.Text = "跳转";
             this.btnGo.UseVisualStyleBackColor = false;
+            this.btnGo.Visible = false;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // txtPageSize
@@ -140,6 +141,8 @@
             this.txtPageSize.Size = new System.Drawing.Size(32, 21);
             this.txtPageSize.TabIndex = 62;
             this.txtPageSize.Text = "100";
+            this.txtPageSize.TextChanged += new System.EventHandler(this.txtPageSize_TextChanged);
+            this.txtPageSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPageSize_KeyDown);
             // 
             // txtPageNum
             // 
@@ -147,6 +150,7 @@
             this.txtPageNum.Name = "txtPageNum";
             this.txtPageNum.Size = new System.Drawing.Size(29, 21);
             this.txtPageNum.TabIndex = 63;
+            this.txtPageNum.Visible = false;
             // 
             // lnkLast
             // 

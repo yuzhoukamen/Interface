@@ -261,7 +261,7 @@ namespace InterfaceClass
         /// <returns></returns>
         public string GetMessage()
         {
-            StringBuilder sbError = new StringBuilder();
+            StringBuilder sbError = new StringBuilder(1024 * 1024);
 
             long value = InterfaceHNDll.getmessage(this.P_inter, sbError);
 
@@ -279,7 +279,7 @@ namespace InterfaceClass
         /// <returns></returns>
         public string GetException()
         {
-            StringBuilder sbException = new StringBuilder();
+            StringBuilder sbException = new StringBuilder(1024 * 1024);
 
             long value = InterfaceHNDll.getexception(this.P_inter, sbException);
 
@@ -334,7 +334,7 @@ namespace InterfaceClass
         {
             long temp = InterfaceHNDll.putcol(this.P_inter, name, value);
 
-            if (temp < 0)
+            if (temp == -1)
             {
                 throw new Exception("执行函数putcol错误，错误原因：" + GetMessage());
             }
@@ -351,7 +351,7 @@ namespace InterfaceClass
             {
                 long value = PutCol(parameter.Name, parameter.Value);
 
-                if (0 > value)
+                if (-1 == value)
                 {
                     throw new Exception("传入业务所需的参数\"" + parameter.Name + ":" + parameter.Value + "\"失败!!!");
                 }
