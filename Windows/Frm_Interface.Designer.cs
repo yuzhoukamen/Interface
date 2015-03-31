@@ -55,9 +55,12 @@
             this.ToolStripMenuItemInterfaceFunc = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemFuncTest = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStripInterface.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // timerCurrentTime
@@ -67,10 +70,12 @@
             // 
             // panelInterface
             // 
-            this.panelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInterface.Location = new System.Drawing.Point(0, 25);
+            this.panelInterface.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelInterface.Location = new System.Drawing.Point(0, 57);
             this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(1039, 582);
+            this.panelInterface.Size = new System.Drawing.Size(1039, 550);
             this.panelInterface.TabIndex = 2;
             // 
             // panel1
@@ -187,33 +192,33 @@
             // 
             this.普通门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_green;
             this.普通门诊ToolStripMenuItem.Name = "普通门诊ToolStripMenuItem";
-            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.普通门诊ToolStripMenuItem.Text = "普通门诊";
             // 
             // 门诊特殊病ToolStripMenuItem
             // 
             this.门诊特殊病ToolStripMenuItem.Image = global::Windows.ResImage.user_red;
             this.门诊特殊病ToolStripMenuItem.Name = "门诊特殊病ToolStripMenuItem";
-            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.门诊特殊病ToolStripMenuItem.Text = "门诊特殊病";
             // 
             // 工伤门诊ToolStripMenuItem
             // 
             this.工伤门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_gray;
             this.工伤门诊ToolStripMenuItem.Name = "工伤门诊ToolStripMenuItem";
-            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.工伤门诊ToolStripMenuItem.Text = "工伤门诊";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // ToolStripMenuItemBuyMedic
             // 
             this.ToolStripMenuItemBuyMedic.Image = global::Windows.ResImage.stop;
             this.ToolStripMenuItemBuyMedic.Name = "ToolStripMenuItemBuyMedic";
-            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(136, 22);
+            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(152, 22);
             this.ToolStripMenuItemBuyMedic.Text = "(省直)购药";
             // 
             // 住院业务ToolStripMenuItem1
@@ -298,15 +303,36 @@
             this.ToolStripMenuItemTest.Text = "测试";
             this.ToolStripMenuItemTest.Click += new System.EventHandler(this.ToolStripMenuItemTest_Click);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 25);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1039, 30);
+            this.flowLayoutPanel2.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Image = global::Windows.ResImage.user_green;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "   普通门诊";
+            // 
             // Frm_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 639);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panelInterface);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripInterface);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStripInterface;
             this.Name = "Frm_Interface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -317,6 +343,8 @@
             this.flowLayoutPanel1.PerformLayout();
             this.menuStripInterface.ResumeLayout(false);
             this.menuStripInterface.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,5 +378,7 @@
         private System.Windows.Forms.Label lblFrmTitle;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemInterfaceDic;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label1;
     }
 }

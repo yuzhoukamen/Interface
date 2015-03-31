@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTips = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTips
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "正在处理请稍后......";
+            this.lblTips.AutoSize = true;
+            this.lblTips.Location = new System.Drawing.Point(57, 19);
+            this.lblTips.Name = "lblTips";
+            this.lblTips.Size = new System.Drawing.Size(125, 12);
+            this.lblTips.TabIndex = 0;
+            this.lblTips.Text = "正在处理请稍后......";
             // 
             // Frm_Tips
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(185, 50);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(313, 50);
+            this.Controls.Add(this.lblTips);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Tips";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -58,6 +58,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTips;
     }
 }

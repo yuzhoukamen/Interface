@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
+using InterfaceClass.HN.HosDirManage;
 
 namespace Windows
 {
@@ -55,12 +57,7 @@ namespace Windows
         {
             try
             {
-                Frm_Tips frm_tips = new Frm_Tips();
-
-                frm_tips.StartPosition = FormStartPosition.CenterScreen;
-
-                frm_tips.Show();
-                Application.DoEvents();
+                DisplayTips();
 
                 InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
 
@@ -124,15 +121,14 @@ namespace Windows
 
                 this.c1FlexGridMedical.DataSource = dt;
 
-                frm_tips.Close();
+                CloseTips();
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError(ee.Message);
             }
         }
-
-
 
         /// <summary>
         /// 页面改变
@@ -144,31 +140,46 @@ namespace Windows
             this.btnMedicalQuery.PerformClick();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pagerControlProject_OnPageChanged(object sender, EventArgs e)
         {
             this.btnProjectQuery.PerformClick();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pagerControlDisease_OnPageChanged(object sender, EventArgs e)
         {
             this.btnDiseaseQuery.PerformClick();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDiseaseQuery_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProjectQuery_Click(object sender, EventArgs e)
         {
             try
             {
-                Frm_Tips frm_tips = new Frm_Tips();
-
-                frm_tips.StartPosition = FormStartPosition.CenterScreen;
-
-                frm_tips.Show();
-                Application.DoEvents();
+                DisplayTips();
 
                 InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
 
@@ -230,11 +241,47 @@ namespace Windows
 
                 this.c1FlexGridProject.DataSource = dt;
 
-                frm_tips.Close();
+                CloseTips();
             }
             catch (Exception ee)
             {
                 CommonFunctions.MsgError(ee.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMedicalDown_Click(object sender, EventArgs e)
+        {
+
+            if (this.c1FlexGridMedical.Rows.Count <= 0 || this.pagerControlMedical.PageCount <= 0)
+            {
+                CommonFunctions.MsgInfo("请先检索中心药品数据，之后再进行【下载中心药品数据到HIS数据库】操作！！！");
+                return;
+            }
+
+            try
+            {
+                InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
+
+                string centerID = baseInterfaceHN.Oper_centerid;
+                string type = "version";
+                string condition = "bs_medi";
+                string once_find = "1";
+                string first_row = "1";
+                string last_row = this.pagerControlMedical.PageCount.ToString();
+                string first_version_id = "1";
+                string last_version_id = "1000000";
+
+                List<InterfaceClass.HN.HosDirManage.Medic> listMedical = info.GetCenterMedicDirPageInfo(centerID, type, condition, once_find, first_row, last_row, first_version_id, last_version_id);
+
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError("下载中心药品数据到HIS数据库失败，失败原因：" + ee.Message);
             }
         }
     }

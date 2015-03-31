@@ -97,9 +97,9 @@
             this.lblTotalCount.ForeColor = System.Drawing.Color.Red;
             this.lblTotalCount.Location = new System.Drawing.Point(111, 9);
             this.lblTotalCount.Name = "lblTotalCount";
-            this.lblTotalCount.Size = new System.Drawing.Size(53, 12);
+            this.lblTotalCount.Size = new System.Drawing.Size(11, 12);
             this.lblTotalCount.TabIndex = 67;
-            this.lblTotalCount.Text = "10000000";
+            this.lblTotalCount.Text = "0";
             // 
             // lblMsg2
             // 

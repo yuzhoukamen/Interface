@@ -45,6 +45,10 @@ namespace Windows
 
             this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            Frm_Flow frm = new Frm_Flow();
+
+            AddFormToPanelInterface(frm);
         }
 
         /// <summary>

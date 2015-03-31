@@ -107,7 +107,7 @@ namespace Windows.Class
             set { this._separatorcolor = value; }
         }
 
-        private Color _mainmenubackcolor = Color.Black;
+        private Color _mainmenubackcolor = Color.White;
 
         /// <summary>  
         /// 主菜单背景色  

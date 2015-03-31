@@ -11,14 +11,28 @@ namespace Windows
 {
     public partial class Frm_Tips : Form
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private Image m_Image = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private EventHandler evtHandler = null;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Frm_Tips()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -37,6 +51,11 @@ namespace Windows
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Frm_Tips_Load(object sender, EventArgs e)
         {
             //为委托关联一个处理方法
@@ -52,8 +71,9 @@ namespace Windows
             BeginAnimate();
         }
 
-        //开始动画方法
-
+        /// <summary>
+        /// 开始动画方法
+        /// </summary>
         private void BeginAnimate()
         {
 
@@ -68,8 +88,11 @@ namespace Windows
 
         }
 
-        //委托所关联的方法
-
+        /// <summary>
+        /// 委托所关联的方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnImageAnimate(Object sender, EventArgs e)
         {
 
@@ -79,8 +102,9 @@ namespace Windows
 
         }
 
-        //获得当前gif动画的下一步需要渲染的帧，当下一步任何对当前gif动画的操作都是对该帧进行操作)
-
+        /// <summary>
+        /// 获得当前gif动画的下一步需要渲染的帧，当下一步任何对当前gif动画的操作都是对该帧进行操作)
+        /// </summary>
         private void UpdateImage()
         {
 
@@ -88,8 +112,9 @@ namespace Windows
 
         }
 
-        //关闭显示动画，该方法可以在winform关闭时，或者某个按钮的触发事件中进行调用，以停止渲染当前gif动画。
-
+        /// <summary>
+        /// 关闭显示动画，该方法可以在winform关闭时，或者某个按钮的触发事件中进行调用，以停止渲染当前gif动画。
+        /// </summary>
         private void StopAnimate()
         {
 
@@ -97,6 +122,15 @@ namespace Windows
 
             ImageAnimator.StopAnimate(m_Image, evtHandler);
 
+        }
+
+        /// <summary>
+        /// 写消息
+        /// </summary>
+        /// <param name="msg"></param>
+        public void WriteMsg(string msg)
+        {
+            this.lblTips.Text = msg;
         }
     }
 }

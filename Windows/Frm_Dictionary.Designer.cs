@@ -47,6 +47,8 @@
             this.pagerControlDisease = new Windows.Control.PagerControl();
             this.btnDiseaseQuery = new System.Windows.Forms.Button();
             this.btnDiseaseDown = new System.Windows.Forms.Button();
+            this.panelTips = new System.Windows.Forms.Panel();
+            this.lblTips = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageMedical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridMedical)).BeginInit();
@@ -57,6 +59,7 @@
             this.tabPageDisease.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
+            this.panelTips.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,6 +76,7 @@
             // 
             // tabPageMedical
             // 
+            this.tabPageMedical.Controls.Add(this.panelTips);
             this.tabPageMedical.Controls.Add(this.c1FlexGridMedical);
             this.tabPageMedical.Controls.Add(this.flowLayoutPanel1);
             this.tabPageMedical.Location = new System.Drawing.Point(4, 22);
@@ -125,9 +129,9 @@
             this.btnMedicalQuery.Location = new System.Drawing.Point(578, 3);
             this.btnMedicalQuery.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnMedicalQuery.Name = "btnMedicalQuery";
-            this.btnMedicalQuery.Size = new System.Drawing.Size(81, 23);
+            this.btnMedicalQuery.Size = new System.Drawing.Size(107, 23);
             this.btnMedicalQuery.TabIndex = 0;
-            this.btnMedicalQuery.Text = "   数据检索";
+            this.btnMedicalQuery.Text = "   检索中心药品";
             this.btnMedicalQuery.UseVisualStyleBackColor = true;
             this.btnMedicalQuery.Click += new System.EventHandler(this.btnMedicalQuery_Click);
             // 
@@ -136,13 +140,14 @@
             this.btnMedicalDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMedicalDown.Image = global::Windows.ResImage.arrow_down;
             this.btnMedicalDown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMedicalDown.Location = new System.Drawing.Point(670, 3);
+            this.btnMedicalDown.Location = new System.Drawing.Point(696, 3);
             this.btnMedicalDown.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnMedicalDown.Name = "btnMedicalDown";
-            this.btnMedicalDown.Size = new System.Drawing.Size(184, 23);
+            this.btnMedicalDown.Size = new System.Drawing.Size(198, 23);
             this.btnMedicalDown.TabIndex = 1;
-            this.btnMedicalDown.Text = "   下载数据并提交到HIS数据库";
+            this.btnMedicalDown.Text = "   下载中心药品数据到HIS数据库";
             this.btnMedicalDown.UseVisualStyleBackColor = true;
+            this.btnMedicalDown.Click += new System.EventHandler(this.btnMedicalDown_Click);
             // 
             // tabPageProject
             // 
@@ -198,9 +203,9 @@
             this.btnProjectQuery.Location = new System.Drawing.Point(578, 3);
             this.btnProjectQuery.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnProjectQuery.Name = "btnProjectQuery";
-            this.btnProjectQuery.Size = new System.Drawing.Size(81, 23);
+            this.btnProjectQuery.Size = new System.Drawing.Size(107, 23);
             this.btnProjectQuery.TabIndex = 0;
-            this.btnProjectQuery.Text = "   数据检索";
+            this.btnProjectQuery.Text = "   检索中心项目";
             this.btnProjectQuery.UseVisualStyleBackColor = true;
             this.btnProjectQuery.Click += new System.EventHandler(this.btnProjectQuery_Click);
             // 
@@ -209,12 +214,12 @@
             this.btnProjectDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProjectDown.Image = global::Windows.ResImage.arrow_down;
             this.btnProjectDown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProjectDown.Location = new System.Drawing.Point(670, 3);
+            this.btnProjectDown.Location = new System.Drawing.Point(696, 3);
             this.btnProjectDown.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnProjectDown.Name = "btnProjectDown";
-            this.btnProjectDown.Size = new System.Drawing.Size(184, 23);
+            this.btnProjectDown.Size = new System.Drawing.Size(197, 23);
             this.btnProjectDown.TabIndex = 1;
-            this.btnProjectDown.Text = "   下载数据并提交到HIS数据库";
+            this.btnProjectDown.Text = "   下载中心项目数据到HIS数据库";
             this.btnProjectDown.UseVisualStyleBackColor = true;
             // 
             // tabPageDisease
@@ -270,9 +275,9 @@
             this.btnDiseaseQuery.Location = new System.Drawing.Point(578, 3);
             this.btnDiseaseQuery.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnDiseaseQuery.Name = "btnDiseaseQuery";
-            this.btnDiseaseQuery.Size = new System.Drawing.Size(81, 23);
+            this.btnDiseaseQuery.Size = new System.Drawing.Size(110, 23);
             this.btnDiseaseQuery.TabIndex = 0;
-            this.btnDiseaseQuery.Text = "   数据检索";
+            this.btnDiseaseQuery.Text = "   检索中心疾病";
             this.btnDiseaseQuery.UseVisualStyleBackColor = true;
             this.btnDiseaseQuery.Click += new System.EventHandler(this.btnDiseaseQuery_Click);
             // 
@@ -281,13 +286,31 @@
             this.btnDiseaseDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiseaseDown.Image = global::Windows.ResImage.arrow_down;
             this.btnDiseaseDown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiseaseDown.Location = new System.Drawing.Point(670, 3);
+            this.btnDiseaseDown.Location = new System.Drawing.Point(699, 3);
             this.btnDiseaseDown.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
             this.btnDiseaseDown.Name = "btnDiseaseDown";
-            this.btnDiseaseDown.Size = new System.Drawing.Size(184, 23);
+            this.btnDiseaseDown.Size = new System.Drawing.Size(197, 23);
             this.btnDiseaseDown.TabIndex = 1;
-            this.btnDiseaseDown.Text = "   下载数据并提交到HIS数据库";
+            this.btnDiseaseDown.Text = "   下载中心疾病数据到HIS数据库";
             this.btnDiseaseDown.UseVisualStyleBackColor = true;
+            // 
+            // panelTips
+            // 
+            this.panelTips.Controls.Add(this.lblTips);
+            this.panelTips.Location = new System.Drawing.Point(294, 207);
+            this.panelTips.Name = "panelTips";
+            this.panelTips.Size = new System.Drawing.Size(328, 58);
+            this.panelTips.TabIndex = 2;
+            this.panelTips.Visible = false;
+            // 
+            // lblTips
+            // 
+            this.lblTips.AutoSize = true;
+            this.lblTips.Location = new System.Drawing.Point(86, 24);
+            this.lblTips.Name = "lblTips";
+            this.lblTips.Size = new System.Drawing.Size(137, 12);
+            this.lblTips.TabIndex = 0;
+            this.lblTips.Text = "正在处理，请稍后......";
             // 
             // Frm_Dictionary
             // 
@@ -308,6 +331,8 @@
             this.tabPageDisease.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.panelTips.ResumeLayout(false);
+            this.panelTips.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +358,7 @@
         private Control.PagerControl pagerControlDisease;
         private System.Windows.Forms.Button btnDiseaseQuery;
         private System.Windows.Forms.Button btnDiseaseDown;
+        private System.Windows.Forms.Panel panelTips;
+        private System.Windows.Forms.Label lblTips;
     }
 }
