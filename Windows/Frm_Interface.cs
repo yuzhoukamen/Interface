@@ -49,6 +49,18 @@ namespace Windows
             Frm_Flow frm = new Frm_Flow();
 
             AddFormToPanelInterface(frm);
+
+            DisaplayMsg();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void DisaplayMsg()
+        {
+            Frm_Msg frm = new Frm_Msg();
+
+            AddFormToPanelInterface(frm);
         }
 
         /// <summary>
@@ -162,11 +174,60 @@ namespace Windows
             AddFormToPanelInterface(frm);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolStripMenuItemJCType_Click(object sender, EventArgs e)
         {
             Frm_JCType frm = new Frm_JCType();
 
             AddFormToPanelInterface(frm);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblFlow_Click(object sender, EventArgs e)
+        {
+            Frm_Flow frm = new Frm_Flow();
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblMsg_Click(object sender, EventArgs e)
+        {
+            Frm_Msg frm = new Frm_Msg();
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblSetup_Click(object sender, EventArgs e)
+        {
+            Frm_Setup frm = new Frm_Setup();
+
+            AddFormToPanelInterface(frm);
+        }
+
+        private void labelDirCompare_Click(object sender, EventArgs e)
+        {
+            Frm_DirCompare frm = new Frm_DirCompare();
+
+            AddFormToPanelInterface(frm);
+        }
+
     }
 }

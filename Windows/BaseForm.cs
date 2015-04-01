@@ -200,12 +200,34 @@ namespace Windows
         }
 
         /// <summary>
+        /// 空表格
+        /// </summary>
+        /// <param name="flexGrid"></param>
+        /// <param name="msg">填写的内容</param>
+        public void SetC1FlexGridNullDataTable(C1.Win.C1FlexGrid.C1FlexGrid flexGrid, string msg)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("内容");
+
+            DataRow dr = dt.NewRow();
+
+            dr["内容"] = msg;
+
+            dt.Rows.Add(dr);
+
+            flexGrid.DataSource = dt;
+            flexGrid.Cols["内容"].Width = flexGrid.Width;
+        }
+
+
+        /// <summary>
         /// 返回数据列
         /// </summary>
         /// <param name="columnName"></param>
         /// <param name="caption"></param>
         /// <returns></returns>
-        public DataColumn GetDataColumn(string columnName, string caption)
+        public DataColumn AddDataColumn(string columnName, string caption)
         {
             DataColumn dc = new DataColumn();
 

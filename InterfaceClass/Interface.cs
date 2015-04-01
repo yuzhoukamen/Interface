@@ -101,6 +101,17 @@ namespace InterfaceClass
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <param name="length"></param>
+        public void GetByName(string name, ref string value, int length)
+        {
+            this.InterfaceHN.GetByName(name, ref value, length);
+        }
+
+        /// <summary>
         /// 跳到结果集后一行记录
         /// </summary>
         /// <returns></returns>

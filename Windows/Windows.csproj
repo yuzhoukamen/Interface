@@ -108,6 +108,12 @@
     <Compile Include="Frm_Dictionary.Designer.cs">
       <DependentUpon>Frm_Dictionary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_DirCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_DirCompare.Designer.cs">
+      <DependentUpon>Frm_DirCompare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Flow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,18 @@
     <Compile Include="Frm_Main.Designer.cs">
       <DependentUpon>Frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Msg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Msg.Designer.cs">
+      <DependentUpon>Frm_Msg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Setup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Setup.Designer.cs">
+      <DependentUpon>Frm_Setup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Tips.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Dictionary.resx">
       <DependentUpon>Frm_Dictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_DirCompare.resx">
+      <DependentUpon>Frm_DirCompare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Flow.resx">
       <DependentUpon>Frm_Flow.cs</DependentUpon>
@@ -202,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Main.resx">
       <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Msg.resx">
+      <DependentUpon>Frm_Msg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Setup.resx">
+      <DependentUpon>Frm_Setup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Tips.resx">
       <DependentUpon>Frm_Tips.cs</DependentUpon>

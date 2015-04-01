@@ -57,6 +57,19 @@
             this.ToolStripMenuItemTest = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.label3 = new System.Windows.Forms.Label();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.label4 = new System.Windows.Forms.Label();
+            this.splitter3 = new System.Windows.Forms.Splitter();
+            this.labelDirCompare = new System.Windows.Forms.Label();
+            this.splitter4 = new System.Windows.Forms.Splitter();
+            this.lblMsg = new System.Windows.Forms.Label();
+            this.splitter5 = new System.Windows.Forms.Splitter();
+            this.lblFlow = new System.Windows.Forms.Label();
+            this.lblSetup = new System.Windows.Forms.Label();
+            this.splitter6 = new System.Windows.Forms.Splitter();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStripInterface.SuspendLayout();
@@ -73,18 +86,18 @@
             this.panelInterface.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelInterface.Location = new System.Drawing.Point(0, 57);
+            this.panelInterface.Location = new System.Drawing.Point(0, 59);
             this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(1039, 550);
+            this.panelInterface.Size = new System.Drawing.Size(1154, 546);
             this.panelInterface.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 607);
+            this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1039, 32);
+            this.panel1.Size = new System.Drawing.Size(1154, 32);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -93,11 +106,10 @@
             this.flowLayoutPanel1.Controls.Add(this.lblUnitName);
             this.flowLayoutPanel1.Controls.Add(this.lblUserName);
             this.flowLayoutPanel1.Controls.Add(this.lblCurrentTime);
-            this.flowLayoutPanel1.Controls.Add(this.lblFrmTitle);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1039, 32);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1154, 32);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lblTips
@@ -156,7 +168,7 @@
             this.lblFrmTitle.AutoSize = true;
             this.lblFrmTitle.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblFrmTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblFrmTitle.Location = new System.Drawing.Point(649, 8);
+            this.lblFrmTitle.Location = new System.Drawing.Point(673, 8);
             this.lblFrmTitle.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.lblFrmTitle.Name = "lblFrmTitle";
             this.lblFrmTitle.Size = new System.Drawing.Size(122, 12);
@@ -171,7 +183,7 @@
             this.基础字典维护ToolStripMenuItem});
             this.menuStripInterface.Location = new System.Drawing.Point(0, 0);
             this.menuStripInterface.Name = "menuStripInterface";
-            this.menuStripInterface.Size = new System.Drawing.Size(1039, 25);
+            this.menuStripInterface.Size = new System.Drawing.Size(1154, 25);
             this.menuStripInterface.TabIndex = 0;
             this.menuStripInterface.Text = "menuStrip1";
             // 
@@ -192,33 +204,33 @@
             // 
             this.普通门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_green;
             this.普通门诊ToolStripMenuItem.Name = "普通门诊ToolStripMenuItem";
-            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.普通门诊ToolStripMenuItem.Text = "普通门诊";
             // 
             // 门诊特殊病ToolStripMenuItem
             // 
             this.门诊特殊病ToolStripMenuItem.Image = global::Windows.ResImage.user_red;
             this.门诊特殊病ToolStripMenuItem.Name = "门诊特殊病ToolStripMenuItem";
-            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.门诊特殊病ToolStripMenuItem.Text = "门诊特殊病";
             // 
             // 工伤门诊ToolStripMenuItem
             // 
             this.工伤门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_gray;
             this.工伤门诊ToolStripMenuItem.Name = "工伤门诊ToolStripMenuItem";
-            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.工伤门诊ToolStripMenuItem.Text = "工伤门诊";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
             // ToolStripMenuItemBuyMedic
             // 
             this.ToolStripMenuItemBuyMedic.Image = global::Windows.ResImage.stop;
             this.ToolStripMenuItemBuyMedic.Name = "ToolStripMenuItemBuyMedic";
-            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(136, 22);
             this.ToolStripMenuItemBuyMedic.Text = "(省直)购药";
             // 
             // 住院业务ToolStripMenuItem1
@@ -306,29 +318,193 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.splitter1);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.splitter2);
+            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.splitter3);
+            this.flowLayoutPanel2.Controls.Add(this.labelDirCompare);
+            this.flowLayoutPanel2.Controls.Add(this.splitter4);
+            this.flowLayoutPanel2.Controls.Add(this.lblMsg);
+            this.flowLayoutPanel2.Controls.Add(this.splitter5);
+            this.flowLayoutPanel2.Controls.Add(this.lblFlow);
+            this.flowLayoutPanel2.Controls.Add(this.lblSetup);
+            this.flowLayoutPanel2.Controls.Add(this.splitter6);
+            this.flowLayoutPanel2.Controls.Add(this.lblFrmTitle);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1039, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1154, 28);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Image = global::Windows.ResImage.user_green;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.Size = new System.Drawing.Size(95, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "   普通门诊";
+            this.label1.Text = "   普通门诊报销";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Image = global::Windows.ResImage.group;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(104, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "   普通住院报销";
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter1.Location = new System.Drawing.Point(205, 3);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 14);
+            this.splitter1.TabIndex = 3;
+            this.splitter1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Image = global::Windows.ResImage.accept;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(214, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "   读卡";
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter2.Location = new System.Drawing.Point(267, 3);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(3, 14);
+            this.splitter2.TabIndex = 5;
+            this.splitter2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Image = global::Windows.ResImage.application_tile_horizontal;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(276, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 12);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "   数据统计";
+            // 
+            // splitter3
+            // 
+            this.splitter3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter3.Location = new System.Drawing.Point(353, 3);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(3, 14);
+            this.splitter3.TabIndex = 7;
+            this.splitter3.TabStop = false;
+            // 
+            // labelDirCompare
+            // 
+            this.labelDirCompare.AutoSize = true;
+            this.labelDirCompare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelDirCompare.Image = global::Windows.ResImage.application_view_detail;
+            this.labelDirCompare.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelDirCompare.Location = new System.Drawing.Point(362, 8);
+            this.labelDirCompare.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.labelDirCompare.Name = "labelDirCompare";
+            this.labelDirCompare.Size = new System.Drawing.Size(71, 12);
+            this.labelDirCompare.TabIndex = 8;
+            this.labelDirCompare.Text = "   目录对照";
+            this.labelDirCompare.Click += new System.EventHandler(this.labelDirCompare_Click);
+            // 
+            // splitter4
+            // 
+            this.splitter4.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter4.Location = new System.Drawing.Point(439, 3);
+            this.splitter4.Name = "splitter4";
+            this.splitter4.Size = new System.Drawing.Size(3, 14);
+            this.splitter4.TabIndex = 9;
+            this.splitter4.TabStop = false;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMsg.Image = global::Windows.ResImage.box;
+            this.lblMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMsg.Location = new System.Drawing.Point(448, 8);
+            this.lblMsg.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(71, 12);
+            this.lblMsg.TabIndex = 10;
+            this.lblMsg.Text = "   通知管理";
+            this.lblMsg.Click += new System.EventHandler(this.lblMsg_Click);
+            // 
+            // splitter5
+            // 
+            this.splitter5.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter5.Location = new System.Drawing.Point(525, 3);
+            this.splitter5.Name = "splitter5";
+            this.splitter5.Size = new System.Drawing.Size(3, 14);
+            this.splitter5.TabIndex = 11;
+            this.splitter5.TabStop = false;
+            // 
+            // lblFlow
+            // 
+            this.lblFlow.AutoSize = true;
+            this.lblFlow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFlow.Image = global::Windows.ResImage.application_home;
+            this.lblFlow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFlow.Location = new System.Drawing.Point(534, 8);
+            this.lblFlow.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblFlow.Name = "lblFlow";
+            this.lblFlow.Size = new System.Drawing.Size(47, 12);
+            this.lblFlow.TabIndex = 12;
+            this.lblFlow.Text = "   首页";
+            this.lblFlow.Click += new System.EventHandler(this.lblFlow_Click);
+            // 
+            // lblSetup
+            // 
+            this.lblSetup.AutoSize = true;
+            this.lblSetup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSetup.Image = global::Windows.ResImage.application_key;
+            this.lblSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSetup.Location = new System.Drawing.Point(587, 8);
+            this.lblSetup.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblSetup.Name = "lblSetup";
+            this.lblSetup.Size = new System.Drawing.Size(71, 12);
+            this.lblSetup.TabIndex = 13;
+            this.lblSetup.Text = "   参数设置";
+            this.lblSetup.Click += new System.EventHandler(this.lblSetup_Click);
+            // 
+            // splitter6
+            // 
+            this.splitter6.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.splitter6.Location = new System.Drawing.Point(664, 3);
+            this.splitter6.Name = "splitter6";
+            this.splitter6.Size = new System.Drawing.Size(3, 14);
+            this.splitter6.TabIndex = 14;
+            this.splitter6.TabStop = false;
             // 
             // Frm_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 639);
+            this.ClientSize = new System.Drawing.Size(1154, 637);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panelInterface);
             this.Controls.Add(this.panel1);
@@ -380,5 +556,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Splitter splitter3;
+        private System.Windows.Forms.Label labelDirCompare;
+        private System.Windows.Forms.Splitter splitter4;
+        private System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Splitter splitter5;
+        private System.Windows.Forms.Label lblFlow;
+        private System.Windows.Forms.Label lblSetup;
+        private System.Windows.Forms.Splitter splitter6;
     }
 }

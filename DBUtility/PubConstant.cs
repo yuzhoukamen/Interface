@@ -264,7 +264,7 @@ namespace Alif.DBUtility
         /// </summary>
         /// <param name="name">配置文件字段名称</param>
         /// <param name="Xvalue">值</param>
-        private static void UpdateConfig(string appPath, string name, string Xvalue)
+        public static void UpdateConfig(string appPath, string name, string Xvalue)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(appPath + ".config");

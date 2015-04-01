@@ -434,6 +434,30 @@ namespace InterfaceClass
         }
 
         /// <summary>
+        /// 从接口取得返回的参数值
+        /// </summary>
+        /// <param name="name">要取得参数名称</param>
+        /// <param name="value">获取的值</param>
+        /// <param name="length">返回值的最大长度</param>
+        /// <returns>返回值小于零, 表示没有Get成功，返回大于零表示为参数值的长度。用getmessage可以取得最近一次出错的错误信息</returns>
+        public void GetByName(string name, ref string value, int length)
+        {
+            StringBuilder sbValue = new StringBuilder(length);
+
+            int returnValue = InterfaceHNDll.getbyname(this.P_inter, name, sbValue);
+
+            value = sbValue.ToString();
+
+            if (0 > returnValue)
+            {
+                throw new Exception("执行函数getbyname发生错误，错误原因：" + GetMessage());
+            }
+
+            sbValue = null;
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="index"></param>

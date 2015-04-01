@@ -57,9 +57,10 @@ namespace InterfaceClass.HN.HealthNews
         /// </summary>
         /// <param name="receiveMan"></param>
         /// <returns></returns>
-        public Message GetMessage(string receiveMan)
+        public List<Message> GetMessage(string receiveMan)
         {
             Interface inter = new Interface(this.InterfaceHN);
+            List<Message> listMsg = new List<Message>();
 
             List<Parameter> list = new List<Parameter>();
 
@@ -75,51 +76,55 @@ namespace InterfaceClass.HN.HealthNews
                 throw new Exception("取中心针对本单位消息失败，失败原因：" + inter.GetMessage());
             }
 
-
-            Message msg = new Message();
+            inter.SetResultset("info");
 
             try
             {
-                inter.SetResultset("info");
+                do
+                {
+                    Message msg = new Message();
 
-                string str = string.Empty;
-                inter.GetByName("ms_id", ref str);
-                msg.ms_id = str;
+                    string str = string.Empty;
+                    inter.GetByName("ms_id", ref str);
+                    msg.ms_id = str;
 
-                str = string.Empty;
-                inter.GetByName("ms_type", ref str);
-                msg.ms_type = str;
+                    str = string.Empty;
+                    inter.GetByName("ms_type", ref str);
+                    msg.ms_type = str;
 
-                str = string.Empty;
-                inter.GetByName("ms_title", ref str);
-                msg.ms_title = str;
+                    str = string.Empty;
+                    inter.GetByName("ms_title", ref str, 6000);
+                    msg.ms_title = str;
 
-                str = string.Empty;
-                inter.GetByName("ms_content", ref str);
-                msg.ms_content = str;
+                    str = string.Empty;
+                    inter.GetByName("ms_content", ref str);
+                    msg.ms_content = str;
 
-                str = string.Empty;
-                inter.GetByName("center_id", ref str);
-                msg.center_id = str;
+                    str = string.Empty;
+                    inter.GetByName("center_id", ref str);
+                    msg.center_id = str;
 
-                str = string.Empty;
-                inter.GetByName("sender_org", ref str);
-                msg.sender_org = str;
+                    str = string.Empty;
+                    inter.GetByName("sender_org", ref str);
+                    msg.sender_org = str;
 
-                str = string.Empty;
-                inter.GetByName("sender_man", ref str);
-                msg.sender_man = str;
+                    str = string.Empty;
+                    inter.GetByName("sender_man", ref str);
+                    msg.sender_man = str;
 
-                str = string.Empty;
-                inter.GetByName("sender_man", ref str);
-                msg.sender_man = str;
+                    str = string.Empty;
+                    inter.GetByName("sender_man", ref str);
+                    msg.sender_man = str;
+
+                    listMsg.Add(msg);
+                } while (0 < inter.NextRow());
             }
             catch (Exception e)
             {
                 throw new Exception("通过设置数据集获取中心消息的数据失败，失败原因:" + e.Message);
             }
 
-            return msg;
+            return listMsg;
         }
     }
 }
