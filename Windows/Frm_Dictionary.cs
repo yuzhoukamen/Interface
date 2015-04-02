@@ -11,8 +11,14 @@ using InterfaceClass.HN.HosDirManage;
 
 namespace Windows
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Frm_Dictionary : BaseForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Frm_Dictionary()
         {
             InitializeComponent();
@@ -34,6 +40,9 @@ namespace Windows
             SetC1FlexGridAttribute(this.c1FlexGridDisease, false);
             SetC1FlexGridSelectionMode(this.c1FlexGridDisease, C1.Win.C1FlexGrid.SelectionModeEnum.Row);
 
+            SetC1FlexGridAttribute(this.c1FlexGridModel, false);
+            SetC1FlexGridSelectionMode(this.c1FlexGridModel, C1.Win.C1FlexGrid.SelectionModeEnum.Row);
+
             BindC1FlexGridDisplayLineNumbers(this.c1FlexGridMedical);
             SetC1FlexGridNullDataTable(this.c1FlexGridMedical);
 
@@ -42,6 +51,9 @@ namespace Windows
 
             BindC1FlexGridDisplayLineNumbers(this.c1FlexGridDisease);
             SetC1FlexGridNullDataTable(this.c1FlexGridDisease);
+
+            BindC1FlexGridDisplayLineNumbers(this.c1FlexGridModel);
+            SetC1FlexGridNullDataTable(this.c1FlexGridModel);
 
             this.pagerControlMedical.SetPageSize(20);
             this.pagerControlProject.SetPageSize(20);
@@ -333,6 +345,8 @@ namespace Windows
                     return;
                 }
 
+                DisplayTips("正在下载中心药品数据到HIS数据库(" + this.pagerControlMedical.RecordCount + "条记录)......");
+
                 DataTable dt = DownloadAllMedicalData();
 
                 if (dt == null || dt.Rows.Count <= 0)
@@ -363,14 +377,16 @@ namespace Windows
 
                 int temp = Alif.DBUtility.DbHelperSQL.ExecuteSql(sb.ToString());
 
+                CloseTips();
+
                 if (temp > 0)
                 {
-                    CommonFunctions.MsgInfo("成功下载中心药品数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录！！！");
+                    CommonFunctions.MsgInfo("中心药品数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录(包含删除的记录)！！！");
                 }
-
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError("下载中心药品数据到HIS数据库发生错误，错误原因：" + ee.Message);
             }
         }
@@ -389,8 +405,6 @@ namespace Windows
 
             try
             {
-                DisplayTips("正在下载中心疾病数据到HIS数据库(" + this.pagerControlDisease.RecordCount + "条记录)......");
-
                 InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
 
                 string centerID = baseInterfaceHN.Oper_centerid;
@@ -444,13 +458,11 @@ namespace Windows
 
                     dt.Rows.Add(dr);
                 }
-                CloseTips();
 
                 return dt;
             }
             catch (Exception ee)
             {
-                CloseTips();
                 CommonFunctions.MsgError("下载中心项目数据到HIS数据库失败，失败原因：" + ee.Message);
                 return null;
             }
@@ -470,8 +482,6 @@ namespace Windows
 
             try
             {
-                DisplayTips("正在下载中心项目数据到HIS数据库(" + this.pagerControlProject.RecordCount + "条记录)......");
-
                 InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
 
                 string centerID = baseInterfaceHN.Oper_centerid;
@@ -527,13 +537,11 @@ namespace Windows
 
                     dt.Rows.Add(dr);
                 }
-                CloseTips();
 
                 return dt;
             }
             catch (Exception ee)
             {
-                CloseTips();
                 CommonFunctions.MsgError("下载中心项目数据到HIS数据库失败，失败原因：" + ee.Message);
                 return null;
             }
@@ -553,8 +561,6 @@ namespace Windows
 
             try
             {
-                DisplayTips("正在下载中心药品数据到HIS数据库(" + this.pagerControlMedical.RecordCount + "条记录)......");
-
                 InterfaceClass.HN.HosDirManage.Info info = new InterfaceClass.HN.HosDirManage.Info(baseInterfaceHN);
 
                 string centerID = baseInterfaceHN.Oper_centerid;
@@ -612,16 +618,27 @@ namespace Windows
 
                     dt.Rows.Add(dr);
                 }
-                CloseTips();
-
                 return dt;
             }
             catch (Exception ee)
             {
-                CloseTips();
                 CommonFunctions.MsgError("下载中心药品数据到HIS数据库失败，失败原因：" + ee.Message);
                 return null;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
+        private string InsertIntoModelSQL(DataRow dr)
+        {
+            return string.Format(@"INSERT  INTO [HIS_InterfaceHN].[dbo].[JC_Model]
+                                            ( [Code], [Name] )
+                                    VALUES  ( N'{0}'--<Code, nchar(20),>
+                                                , N'{1}'--<Name, nchar(50),>
+                                                );", dr["Code"], dr["Name"]);
         }
 
         /// <summary>
@@ -837,7 +854,7 @@ namespace Windows
             {
                 try
                 {
-                    DisplayTips("正在下载和存储中心药品目录信息......");
+                    DisplayTips("正在另存为中心药品目录信息......");
 
                     string fileName = sfd.FileName;
 
@@ -856,6 +873,7 @@ namespace Windows
                 }
                 catch (Exception ex)
                 {
+                    CloseTips();
                     CommonFunctions.MsgError("另存为中心药品目录信息失败，失败原因：" + ex.Message);
                 }
             }
@@ -877,6 +895,8 @@ namespace Windows
                 {
                     return;
                 }
+
+                DisplayTips("正在下载中心项目数据到HIS数据库(" + this.pagerControlProject.RecordCount + "条记录)......");
 
                 DataTable dt = DownloadAllProjectData();
 
@@ -908,14 +928,17 @@ namespace Windows
 
                 int temp = Alif.DBUtility.DbHelperSQL.ExecuteSql(sb.ToString());
 
+                CloseTips();
+
                 if (temp > 0)
                 {
-                    CommonFunctions.MsgInfo("成功下载中心项目数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录！！！");
+                    CommonFunctions.MsgInfo("中心项目数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录(包含删除的记录)！！！");
                 }
 
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError("下载中心项目数据到HIS数据库发生错误，错误原因：" + ee.Message);
             }
         }
@@ -935,7 +958,7 @@ namespace Windows
             {
                 try
                 {
-                    DisplayTips("正在下载和存储中心项目目录信息......");
+                    DisplayTips("正在另存为中心项目目录信息......");
 
                     string fileName = sfd.FileName;
 
@@ -954,6 +977,7 @@ namespace Windows
                 }
                 catch (Exception ex)
                 {
+                    CloseTips();
                     CommonFunctions.MsgError("另存为中心项目目录信息失败，失败原因：" + ex.Message);
                 }
             }
@@ -975,6 +999,8 @@ namespace Windows
                 {
                     return;
                 }
+
+                DisplayTips("正在下载中心疾病数据到HIS数据库(" + this.pagerControlDisease.RecordCount + "条记录)......");
 
                 DataTable dt = DownloadAllDiseaseData();
 
@@ -1006,14 +1032,17 @@ namespace Windows
 
                 int temp = Alif.DBUtility.DbHelperSQL.ExecuteSql(sb.ToString());
 
+                CloseTips();
+
                 if (temp > 0)
                 {
-                    CommonFunctions.MsgInfo("成功下载中心疾病数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录！！！");
+                    CommonFunctions.MsgInfo("中心疾病数据到HIS数据库(" + dt.Rows.Count + "条记录)，成功下载" + temp + "条记录(包含删除的记录)！！！");
                 }
 
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError("下载中心疾病数据到HIS数据库发生错误，错误原因：" + ee.Message);
             }
         }
@@ -1033,7 +1062,7 @@ namespace Windows
             {
                 try
                 {
-                    DisplayTips("正在下载和存储中心疾病目录信息......");
+                    DisplayTips("正在另存为中心疾病目录信息......");
 
                     string fileName = sfd.FileName;
 
@@ -1052,7 +1081,310 @@ namespace Windows
                 }
                 catch (Exception ex)
                 {
+                    CloseTips();
                     CommonFunctions.MsgError("另存为中心疾病目录信息失败，失败原因：" + ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void c1FlexGridDisease_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageMedical_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void c1FlexGridMedical_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pagerControlMedical_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMedicalExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageProject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void c1FlexGridProject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pagerControlProject_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnProjectExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageDisease_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pagerControlDisease_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDiseaseExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageModel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPageModel_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                QueryModelData();
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError(ee.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void QueryModelData()
+        {
+            string SQLString = string.Format(@"SELECT  [Code] ,
+                                                        [Name]
+                                                FROM    [HIS_InterfaceHN].[dbo].[JC_Model]");
+
+            try
+            {
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+
+                this.c1FlexGridModel.DataSource = ds.Tables[0];
+
+                this.c1FlexGridModel.Cols["Code"].Caption = "剂型编码";
+                this.c1FlexGridModel.Cols["Name"].Caption = "剂型名称";
+
+                this.c1FlexGridModel.Cols["Name"].Width = this.c1FlexGridModel.Width - 160;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("查询基础记性数据失败，失败原因：" + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModelQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                QueryModelData();
+            }
+            catch (Exception ee)
+            {
+                CommonFunctions.MsgError(ee.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModelExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "Excel文件|*.xls";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DisplayTips("正在从Excel文件中导入省直目录的剂型(model)......");
+
+                    string fileName = openFileDialog.FileName;
+
+                    if (!fileName.EndsWith(".xls"))
+                    {
+                        fileName += ".xls";
+                    }
+
+                    DataTable dt = null;
+
+                    CommonFunctions.OpenExcelFile(ref dt, fileName);
+
+                    StringBuilder sb = new StringBuilder();
+
+                    sb.AppendLine("BEGIN TRANSACTION;");
+
+                    sb.AppendLine("DELETE  FROM [HIS_InterfaceHN].[dbo].[JC_Model];");
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string sql = InsertIntoModelSQL(dr);
+
+                        sb.AppendLine(sql);
+
+                        sb.AppendLine(string.Format(@"IF @@ERROR <> 0
+                                              BEGIN 
+                                                ROLLBACK; 
+                                                RAISERROR('插入编号为{0}的记录发生错误！',16,1);
+                                              END", dr["Code"]));
+                    }
+
+                    sb.AppendLine("COMMIT TRANSACTION;");
+
+                    int temp = Alif.DBUtility.DbHelperSQL.ExecuteSql(sb.ToString());
+
+                    CloseTips();
+
+                    if (temp > 0)
+                    {
+                        CommonFunctions.MsgInfo("基础剂型(" + dt.Rows.Count + "条记录)，成功导入" + temp + "条记录(包含删除的记录)！！！");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CloseTips();
+                    CommonFunctions.MsgError("从Excel文件中导入省直目录的剂型(model)失败，失败原因：" + ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModelSave_Click(object sender, EventArgs e)
+        {
+            if (this.c1FlexGridModel.Rows.Count <= 0)
+            {
+                CommonFunctions.MsgInfo("没有任何剂型数据，不能进行另存为操作！！！");
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.Filter = "Excel文件|*.xls";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DisplayTips("正在另存为基础剂型信息......");
+
+                    string fileName = sfd.FileName;
+
+                    if (!fileName.EndsWith(".xls"))
+                    {
+                        fileName += ".xls";
+                    }
+
+                    DataTable dt = (DataTable)this.c1FlexGridModel.DataSource;
+
+                    CommonFunctions.WriteExcel(dt, fileName);
+
+                    CloseTips();
+
+                    CommonFunctions.MsgInfo("文件" + fileName + "保存成功！！！");
+                }
+                catch (Exception ex)
+                {
+                    CloseTips();
+                    CommonFunctions.MsgError("另存为基础剂型信息失败，失败原因：" + ex.Message);
                 }
             }
         }

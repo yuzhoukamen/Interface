@@ -53,6 +53,12 @@
             this.btnDiseaseExcel = new System.Windows.Forms.Button();
             this.btnDiseaseDown = new System.Windows.Forms.Button();
             this.btnDiseaseSave = new System.Windows.Forms.Button();
+            this.tabPageModel = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnModelQuery = new System.Windows.Forms.Button();
+            this.btnModelExcel = new System.Windows.Forms.Button();
+            this.btnModelSave = new System.Windows.Forms.Button();
+            this.c1FlexGridModel = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.tabControl1.SuspendLayout();
             this.tabPageMedical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridMedical)).BeginInit();
@@ -63,6 +69,9 @@
             this.tabPageDisease.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
+            this.tabPageModel.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -70,6 +79,7 @@
             this.tabControl1.Controls.Add(this.tabPageMedical);
             this.tabControl1.Controls.Add(this.tabPageProject);
             this.tabControl1.Controls.Add(this.tabPageDisease);
+            this.tabControl1.Controls.Add(this.tabPageModel);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -88,6 +98,7 @@
             this.tabPageMedical.TabIndex = 0;
             this.tabPageMedical.Text = "中心药品目录";
             this.tabPageMedical.UseVisualStyleBackColor = true;
+            this.tabPageMedical.Click += new System.EventHandler(this.tabPageMedical_Click);
             // 
             // c1FlexGridMedical
             // 
@@ -98,6 +109,7 @@
             this.c1FlexGridMedical.Rows.DefaultSize = 20;
             this.c1FlexGridMedical.Size = new System.Drawing.Size(1140, 579);
             this.c1FlexGridMedical.TabIndex = 1;
+            this.c1FlexGridMedical.Click += new System.EventHandler(this.c1FlexGridMedical_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -124,6 +136,7 @@
             this.pagerControlMedical.Size = new System.Drawing.Size(569, 30);
             this.pagerControlMedical.TabIndex = 2;
             this.pagerControlMedical.OnPageChanged += new System.EventHandler(this.pagerControlMedical_OnPageChanged);
+            this.pagerControlMedical.Load += new System.EventHandler(this.pagerControlMedical_Load);
             // 
             // btnMedicalQuery
             // 
@@ -151,6 +164,7 @@
             this.btnMedicalExcel.TabIndex = 5;
             this.btnMedicalExcel.Text = "   从Excel文件导入";
             this.btnMedicalExcel.UseVisualStyleBackColor = true;
+            this.btnMedicalExcel.Click += new System.EventHandler(this.btnMedicalExcel_Click);
             // 
             // btnMedicalDown
             // 
@@ -191,6 +205,7 @@
             this.tabPageProject.TabIndex = 1;
             this.tabPageProject.Text = "中心项目目录";
             this.tabPageProject.UseVisualStyleBackColor = true;
+            this.tabPageProject.Click += new System.EventHandler(this.tabPageProject_Click);
             // 
             // c1FlexGridProject
             // 
@@ -201,6 +216,7 @@
             this.c1FlexGridProject.Rows.DefaultSize = 20;
             this.c1FlexGridProject.Size = new System.Drawing.Size(1140, 579);
             this.c1FlexGridProject.TabIndex = 2;
+            this.c1FlexGridProject.Click += new System.EventHandler(this.c1FlexGridProject_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -227,6 +243,7 @@
             this.pagerControlProject.Size = new System.Drawing.Size(569, 30);
             this.pagerControlProject.TabIndex = 2;
             this.pagerControlProject.OnPageChanged += new System.EventHandler(this.pagerControlProject_OnPageChanged);
+            this.pagerControlProject.Load += new System.EventHandler(this.pagerControlProject_Load);
             // 
             // btnProjectQuery
             // 
@@ -254,6 +271,7 @@
             this.btnProjectExcel.TabIndex = 3;
             this.btnProjectExcel.Text = "   从Excel文件导入";
             this.btnProjectExcel.UseVisualStyleBackColor = true;
+            this.btnProjectExcel.Click += new System.EventHandler(this.btnProjectExcel_Click);
             // 
             // btnProjectDown
             // 
@@ -293,6 +311,7 @@
             this.tabPageDisease.TabIndex = 2;
             this.tabPageDisease.Text = "中心疾病目录";
             this.tabPageDisease.UseVisualStyleBackColor = true;
+            this.tabPageDisease.Click += new System.EventHandler(this.tabPageDisease_Click);
             // 
             // c1FlexGridDisease
             // 
@@ -303,6 +322,7 @@
             this.c1FlexGridDisease.Rows.DefaultSize = 20;
             this.c1FlexGridDisease.Size = new System.Drawing.Size(1146, 585);
             this.c1FlexGridDisease.TabIndex = 3;
+            this.c1FlexGridDisease.Click += new System.EventHandler(this.c1FlexGridDisease_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -329,6 +349,7 @@
             this.pagerControlDisease.Size = new System.Drawing.Size(569, 30);
             this.pagerControlDisease.TabIndex = 2;
             this.pagerControlDisease.OnPageChanged += new System.EventHandler(this.pagerControlDisease_OnPageChanged);
+            this.pagerControlDisease.Load += new System.EventHandler(this.pagerControlDisease_Load);
             // 
             // btnDiseaseQuery
             // 
@@ -356,6 +377,7 @@
             this.btnDiseaseExcel.TabIndex = 5;
             this.btnDiseaseExcel.Text = "   从Excel文件导入";
             this.btnDiseaseExcel.UseVisualStyleBackColor = true;
+            this.btnDiseaseExcel.Click += new System.EventHandler(this.btnDiseaseExcel_Click);
             // 
             // btnDiseaseDown
             // 
@@ -385,6 +407,82 @@
             this.btnDiseaseSave.UseVisualStyleBackColor = true;
             this.btnDiseaseSave.Click += new System.EventHandler(this.btnDiseaseSave_Click);
             // 
+            // tabPageModel
+            // 
+            this.tabPageModel.Controls.Add(this.flowLayoutPanel4);
+            this.tabPageModel.Controls.Add(this.c1FlexGridModel);
+            this.tabPageModel.Location = new System.Drawing.Point(4, 22);
+            this.tabPageModel.Name = "tabPageModel";
+            this.tabPageModel.Size = new System.Drawing.Size(1146, 616);
+            this.tabPageModel.TabIndex = 3;
+            this.tabPageModel.Text = "基础剂型维护";
+            this.tabPageModel.UseVisualStyleBackColor = true;
+            this.tabPageModel.Click += new System.EventHandler(this.tabPageModel_Click);
+            this.tabPageModel.Enter += new System.EventHandler(this.tabPageModel_Enter);
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.btnModelQuery);
+            this.flowLayoutPanel4.Controls.Add(this.btnModelExcel);
+            this.flowLayoutPanel4.Controls.Add(this.btnModelSave);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 585);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1146, 31);
+            this.flowLayoutPanel4.TabIndex = 5;
+            // 
+            // btnModelQuery
+            // 
+            this.btnModelQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelQuery.Image = global::Windows.ResImage.tick;
+            this.btnModelQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModelQuery.Location = new System.Drawing.Point(3, 3);
+            this.btnModelQuery.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.btnModelQuery.Name = "btnModelQuery";
+            this.btnModelQuery.Size = new System.Drawing.Size(91, 23);
+            this.btnModelQuery.TabIndex = 7;
+            this.btnModelQuery.Text = "   检索剂型";
+            this.btnModelQuery.UseVisualStyleBackColor = true;
+            this.btnModelQuery.Click += new System.EventHandler(this.btnModelQuery_Click);
+            // 
+            // btnModelExcel
+            // 
+            this.btnModelExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelExcel.Image = global::Windows.ResImage.application_view_detail;
+            this.btnModelExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModelExcel.Location = new System.Drawing.Point(105, 3);
+            this.btnModelExcel.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.btnModelExcel.Name = "btnModelExcel";
+            this.btnModelExcel.Size = new System.Drawing.Size(125, 23);
+            this.btnModelExcel.TabIndex = 5;
+            this.btnModelExcel.Text = "   从Excel文件导入";
+            this.btnModelExcel.UseVisualStyleBackColor = true;
+            this.btnModelExcel.Click += new System.EventHandler(this.btnModelExcel_Click);
+            // 
+            // btnModelSave
+            // 
+            this.btnModelSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelSave.Image = global::Windows.ResImage.wand;
+            this.btnModelSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModelSave.Location = new System.Drawing.Point(241, 3);
+            this.btnModelSave.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.btnModelSave.Name = "btnModelSave";
+            this.btnModelSave.Size = new System.Drawing.Size(82, 23);
+            this.btnModelSave.TabIndex = 6;
+            this.btnModelSave.Text = "   另存为";
+            this.btnModelSave.UseVisualStyleBackColor = true;
+            this.btnModelSave.Click += new System.EventHandler(this.btnModelSave_Click);
+            // 
+            // c1FlexGridModel
+            // 
+            this.c1FlexGridModel.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridModel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1FlexGridModel.Location = new System.Drawing.Point(0, 0);
+            this.c1FlexGridModel.Name = "c1FlexGridModel";
+            this.c1FlexGridModel.Rows.DefaultSize = 20;
+            this.c1FlexGridModel.Size = new System.Drawing.Size(1146, 616);
+            this.c1FlexGridModel.TabIndex = 4;
+            // 
             // Frm_Dictionary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -404,6 +502,9 @@
             this.tabPageDisease.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.tabPageModel.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,5 +536,11 @@
         private System.Windows.Forms.Button btnMedicalSave;
         private System.Windows.Forms.Button btnDiseaseExcel;
         private System.Windows.Forms.Button btnDiseaseSave;
+        private System.Windows.Forms.TabPage tabPageModel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Button btnModelExcel;
+        private System.Windows.Forms.Button btnModelSave;
+        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridModel;
+        private System.Windows.Forms.Button btnModelQuery;
     }
 }

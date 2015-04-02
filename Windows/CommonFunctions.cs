@@ -80,5 +80,63 @@ namespace Windows
                 throw new Exception("生成excel文件失败，失败原因：" + ex.Message);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
+        public static void OpenExcelFile(ref DataTable dt, string filepath)
+        {
+            dt = new DataTable();
+
+            string strpath = filepath;
+            try
+            {
+                bool flag = true;
+                DataRow dr;
+
+                string strline;
+                string[] aryline;
+                StreamReader streamReader = new StreamReader(strpath, System.Text.Encoding.Default);
+
+                while ((strline = streamReader.ReadLine()) != null)
+                {
+                    aryline = strline.Split(new char[] { ',' });
+                    //给datatable加上列名
+                    if (flag)
+                    {
+                        flag = false;
+                        for (int i = 0; i < aryline[0].Split('\t').Length; i++)
+                        {
+                            string str = aryline[0].Split('\t')[i].Trim();
+
+                            if (str == string.Empty)
+                            {
+                                continue;
+                            }
+                            dt.Columns.Add(new DataColumn(str));
+                        }
+                        continue;
+                    }
+                    //填充数据并加入到datatable中
+                    dr = dt.NewRow();
+
+                    string[] splitArray = aryline[0].Split('\t');
+
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        dr[dt.Columns[i].ColumnName] = splitArray[i].Trim();
+                    }
+
+                    dt.Rows.Add(dr);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("读取Excel文件中的数据出错，错误原因" + e.Message);
+            }
+        }
     }
 }
