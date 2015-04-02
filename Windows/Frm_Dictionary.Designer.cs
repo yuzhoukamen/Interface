@@ -178,6 +178,7 @@
             this.btnMedicalSave.TabIndex = 6;
             this.btnMedicalSave.Text = "   另存为";
             this.btnMedicalSave.UseVisualStyleBackColor = true;
+            this.btnMedicalSave.Click += new System.EventHandler(this.btnMedicalSave_Click);
             // 
             // tabPageProject
             // 
@@ -266,6 +267,7 @@
             this.btnProjectDown.TabIndex = 1;
             this.btnProjectDown.Text = "   下载中心项目数据到HIS数据库";
             this.btnProjectDown.UseVisualStyleBackColor = true;
+            this.btnProjectDown.Click += new System.EventHandler(this.btnProjectDown_Click);
             // 
             // btnProjectSave
             // 
@@ -279,6 +281,7 @@
             this.btnProjectSave.TabIndex = 4;
             this.btnProjectSave.Text = "   另存为";
             this.btnProjectSave.UseVisualStyleBackColor = true;
+            this.btnProjectSave.Click += new System.EventHandler(this.btnProjectSave_Click);
             // 
             // tabPageDisease
             // 
@@ -366,6 +369,7 @@
             this.btnDiseaseDown.TabIndex = 1;
             this.btnDiseaseDown.Text = "   下载中心疾病数据到HIS数据库";
             this.btnDiseaseDown.UseVisualStyleBackColor = true;
+            this.btnDiseaseDown.Click += new System.EventHandler(this.btnDiseaseDown_Click);
             // 
             // btnDiseaseSave
             // 
@@ -379,6 +383,7 @@
             this.btnDiseaseSave.TabIndex = 6;
             this.btnDiseaseSave.Text = "   另存为";
             this.btnDiseaseSave.UseVisualStyleBackColor = true;
+            this.btnDiseaseSave.Click += new System.EventHandler(this.btnDiseaseSave_Click);
             // 
             // Frm_Dictionary
             // 

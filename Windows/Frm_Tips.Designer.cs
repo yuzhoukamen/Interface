@@ -49,7 +49,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Tips";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Tips";
             this.Load += new System.EventHandler(this.Frm_Tips_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

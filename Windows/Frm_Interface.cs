@@ -219,7 +219,9 @@ namespace Windows
         {
             Frm_Setup frm = new Frm_Setup();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         private void labelDirCompare_Click(object sender, EventArgs e)

@@ -279,5 +279,120 @@ namespace InterfaceClass.HN.HosDirManage
 
             return list;
         }
+
+        /// <summary>
+        /// 获取中心疾病目录分页信息
+        /// </summary>
+        /// <param name="center_id"></param>
+        /// <param name="type"></param>
+        /// <param name="condition"></param>
+        /// <param name="once_find"></param>
+        /// <param name="first_row"></param>
+        /// <param name="last_row"></param>
+        /// <returns></returns>
+        public List<Disease> GetCenterDiseaseDirPageInfo(string center_id, string type, string condition,
+            string once_find, string first_row, string last_row)
+        {
+            List<Disease> list = new List<Disease>();
+            Interface inter = new Interface(this.InterfaceHN);
+            List<Parameter> listPara = new List<Parameter>();
+
+            listPara.Add(new Parameter("center_id", center_id));
+            listPara.Add(new Parameter("type", type));
+            listPara.Add(new Parameter("condition", condition));
+            listPara.Add(new Parameter("once_find", once_find));
+            listPara.Add(new Parameter("first_row", first_row));
+            listPara.Add(new Parameter("last_row", last_row));
+
+
+            long value = inter.ExecInterface("BIZC110118", listPara);
+
+            if (value < 0)
+            {
+                throw new Exception("取中心疾病目录分页信息失败，失败原因：" + inter.GetMessage());
+            }
+
+            inter.SetResultset("count");
+
+            string str = string.Empty;
+
+            inter.GetByName("count", ref str);
+            this.DiseaseTotalCounts = str;
+
+            inter.SetResultset("pageinfo");
+
+            do
+            {
+                Disease disease = new Disease();
+
+                str = string.Empty;
+                inter.GetByName("icd", ref str);
+                disease.icd = str;
+
+                str = string.Empty;
+                inter.GetByName("disease", ref str);
+                disease.disease = str;
+
+                str = string.Empty;
+                inter.GetByName("disease_fee", ref str);
+                disease.disease_fee = str;
+
+                str = string.Empty;
+                inter.GetByName("code_wb", ref str);
+                disease.code_wb = str;
+
+                str = string.Empty;
+                inter.GetByName("code_py", ref str);
+                disease.code_py = str;
+
+                str = string.Empty;
+                inter.GetByName("EDIT_DATE", ref str);
+                disease.EDIT_DATE = str;
+
+                str = string.Empty;
+                inter.GetByName("EDIT_STAFF", ref str);
+                disease.EDIT_STAFF = str;
+
+                str = string.Empty;
+                inter.GetByName("EDIT_MAN", ref str);
+                disease.EDIT_MAN = str;
+
+                str = string.Empty;
+                inter.GetByName("VALID_FLAG", ref str);
+                disease.VALID_FLAG = str;
+
+                str = string.Empty;
+                inter.GetByName("EFFECT_DATE", ref str);
+                disease.EFFECT_DATE = str;
+
+                str = string.Empty;
+                inter.GetByName("EXPIRE_DATE", ref str);
+                disease.EXPIRE_DATE = str;
+
+                str = string.Empty;
+                inter.GetByName("AUDIT_FLAG", ref str);
+                disease.AUDIT_FLAG = str;
+
+                str = string.Empty;
+                inter.GetByName("AUDIT_DATE", ref str);
+                disease.AUDIT_DATE = str;
+
+                str = string.Empty;
+                inter.GetByName("AUDIT_STAFF", ref str);
+                disease.AUDIT_STAFF = str;
+
+                str = string.Empty;
+                inter.GetByName("AUDIT_MAN", ref str);
+                disease.AUDIT_MAN = str;
+
+                str = string.Empty;
+                inter.GetByName("SERIAL_ICD", ref str);
+                disease.SERIAL_ICD = str;
+
+                list.Add(disease);
+            } while (0 < inter.NextRow());
+
+            return list;
+        }
     }
 }

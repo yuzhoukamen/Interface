@@ -423,7 +423,7 @@ namespace InterfaceClass
 
             int returnValue = InterfaceHNDll.getbyname(this.P_inter, name, sbValue);
 
-            value = sbValue.ToString();
+            value = sbValue.ToString().Replace("'", "''");
 
             if (0 > returnValue)
             {
