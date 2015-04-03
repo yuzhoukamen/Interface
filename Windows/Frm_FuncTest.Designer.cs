@@ -46,6 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNameID = new System.Windows.Forms.Label();
             this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.btnExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridPara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridFunc)).BeginInit();
@@ -237,11 +238,23 @@
             this.c1FlexGridFunc.Size = new System.Drawing.Size(360, 318);
             this.c1FlexGridFunc.TabIndex = 0;
             // 
+            // btnExcel
+            // 
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Location = new System.Drawing.Point(870, 242);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExcel.TabIndex = 28;
+            this.btnExcel.Text = "导出";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // Frm_FuncTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 662);
+            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.cBoxDataset);
             this.Controls.Add(this.lblReturnValue);
             this.Controls.Add(this.txtBoxID);
@@ -291,5 +304,6 @@
         private System.Windows.Forms.TextBox txtBoxID;
         private System.Windows.Forms.Label lblReturnValue;
         private System.Windows.Forms.ComboBox cBoxDataset;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

@@ -220,7 +220,6 @@ namespace Windows
             flexGrid.Cols["内容"].Width = flexGrid.Width;
         }
 
-
         /// <summary>
         /// 返回数据列
         /// </summary>
@@ -386,6 +385,44 @@ namespace Windows
             //调用开始动画方法
 
             BeginAnimate();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cBox"></param>
+        /// <param name="comboBoxDisplayMember"></param>
+        /// <param name="comboBoxValueMember"></param>
+        /// <param name="sql"></param>
+        public void InitComboBox(ComboBox cBox, string comboBoxDisplayMember, string comboBoxValueMember, string sql)
+        {
+            try
+            {
+                sql += string.Format(@" UNION ALL
+                                        SELECT  -1 ,
+                                                N'全部'
+                                                ORDER BY value ");
+
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(sql);
+
+                cBox.DisplayMember = comboBoxDisplayMember;
+                cBox.ValueMember = comboBoxValueMember;
+                cBox.DataSource = ds.Tables[0];
+            }
+            catch (Exception e)
+            {
+                CommonFunctions.MsgError("绑定" + cBox.Name + "ComboBox发生错误，错误原因：" + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cBox"></param>
+        /// <param name="sql"></param>
+        public void InitComboBox(ComboBox cBox, string sql)
+        {
+            InitComboBox(cBox, "Name", "Value", sql);
         }
     }
 }

@@ -245,6 +245,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError(ee.Message);
             }
         }
@@ -324,6 +325,7 @@ namespace Windows
             }
             catch (Exception ee)
             {
+                CloseTips();
                 CommonFunctions.MsgError(ee.Message);
             }
         }

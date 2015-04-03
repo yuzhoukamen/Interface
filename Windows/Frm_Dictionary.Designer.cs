@@ -59,6 +59,7 @@
             this.btnModelExcel = new System.Windows.Forms.Button();
             this.btnModelSave = new System.Windows.Forms.Button();
             this.c1FlexGridModel = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPageMedical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridMedical)).BeginInit();
@@ -72,6 +73,7 @@
             this.tabPageModel.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -409,8 +411,7 @@
             // 
             // tabPageModel
             // 
-            this.tabPageModel.Controls.Add(this.flowLayoutPanel4);
-            this.tabPageModel.Controls.Add(this.c1FlexGridModel);
+            this.tabPageModel.Controls.Add(this.panel1);
             this.tabPageModel.Location = new System.Drawing.Point(4, 22);
             this.tabPageModel.Name = "tabPageModel";
             this.tabPageModel.Size = new System.Drawing.Size(1146, 616);
@@ -480,8 +481,18 @@
             this.c1FlexGridModel.Location = new System.Drawing.Point(0, 0);
             this.c1FlexGridModel.Name = "c1FlexGridModel";
             this.c1FlexGridModel.Rows.DefaultSize = 20;
-            this.c1FlexGridModel.Size = new System.Drawing.Size(1146, 616);
+            this.c1FlexGridModel.Size = new System.Drawing.Size(1146, 585);
             this.c1FlexGridModel.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.c1FlexGridModel);
+            this.panel1.Controls.Add(this.flowLayoutPanel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 616);
+            this.panel1.TabIndex = 6;
             // 
             // Frm_Dictionary
             // 
@@ -505,6 +516,7 @@
             this.tabPageModel.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -542,5 +554,6 @@
         private System.Windows.Forms.Button btnModelSave;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridModel;
         private System.Windows.Forms.Button btnModelQuery;
+        private System.Windows.Forms.Panel panel1;
     }
 }

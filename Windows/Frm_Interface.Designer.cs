@@ -88,16 +88,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelInterface.Location = new System.Drawing.Point(0, 59);
             this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(1154, 546);
+            this.panelInterface.Size = new System.Drawing.Size(1184, 541);
             this.panelInterface.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 605);
+            this.panel1.Location = new System.Drawing.Point(0, 600);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1154, 32);
+            this.panel1.Size = new System.Drawing.Size(1184, 32);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -109,7 +109,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1154, 32);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 32);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lblTips
@@ -183,7 +183,7 @@
             this.基础字典维护ToolStripMenuItem});
             this.menuStripInterface.Location = new System.Drawing.Point(0, 0);
             this.menuStripInterface.Name = "menuStripInterface";
-            this.menuStripInterface.Size = new System.Drawing.Size(1154, 25);
+            this.menuStripInterface.Size = new System.Drawing.Size(1184, 25);
             this.menuStripInterface.TabIndex = 0;
             this.menuStripInterface.Text = "menuStrip1";
             // 
@@ -335,7 +335,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1154, 28);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1184, 28);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label1
@@ -504,7 +504,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 637);
+            this.ClientSize = new System.Drawing.Size(1184, 632);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panelInterface);
             this.Controls.Add(this.panel1);

@@ -10,14 +10,24 @@ namespace InterfaceClass.HN.HosDirManage
     /// </summary>
     public class Info
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private InterfaceHN _interfaceHN = null;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public InterfaceHN InterfaceHN
         {
             get { return this._interfaceHN; }
             set { this._interfaceHN = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="interfaceHN"></param>
         public Info(InterfaceHN interfaceHN)
         {
             this.InterfaceHN = interfaceHN;

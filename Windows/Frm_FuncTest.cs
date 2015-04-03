@@ -213,5 +213,43 @@ namespace Windows
                 CommonFunctions.MsgError(ee.Message);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.Filter = "Excel文件|*.xls";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DisplayTips("正在导出数据集......");
+
+                    string fileName = sfd.FileName;
+
+                    if (!fileName.EndsWith(".xls"))
+                    {
+                        fileName += ".xls";
+                    }
+
+                    this.c1FlexGridDataset.SaveExcel(fileName);
+
+                    CloseTips();
+
+                    CommonFunctions.MsgInfo("文件" + fileName + "保存成功！！！");
+                }
+                catch (Exception ex)
+                {
+                    CloseTips();
+                    CommonFunctions.MsgError("导出数据集失败，失败原因：" + ex.Message);
+                }
+            }
+        }
     }
 }
