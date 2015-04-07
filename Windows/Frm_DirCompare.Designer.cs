@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.c1FlexGridInterfaceJC = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,7 +47,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInitAddMatch = new System.Windows.Forms.Button();
+            this.btnAutoMatch = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,12 +62,11 @@
             this.cBoxMatchType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cBoxAuditFlag = new System.Windows.Forms.ComboBox();
-            this.btnQueryData = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAutoMatch = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnQueryData = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridInterfaceJC)).BeginInit();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +76,6 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -88,6 +88,16 @@
             this.groupBox2.Size = new System.Drawing.Size(1327, 564);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.c1FlexGridInterfaceJC);
+            this.panel2.Controls.Add(this.flowLayoutPanel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1006, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(318, 544);
+            this.panel2.TabIndex = 4;
             // 
             // c1FlexGridInterfaceJC
             // 
@@ -185,7 +195,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label11);
             this.flowLayoutPanel3.Controls.Add(this.label12);
             this.flowLayoutPanel3.Controls.Add(this.label13);
-            this.flowLayoutPanel3.Controls.Add(this.button1);
+            this.flowLayoutPanel3.Controls.Add(this.btnInitAddMatch);
             this.flowLayoutPanel3.Controls.Add(this.btnAutoMatch);
             this.flowLayoutPanel3.Controls.Add(this.button2);
             this.flowLayoutPanel3.Controls.Add(this.button3);
@@ -275,18 +285,33 @@
             this.label13.TabIndex = 15;
             this.label13.Text = "无定义";
             // 
-            // button1
+            // btnInitAddMatch
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::Windows.ResImage.sum;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(438, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 8, 8, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "   初始化新增医院目录匹配";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInitAddMatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInitAddMatch.Image = global::Windows.ResImage.sum;
+            this.btnInitAddMatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInitAddMatch.Location = new System.Drawing.Point(438, 8);
+            this.btnInitAddMatch.Margin = new System.Windows.Forms.Padding(3, 8, 8, 3);
+            this.btnInitAddMatch.Name = "btnInitAddMatch";
+            this.btnInitAddMatch.Size = new System.Drawing.Size(170, 23);
+            this.btnInitAddMatch.TabIndex = 5;
+            this.btnInitAddMatch.Text = "   初始化新增医院目录匹配";
+            this.btnInitAddMatch.UseVisualStyleBackColor = true;
+            this.btnInitAddMatch.Click += new System.EventHandler(this.btnInitAddMatch_Click);
+            // 
+            // btnAutoMatch
+            // 
+            this.btnAutoMatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutoMatch.Image = global::Windows.ResImage.arrow_in;
+            this.btnAutoMatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAutoMatch.Location = new System.Drawing.Point(619, 8);
+            this.btnAutoMatch.Margin = new System.Windows.Forms.Padding(3, 8, 8, 3);
+            this.btnAutoMatch.Name = "btnAutoMatch";
+            this.btnAutoMatch.Size = new System.Drawing.Size(87, 23);
+            this.btnAutoMatch.TabIndex = 16;
+            this.btnAutoMatch.Text = "   自动匹配";
+            this.btnAutoMatch.UseVisualStyleBackColor = true;
+            this.btnAutoMatch.Click += new System.EventHandler(this.btnAutoMatch_Click);
             // 
             // button2
             // 
@@ -434,44 +459,6 @@
             this.cBoxAuditFlag.Size = new System.Drawing.Size(121, 20);
             this.cBoxAuditFlag.TabIndex = 3;
             // 
-            // btnQueryData
-            // 
-            this.btnQueryData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQueryData.Image = global::Windows.ResImage.tick;
-            this.btnQueryData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQueryData.Location = new System.Drawing.Point(609, 3);
-            this.btnQueryData.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
-            this.btnQueryData.Name = "btnQueryData";
-            this.btnQueryData.Size = new System.Drawing.Size(81, 23);
-            this.btnQueryData.TabIndex = 4;
-            this.btnQueryData.Text = "   检索数据";
-            this.btnQueryData.UseVisualStyleBackColor = true;
-            this.btnQueryData.Click += new System.EventHandler(this.btnQueryData_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.c1FlexGridInterfaceJC);
-            this.panel2.Controls.Add(this.flowLayoutPanel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1006, 17);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(318, 544);
-            this.panel2.TabIndex = 4;
-            // 
-            // btnAutoMatch
-            // 
-            this.btnAutoMatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoMatch.Image = global::Windows.ResImage.arrow_in;
-            this.btnAutoMatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAutoMatch.Location = new System.Drawing.Point(619, 8);
-            this.btnAutoMatch.Margin = new System.Windows.Forms.Padding(3, 8, 8, 3);
-            this.btnAutoMatch.Name = "btnAutoMatch";
-            this.btnAutoMatch.Size = new System.Drawing.Size(87, 23);
-            this.btnAutoMatch.TabIndex = 16;
-            this.btnAutoMatch.Text = "   自动匹配";
-            this.btnAutoMatch.UseVisualStyleBackColor = true;
-            this.btnAutoMatch.Click += new System.EventHandler(this.btnAutoMatch_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -490,6 +477,20 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 6;
             // 
+            // btnQueryData
+            // 
+            this.btnQueryData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQueryData.Image = global::Windows.ResImage.tick;
+            this.btnQueryData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQueryData.Location = new System.Drawing.Point(609, 3);
+            this.btnQueryData.Margin = new System.Windows.Forms.Padding(3, 3, 8, 3);
+            this.btnQueryData.Name = "btnQueryData";
+            this.btnQueryData.Size = new System.Drawing.Size(81, 23);
+            this.btnQueryData.TabIndex = 4;
+            this.btnQueryData.Text = "   检索数据";
+            this.btnQueryData.UseVisualStyleBackColor = true;
+            this.btnQueryData.Click += new System.EventHandler(this.btnQueryData_Click);
+            // 
             // Frm_DirCompare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -501,6 +502,7 @@
             this.Text = "目录对照";
             this.Load += new System.EventHandler(this.Frm_DirCompare_Load);
             this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridInterfaceJC)).EndInit();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
@@ -514,7 +516,6 @@
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -542,7 +543,7 @@
         private System.Windows.Forms.Button button4;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGridInterfaceJC;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInitAddMatch;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;

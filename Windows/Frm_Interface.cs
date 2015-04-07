@@ -60,7 +60,9 @@ namespace Windows
         {
             Frm_Msg frm = new Frm_Msg();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -207,7 +209,8 @@ namespace Windows
         {
             Frm_Msg frm = new Frm_Msg();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+            frm = null;
         }
 
         /// <summary>

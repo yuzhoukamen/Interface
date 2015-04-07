@@ -11,6 +11,9 @@ using C1.Win.C1FlexGrid;
 
 namespace Windows
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Frm_DirCompare : BaseForm
     {
         /// <summary>
@@ -209,6 +212,11 @@ namespace Windows
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQueryData_Click(object sender, EventArgs e)
         {
             QueryAddMatchInfo();
@@ -233,9 +241,47 @@ namespace Windows
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void c1FlexGridAddMatch_RowColChange(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInitAddMatch_Click(object sender, EventArgs e)
+        {
+            InitAddMatch();
+            QueryAddMatchInfo();
+        }
+
+        /// <summary>
+        /// 初始化医院目录匹配信息
+        /// </summary>
+        private void InitAddMatch()
+        {
+            try
+            {
+                DisplayTips();
+
+                Alif.DBUtility.DbHelperSQL.ExecuteSql("EXEC HIS_InterfaceHN.dbo.P_InitMatch");
+
+                CloseTips();
+
+                CommonFunctions.MsgInfo("初始化新增医院目录匹配成功！！！");
+            }
+            catch (Exception ex)
+            {
+                CloseTips();
+                CommonFunctions.MsgError("始化新增医院目录匹配失败，失败原因:" + ex.Message);
+            }
         }
     }
 }
