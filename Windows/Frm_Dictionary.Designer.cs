@@ -54,12 +54,12 @@
             this.btnDiseaseDown = new System.Windows.Forms.Button();
             this.btnDiseaseSave = new System.Windows.Forms.Button();
             this.tabPageModel = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.c1FlexGridModel = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModelQuery = new System.Windows.Forms.Button();
             this.btnModelExcel = new System.Windows.Forms.Button();
             this.btnModelSave = new System.Windows.Forms.Button();
-            this.c1FlexGridModel = new C1.Win.C1FlexGrid.C1FlexGrid();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPageMedical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridMedical)).BeginInit();
@@ -71,9 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.tabPageModel.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).BeginInit();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -137,8 +137,8 @@
             this.pagerControlMedical.RecordCount = 0;
             this.pagerControlMedical.Size = new System.Drawing.Size(569, 30);
             this.pagerControlMedical.TabIndex = 2;
-            this.pagerControlMedical.OnPageChanged += new System.EventHandler(this.pagerControlMedical_OnPageChanged);
             this.pagerControlMedical.Load += new System.EventHandler(this.pagerControlMedical_Load);
+            this.pagerControlMedical.OnPageChanged += new System.EventHandler(this.pagerControlMedical_OnPageChanged);
             // 
             // btnMedicalQuery
             // 
@@ -244,8 +244,8 @@
             this.pagerControlProject.RecordCount = 0;
             this.pagerControlProject.Size = new System.Drawing.Size(569, 30);
             this.pagerControlProject.TabIndex = 2;
-            this.pagerControlProject.OnPageChanged += new System.EventHandler(this.pagerControlProject_OnPageChanged);
             this.pagerControlProject.Load += new System.EventHandler(this.pagerControlProject_Load);
+            this.pagerControlProject.OnPageChanged += new System.EventHandler(this.pagerControlProject_OnPageChanged);
             // 
             // btnProjectQuery
             // 
@@ -350,8 +350,8 @@
             this.pagerControlDisease.RecordCount = 0;
             this.pagerControlDisease.Size = new System.Drawing.Size(569, 30);
             this.pagerControlDisease.TabIndex = 2;
-            this.pagerControlDisease.OnPageChanged += new System.EventHandler(this.pagerControlDisease_OnPageChanged);
             this.pagerControlDisease.Load += new System.EventHandler(this.pagerControlDisease_Load);
+            this.pagerControlDisease.OnPageChanged += new System.EventHandler(this.pagerControlDisease_OnPageChanged);
             // 
             // btnDiseaseQuery
             // 
@@ -421,6 +421,26 @@
             this.tabPageModel.Click += new System.EventHandler(this.tabPageModel_Click);
             this.tabPageModel.Enter += new System.EventHandler(this.tabPageModel_Enter);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.c1FlexGridModel);
+            this.panel1.Controls.Add(this.flowLayoutPanel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 616);
+            this.panel1.TabIndex = 6;
+            // 
+            // c1FlexGridModel
+            // 
+            this.c1FlexGridModel.ColumnInfo = "10,1,0,0,0,100,Columns:";
+            this.c1FlexGridModel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1FlexGridModel.Location = new System.Drawing.Point(0, 0);
+            this.c1FlexGridModel.Name = "c1FlexGridModel";
+            this.c1FlexGridModel.Rows.DefaultSize = 20;
+            this.c1FlexGridModel.Size = new System.Drawing.Size(1146, 585);
+            this.c1FlexGridModel.TabIndex = 4;
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.btnModelQuery);
@@ -474,26 +494,6 @@
             this.btnModelSave.UseVisualStyleBackColor = true;
             this.btnModelSave.Click += new System.EventHandler(this.btnModelSave_Click);
             // 
-            // c1FlexGridModel
-            // 
-            this.c1FlexGridModel.ColumnInfo = "10,1,0,0,0,100,Columns:";
-            this.c1FlexGridModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c1FlexGridModel.Location = new System.Drawing.Point(0, 0);
-            this.c1FlexGridModel.Name = "c1FlexGridModel";
-            this.c1FlexGridModel.Rows.DefaultSize = 20;
-            this.c1FlexGridModel.Size = new System.Drawing.Size(1146, 585);
-            this.c1FlexGridModel.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.c1FlexGridModel);
-            this.panel1.Controls.Add(this.flowLayoutPanel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1146, 616);
-            this.panel1.TabIndex = 6;
-            // 
             // Frm_Dictionary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -501,6 +501,7 @@
             this.ClientSize = new System.Drawing.Size(1154, 642);
             this.Controls.Add(this.tabControl1);
             this.Name = "Frm_Dictionary";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "接口字典维护";
             this.Load += new System.EventHandler(this.Frm_Dictionary_Load);
             this.tabControl1.ResumeLayout(false);
@@ -514,9 +515,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridDisease)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tabPageModel.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridModel)).EndInit();
+            this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

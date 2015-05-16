@@ -56,7 +56,6 @@
             this.groupBox1.Size = new System.Drawing.Size(506, 240);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "登陆信息";
             // 
             // btnCancel
             // 
@@ -86,15 +85,16 @@
             // 
             // lblAppTitle
             // 
-            this.lblAppTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAppTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAppTitle.AutoSize = true;
             this.lblAppTitle.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblAppTitle.Location = new System.Drawing.Point(101, 33);
+            this.lblAppTitle.Location = new System.Drawing.Point(138, 33);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(324, 20);
+            this.lblAppTitle.Size = new System.Drawing.Size(240, 20);
             this.lblAppTitle.TabIndex = 2;
-            this.lblAppTitle.Text = "青海埃立福湖南创智医保接口系统";
+            this.lblAppTitle.Text = "青海埃立福医保接口系统";
             // 
             // flowLayoutPanel1
             // 

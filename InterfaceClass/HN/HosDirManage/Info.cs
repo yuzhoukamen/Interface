@@ -84,91 +84,100 @@ namespace InterfaceClass.HN.HosDirManage
                 throw new Exception("取中心药品目录分页信息失败，失败原因：" + inter.GetMessage());
             }
 
-            inter.SetResultset("count");
+            string errorInfo = inter.GetMessage();
 
-            string str = string.Empty;
-
-            inter.GetByName("count", ref str);
-            this.MedicalTotalCounts = str;
-
-            inter.SetResultset("pageinfo");
-
-            do
+            try
             {
-                Medic medic = new Medic();
+                inter.SetResultset("count");
 
-                str = string.Empty;
-                inter.GetByName("medi_code", ref str);
-                medic.medi_code = str;
+                string str = string.Empty;
 
-                str = string.Empty;
-                inter.GetByName("medi_name", ref str);
-                medic.medi_name = str;
+                inter.GetByName("count", ref str);
+                this.MedicalTotalCounts = str;
 
-                str = string.Empty;
-                inter.GetByName("english_name", ref str);
-                medic.english_name = str;
+                inter.SetResultset("pageinfo");
 
-                str = string.Empty;
-                inter.GetByName("model", ref str);
-                medic.model = str;
+                do
+                {
+                    Medic medic = new Medic();
 
-                str = string.Empty;
-                inter.GetByName("medi_item_type", ref str);
-                medic.medi_item_type = str;
+                    str = string.Empty;
+                    inter.GetByName("medi_code", ref str);
+                    medic.medi_code = str;
 
-                str = string.Empty;
-                inter.GetByName("stat_type", ref str);
-                medic.stat_type = str;
+                    str = string.Empty;
+                    inter.GetByName("medi_name", ref str);
+                    medic.medi_name = str;
 
-                str = string.Empty;
-                inter.GetByName("code_wb", ref str);
-                medic.code_wb = str;
+                    str = string.Empty;
+                    inter.GetByName("english_name", ref str);
+                    medic.english_name = str;
 
-                str = string.Empty;
-                inter.GetByName("code_py", ref str);
-                medic.code_py = str;
+                    str = string.Empty;
+                    inter.GetByName("model", ref str);
+                    medic.model = str;
 
-                str = string.Empty;
-                inter.GetByName("price", ref str);
-                medic.price = str;
+                    str = string.Empty;
+                    inter.GetByName("medi_item_type", ref str);
+                    medic.medi_item_type = str;
 
-                str = string.Empty;
-                inter.GetByName("staple_flag", ref str);
-                medic.staple_flag = str;
+                    str = string.Empty;
+                    inter.GetByName("stat_type", ref str);
+                    medic.stat_type = str;
 
-                str = string.Empty;
-                inter.GetByName("effect_date", ref str);
-                medic.effect_date = str;
+                    str = string.Empty;
+                    inter.GetByName("code_wb", ref str);
+                    medic.code_wb = str;
 
-                str = string.Empty;
-                inter.GetByName("expire_date", ref str);
-                medic.expire_date = str;
+                    str = string.Empty;
+                    inter.GetByName("code_py", ref str);
+                    medic.code_py = str;
 
-                str = string.Empty;
-                inter.GetByName("otc", ref str);
-                medic.otc = str;
+                    str = string.Empty;
+                    inter.GetByName("price", ref str);
+                    medic.price = str;
 
-                str = string.Empty;
-                inter.GetByName("mt_flag", ref str);
-                medic.mt_flag = str;
+                    str = string.Empty;
+                    inter.GetByName("staple_flag", ref str);
+                    medic.staple_flag = str;
 
-                str = string.Empty;
-                inter.GetByName("wl_flag", ref str);
-                medic.wl_flag = str;
+                    str = string.Empty;
+                    inter.GetByName("effect_date", ref str);
+                    medic.effect_date = str;
 
-                str = string.Empty;
-                inter.GetByName("bo_flag", ref str);
-                medic.bo_flag = str;
+                    str = string.Empty;
+                    inter.GetByName("expire_date", ref str);
+                    medic.expire_date = str;
 
-                str = string.Empty;
-                inter.GetByName("sp_flag", ref str);
-                medic.sp_flag = str;
+                    str = string.Empty;
+                    inter.GetByName("otc", ref str);
+                    medic.otc = str;
 
-                list.Add(medic);
-            } while (0 < inter.NextRow());
+                    str = string.Empty;
+                    inter.GetByName("mt_flag", ref str);
+                    medic.mt_flag = str;
 
-            return list;
+                    str = string.Empty;
+                    inter.GetByName("wl_flag", ref str);
+                    medic.wl_flag = str;
+
+                    str = string.Empty;
+                    inter.GetByName("bo_flag", ref str);
+                    medic.bo_flag = str;
+
+                    str = string.Empty;
+                    inter.GetByName("sp_flag", ref str);
+                    medic.sp_flag = str;
+
+                    list.Add(medic);
+                } while (0 < inter.NextRow());
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(errorInfo + "\n" + ex.Message);
+            }
         }
 
         /// <summary>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>省医保门诊费用结算单</title>
+		<style type="text/css">
+		    body {
+	            font-family: Arial, Helvetica, sans-serif;
+	            width: 100mm;
+		    }
+
+            td {
+	            font-family: Arial, Helvetica, sans-serif;
+            }
+
+            th {
+	            font-family: Arial, Helvetica, sans-serif;
+            }
+            .bttd { font-size:8pt;
+		            font:  "宋体";
+		            height:4mm;
+		            vertical-align: middle;
+		            background-color:#FFFFFF;
+		            color:#000000;
+		            }
+		      .bttdCenter { font-size:8pt;
+		            font:  "宋体";
+		            vertical-align: middle;
+		            background-color:#FFFFFF;
+		            color:#000000;
+		            text-align:center;
+		            }
+            .hbtd { font-size:8pt;
+		            font:  "宋体";
+		            width:10mm;
+		            background-color:#FFFFFF;
+		            color:#000000
+ 		            }
+ 		      #mb {width:100mm;}
+		</style>
+	</head>
+	<body>
+	    <div id="mb">
+	       <div id="dvHead" class="bttd" style="text-align: center; font-weight: bold">省医保门诊费用结算单</div>
+	       <div id="dvPatientInfo">
+	           <table border="0" cellpadding="0" cellspacing="0" style="border:#000000 1px solid; width: 100%">
+	              <tr>
+	                  <td class="bttd" colspan="2">医疗机构名称：海西州蒙藏医院&nbsp;&nbsp;&nbsp;&nbsp;医院等级：<!--^1^0^hospital_level^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttd">姓名：<!--^1^0^name^--></td>
+	                  <td class="bttd" style="padding-left: 10px">个人电脑号：<!--^1^0^indi_id^-->&nbsp;&nbsp;&nbsp;&nbsp;单据号：<!--^1^0^serial_no^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttd" colspan="3">IC卡号：<!--^1^0^card_no^-->&nbsp;&nbsp;&nbsp;&nbsp;身份证号：<!--^1^0^idcard^--></td>
+	              </tr>
+	           </table>
+	           <table border="0" cellpadding="0" cellspacing="0" style="border:#000000 1px solid;width: 100%">
+	              <tr>
+	                  <td class="bttdCenter">序号</td>
+	                  <td class="bttdCenter">药品/项目名称</td>
+	                  <td class="bttdCenter">单位/规格</td>
+	                  <td class="bttdCenter">单价</td>
+	                  <td class="bttdCenter">数量</td>
+	                  <td class="bttdCenter">金额</td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^1^--></td>
+	                  <td class="bttdCenter"><!--^1^0^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^0^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^0^price^--></td>
+	                  <td class="bttdCenter"><!--^1^0^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^0^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^2^--></td>
+	                  <td class="bttdCenter"><!--^1^1^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^1^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^1^price^--></td>
+	                  <td class="bttdCenter"><!--^1^1^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^1^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^3^--></td>
+	                  <td class="bttdCenter"><!--^1^2^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^2^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^2^price^--></td>
+	                  <td class="bttdCenter"><!--^1^2^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^2^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^4^--></td>
+	                  <td class="bttdCenter"><!--^1^3^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^3^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^3^price^--></td>
+	                  <td class="bttdCenter"><!--^1^3^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^3^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^5^--></td>
+	                  <td class="bttdCenter"><!--^1^4^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^4^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^4^price^--></td>
+	                  <td class="bttdCenter"><!--^1^4^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^4^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^6^--></td>
+	                  <td class="bttdCenter"><!--^1^5^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^5^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^5^price^--></td>
+	                  <td class="bttdCenter"><!--^1^5^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^5^money^--></td>
+	                </tr>
+	                <tr>
+	                  <td class="bttdCenter"><!--^Display^7^--></td>
+	                  <td class="bttdCenter"><!--^1^6^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^6^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^6^price^--></td>
+	                  <td class="bttdCenter"><!--^1^6^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^6^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^8^--></td>
+	                  <td class="bttdCenter"><!--^1^7^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^7^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^7^price^--></td>
+	                  <td class="bttdCenter"><!--^1^7^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^7^money^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttdCenter"><!--^Display^9^--></td>
+	                  <td class="bttdCenter"><!--^1^8^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^8^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^8^price^--></td>
+	                  <td class="bttdCenter"><!--^1^8^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^8^money^--></td>
+	                </tr>
+	                <tr>
+	                  <td class="bttdCenter"><!--^Display^10^--></td>
+	                  <td class="bttdCenter"><!--^1^9^medi_name^--></td>
+	                  <td class="bttdCenter"><!--^1^9^unit^--></td>
+	                  <td class="bttdCenter"><!--^1^9^price^--></td>
+	                  <td class="bttdCenter"><!--^1^9^dosage^--></td>
+	                  <td class="bttdCenter"><!--^1^9^money^--></td>
+	              </tr>
+	           </table>
+	           <table border="0" cellpadding="0" cellspacing="0" style="border:#000000 1px solid;width: 100%">
+	              <tr>
+	                  <td class="bttd">合计：<!--^0^0^total_pay^-->元</td>
+	                  <td class="bttd">（大写）：<!--^0^0^moneyUpper^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttd">本次现金支付：<!--^0^0^self_pay^--></td>
+	                  <td class="bttd">本次统筹支付：<!--^0^0^fund_pay^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttd">个人账户支付：<!--^0^0^acct_pay^--></td>
+	                  <td class="bttd">本人账户余额：<!--^1^0^last_balance^--></td>
+	              </tr>
+	              <tr>
+	                  <td class="bttd">医疗机构支付：<!--^0^0^hosp_pay^--></td>
+	                  <td class="bttd">公务员补助：<!--^0^0^offi_pay^--></td>
+	              </tr>
+	           </table>
+	           <table border="0" cellpadding="0" cellspacing="0" style="border:#000000 1px solid;width: 100%">
+	              <tr>
+	                  <td class="bttd">收费员：<!--^0^0^userName^--></td>
+	                  <td class="bttd">日期：<!--^0^0^printTime^--></td>
+	              </tr>
+	           </table>
+	       </div>
+	    </div>
+	</body>
+</html>

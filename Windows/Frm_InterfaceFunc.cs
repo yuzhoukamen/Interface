@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Windows
 {
-    public partial class Frm_InterfaceFunc : Form
+    public partial class Frm_InterfaceFunc : BaseForm
     {
         private int _paraSelectRowIndex = 0;
         private int _paraSelectColIndex = 0;
@@ -43,6 +43,8 @@ namespace Windows
             {
                 QueryInterfaceDetailInfo(this.c1FlexGridFunc.Rows[1]["ID"].ToString().Trim());
             }
+
+            SetApplicationIco(this);
         }
 
         /// <summary>
@@ -567,6 +569,235 @@ namespace Windows
         {
             this._datasetSelectRowIndex = this.c1FlexGridDataset.MouseRow;
             this._datasetSelectColIndex = this.c1FlexGridDataset.MouseCol;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnToClass_Click(object sender, EventArgs e)
+        {
+            List<string> listDatasetName = new List<string>();
+
+            string datasetName = string.Empty;
+
+            if (!this.c1FlexGridDataset.Cols.Contains("数据集"))
+            {
+                CommonFunctions.MsgError("没有任何数据集，不能生成类！！！");
+            }
+
+            for (int i = 1; i < this.c1FlexGridDataset.Rows.Count; i++)
+            {
+                string temp = this.c1FlexGridDataset.Rows[i]["数据集"].ToString().Trim();
+
+                if (temp != string.Empty && temp != datasetName)
+                {
+                    datasetName = temp;
+
+                    listDatasetName.Add(datasetName);
+                }
+            }
+
+            if (listDatasetName.Count <= 0)
+            {
+                CommonFunctions.MsgError("没有任何数据集，将不生成任何数据集对应的类！！！");
+                return;
+            }
+
+            foreach (string dataset in listDatasetName)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                string tempDatasetName = dataset;
+
+                tempDatasetName = dataset.Substring(0, 1).ToUpper() + dataset.Substring(1, dataset.Length - 1);
+
+                sb.AppendLine("public class " + tempDatasetName);
+                sb.AppendLine("{");
+                sb.AppendLine("#region 属性");
+                sb.AppendLine();
+
+                for (int i = 1; i < this.c1FlexGridDataset.Rows.Count; i++)
+                {
+                    string temp = this.c1FlexGridDataset.Rows[i]["数据集"].ToString().Trim();
+
+                    if (dataset == temp)
+                    {
+
+                        string des = this.c1FlexGridDataset.Rows[i]["字段说明"].ToString().Trim();
+                        string name = this.c1FlexGridDataset.Rows[i]["字段"].ToString().Trim();
+
+                        sb.AppendLine(string.Format("[Description(\"{0}\")]", des));
+                        sb.AppendLine("public string " + name + " { get; set; }");
+                        sb.AppendLine();
+                    }
+                }
+
+                sb.AppendLine("#endregion");
+                sb.AppendLine();
+
+                sb.AppendLine("/// <summary>");
+                sb.AppendLine("/// 设置属性值");
+                sb.AppendLine("/// </summary>");
+                sb.AppendLine("/// <param name=\"name\">名称</param>");
+                sb.AppendLine("/// <param name=\"value\">值</param>");
+                sb.AppendLine("public void SetAttributeValue(string name, string value)");
+                sb.AppendLine("{");
+                sb.AppendLine("switch (name)");
+                sb.AppendLine("{");
+
+                for (int i = 1; i < this.c1FlexGridDataset.Rows.Count; i++)
+                {
+                    string temp = this.c1FlexGridDataset.Rows[i]["数据集"].ToString().Trim();
+
+                    if (dataset == temp)
+                    {
+                        string name = this.c1FlexGridDataset.Rows[i]["字段"].ToString().Trim();
+                        string des = this.c1FlexGridDataset.Rows[i]["字段说明"].ToString().Trim();
+
+                        sb.AppendLine(string.Format("case \"{0}\"://{1}", name, des));
+                        sb.AppendLine(string.Format("this.{0} = value;", name));
+                        sb.AppendLine("break;");
+                    }
+                }
+
+                sb.AppendLine("default:");
+                sb.AppendLine("break;");
+                sb.AppendLine("}");
+                sb.AppendLine("}");
+                sb.AppendLine("}");
+
+                string filePath = Application.StartupPath + "\\ToClass";
+
+                if (!System.IO.Directory.Exists(filePath))
+                {
+                    System.IO.Directory.CreateDirectory(filePath);
+                }
+
+                filePath = System.IO.Path.Combine(filePath, tempDatasetName + ".cs");
+
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(filePath, true);
+                sw.WriteLine(sb.ToString());
+                sw.Close();
+                sw.Dispose();
+            }
+
+            CommonFunctions.MsgInfo("生成数据集对应的类成功，一共生成了" + listDatasetName.Count + "个文件！！！");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnParameterToClass_Click(object sender, EventArgs e)
+        {
+            List<string> listParameterName = new List<string>();
+
+            string datasetName = "入参";
+
+            if (!this.c1FlexGridPara.Cols.Contains("参数说明"))
+            {
+                CommonFunctions.MsgError("没有任何入参，不能生成类！！！");
+            }
+
+            for (int i = 1; i < this.c1FlexGridPara.Rows.Count; i++)
+            {
+                string temp = this.c1FlexGridPara.Rows[i]["参数说明"].ToString().Trim();
+
+                if (temp != datasetName)
+                {
+                    datasetName = temp;
+
+                    listParameterName.Add(datasetName);
+                }
+            }
+
+            if (listParameterName.Count <= 0)
+            {
+                CommonFunctions.MsgError("没有任何参数，将不生成任何参数对应的类！！！");
+                return;
+            }
+
+            foreach (string dataset in listParameterName)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                string tempParameterName = dataset;
+
+                tempParameterName = this.lblID.Text.Trim() + "_Parameter" + "_" + tempParameterName;
+
+                sb.AppendLine("public class " + tempParameterName);
+                sb.AppendLine("{");
+                sb.AppendLine("#region 属性");
+                sb.AppendLine();
+
+                for (int i = 1; i < this.c1FlexGridPara.Rows.Count; i++)
+                {
+                    string temp = this.c1FlexGridPara.Rows[i]["参数说明"].ToString().Trim();
+
+                    if (dataset == temp)
+                    {
+                        string des = this.c1FlexGridPara.Rows[i]["入参说明"].ToString().Trim();
+                        string name = this.c1FlexGridPara.Rows[i]["入参"].ToString().Trim();
+
+                        sb.AppendLine(string.Format("[Description(\"{0}\")]", des));
+                        sb.AppendLine("public string " + name + " { get; set; }");
+                        sb.AppendLine();
+                    }
+                }
+
+                sb.AppendLine("#endregion");
+                sb.AppendLine();
+
+                sb.AppendLine("/// <summary>");
+                sb.AppendLine("/// 设置属性值");
+                sb.AppendLine("/// </summary>");
+                sb.AppendLine("/// <param name=\"name\">名称</param>");
+                sb.AppendLine("/// <param name=\"value\">值</param>");
+                sb.AppendLine("public void SetAttributeValue(string name, string value)");
+                sb.AppendLine("{");
+                sb.AppendLine("switch (name)");
+                sb.AppendLine("{");
+
+                for (int i = 1; i < this.c1FlexGridPara.Rows.Count; i++)
+                {
+                    string temp = this.c1FlexGridPara.Rows[i]["参数说明"].ToString().Trim();
+
+                    if (dataset == temp)
+                    {
+                        string name = this.c1FlexGridPara.Rows[i]["入参"].ToString().Trim();
+                        string des = this.c1FlexGridPara.Rows[i]["入参说明"].ToString().Trim();
+
+                        sb.AppendLine(string.Format("case \"{0}\"://{1}", name, des));
+                        sb.AppendLine(string.Format("this.{0} = value;", name));
+                        sb.AppendLine("break;");
+                    }
+                }
+
+                sb.AppendLine("default:");
+                sb.AppendLine("break;");
+                sb.AppendLine("}");
+                sb.AppendLine("}");
+                sb.AppendLine("}");
+
+                string filePath = Application.StartupPath + "\\ToClass";
+
+                if (!System.IO.Directory.Exists(filePath))
+                {
+                    System.IO.Directory.CreateDirectory(filePath);
+                }
+
+                filePath = System.IO.Path.Combine(filePath, tempParameterName + ".cs");
+
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(filePath, true);
+                sw.WriteLine(sb.ToString());
+                sw.Close();
+                sw.Dispose();
+            }
+
+            CommonFunctions.MsgInfo("生成参数对应的类成功，一共生成了" + listParameterName.Count + "个文件！！！");
         }
     }
 }

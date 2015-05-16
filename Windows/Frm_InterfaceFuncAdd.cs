@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Windows
 {
-    public partial class Frm_InterfaceFuncAdd : Form
+    public partial class Frm_InterfaceFuncAdd : BaseForm
     {
         /// <summary>
         /// 
@@ -101,6 +101,16 @@ namespace Windows
         private void Frm_InterfaceFuncAdd_Shown(object sender, EventArgs e)
         {
             this.txtBoxID.Focus();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Frm_InterfaceFuncAdd_Load(object sender, EventArgs e)
+        {
+            SetApplicationIco(this);
         }
     }
 }

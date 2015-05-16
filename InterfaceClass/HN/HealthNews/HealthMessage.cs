@@ -76,6 +76,8 @@ namespace InterfaceClass.HN.HealthNews
                 throw new Exception("取中心针对本单位消息失败，失败原因：" + inter.GetMessage());
             }
 
+            string errorInfo = inter.GetMessage();
+
             inter.SetResultset("info");
 
             try
@@ -121,7 +123,7 @@ namespace InterfaceClass.HN.HealthNews
             }
             catch (Exception e)
             {
-                throw new Exception("通过设置数据集获取中心消息的数据失败，失败原因:" + e.Message);
+                throw new Exception("通过设置数据集获取中心消息的数据失败，失败原因:" + errorInfo + "\n" + e.Message);
             }
 
             return listMsg;

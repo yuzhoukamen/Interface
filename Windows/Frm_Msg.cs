@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using InterfaceClass.HN.HealthNews;
+using System.Threading;
+using Windows.Class;
+using InterfaceClass;
 
 namespace Windows
 {
     public partial class Frm_Msg : BaseForm
     {
+        private Thread _thread = null;
+
         public Frm_Msg()
         {
             InitializeComponent();
+
+            this._SynchronizationContext = SynchronizationContext.Current;
         }
 
         private void Frm_Msg_Load(object sender, EventArgs e)
@@ -26,7 +33,14 @@ namespace Windows
             BindC1FlexGridDisplayLineNumbers(this.c1FlexGridMsg);
 
             InitMsgUrl();
-           // InitInterfaceMsg();
+            ThreadCenterMsg();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void ThreadCenterMsg() {
+            CreateAndStartThread(this._thread, InitInterfaceMsg);
         }
 
         /// <summary>
@@ -36,9 +50,11 @@ namespace Windows
         {
             try
             {
+                SendUIMsg(UIMsg.Display, "正在努力从中心获取消息，请稍后......");
+
                 List<InterfaceClass.HN.HealthNews.Message> listMsg = new List<InterfaceClass.HN.HealthNews.Message>();
 
-                string name = string.Empty;
+                string name = "000";
 
                 HealthMessage healthMessage = new HealthMessage(baseInterfaceHN);
 
@@ -46,7 +62,7 @@ namespace Windows
 
                 if (listMsg.Count <= 0)
                 {
-                    SetC1FlexGridNullDataTable(this.c1FlexGridMsg, "记录为空，没有医保中心消息......");
+                    SendUIMsg(MsgUIMsg.SetC1FlexGridMsgNull);
                     return;
                 }
 
@@ -77,12 +93,74 @@ namespace Windows
                     dt.Rows.Add(dr);
                 }
 
-                this.c1FlexGridMsg.DataSource = dt;
+                SendUIMsg(MsgUIMsg.BindC1FlexGridMsgDataSet, dt);
+
+                SendUIMsg(UIMsg.Close);
             }
             catch (Exception e)
             {
-                CommonFunctions.MsgError("获取医保中心消息发生错误，错误原因：" + e.Message);
+                SendUIMsg(UIMsg.Close);
+                SendUIMsg(UIMsg.MsgError, "获取医保中心消息发生错误，错误原因：" + e.Message);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void SetC1FlexGridMsgNull() {
+            SetC1FlexGridNullDataTable(this.c1FlexGridMsg, "记录为空，没有医保中心消息......");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        private void BindC1FlexGridMsgDataSet(object p)
+        {
+            DataTable dt = (DataTable)p;
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                SetC1FlexGridNullDataTable(this.c1FlexGridMsg);
+                return;
+            }
+
+            this.c1FlexGridMsg.DataSource = (DataTable)p;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        public override void UpdateUIControlContext(object context)
+        {
+            try
+            {
+                base.UpdateUIControlContext(context);
+
+                Parameter parameter = (Parameter)context;
+
+                switch (parameter.Name)
+                { 
+                    case MsgUIMsg.SetC1FlexGridMsgNull:
+                        SetC1FlexGridMsgNull();
+                        break;
+                    case MsgUIMsg.BindC1FlexGridMsgDataSet:
+                        BindC1FlexGridMsgDataSet(parameter.Object);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunctions.MsgError(ex.Message);
+            }
+        }
+
+        public class MsgUIMsg {
+            public const string SetC1FlexGridMsgNull = "SetC1FlexGridMsgNull";
+            public const string BindC1FlexGridMsgDataSet = "BindC1FlexGridMsgDataSet";
         }
 
         /// <summary>

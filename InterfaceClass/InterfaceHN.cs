@@ -183,6 +183,8 @@ namespace InterfaceClass
             set { this._ParameterList = value; }
         }
 
+        private List<List<Parameter>> _ListListParameter = new List<List<Parameter>>();
+
         #endregion
 
         #region 参数处理
@@ -303,14 +305,14 @@ namespace InterfaceClass
             this.ParameterList.Add(new Parameter("oper_hospitalid", this.Oper_hospitalid));
             this.ParameterList.Add(new Parameter("oper_staffid", this.Oper_staffid));
 
-            PutCols();
-
             long value = InterfaceHNDll.start(this.P_inter, this.Func_ID);
 
             if (-1 == value)
             {
                 throw new Exception("接口调用开始失败，错误原因：" + GetMessage());
             }
+
+            PutCols();
         }
 
         /// <summary>
@@ -388,6 +390,24 @@ namespace InterfaceClass
         }
 
         /// <summary>
+        /// 设置结果集并放置参数
+        /// </summary>
+        /// <param name="result_name"></param>
+        /// <param name="listListParameter"></param>
+        public void Puts(string result_name, List<List<Parameter>> listListParameter)
+        {
+            this.SetResultset(result_name);
+
+            int i = 0;
+
+            foreach (List<Parameter> listParameter in listListParameter)
+            {
+                i++;
+                Puts(i, listParameter);
+            }
+        }
+
+        /// <summary>
         /// 运行
         /// </summary>
         /// <returns></returns>
@@ -456,7 +476,6 @@ namespace InterfaceClass
             sbValue = null;
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -518,6 +537,23 @@ namespace InterfaceClass
             if (0 > value)
             {
                 throw new Exception("执行函数getrowcount错误，错误原因：" + GetMessage());
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// 设置IC卡设备的串口号
+        /// </summary>
+        /// <param name="port">串口号</param>
+        /// <returns></returns>
+        public long SetICCommPort(int port)
+        {
+            long value = InterfaceHNDll.set_ic_commport(this.P_inter,port);
+
+            if (0 > value)
+            {
+                throw new Exception("执行函数set_ic_commport错误，错误原因：" + GetMessage());
             }
 
             return value;

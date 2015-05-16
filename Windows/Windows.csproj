@@ -28,6 +28,10 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -89,8 +93,13 @@
     <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Class\CardInfo.cs" />
     <Compile Include="Class\ColorConfig.cs" />
+    <Compile Include="Class\Function.cs" />
     <Compile Include="Class\MyMenuRender.cs" />
+    <Compile Include="Class\RMB.cs" />
+    <Compile Include="Class\StatusEvent.cs" />
+    <Compile Include="Class\UIMsg.cs" />
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="Control\PagerControl.cs">
       <SubType>UserControl</SubType>
@@ -102,6 +111,12 @@
     <Compile Include="DEncrypt\DESEncrypt.cs" />
     <Compile Include="DEncrypt\HashEncode.cs" />
     <Compile Include="DEncrypt\RSACryption.cs" />
+    <Compile Include="Frm_Diagnoise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Diagnoise.Designer.cs">
+      <DependentUpon>Frm_Diagnoise.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Dictionary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +140,12 @@
     </Compile>
     <Compile Include="Frm_FuncTest.Designer.cs">
       <DependentUpon>Frm_FuncTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Fund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Fund.Designer.cs">
+      <DependentUpon>Frm_Fund.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Interface.cs">
       <SubType>Form</SubType>
@@ -168,6 +189,30 @@
     <Compile Include="Frm_Msg.Designer.cs">
       <DependentUpon>Frm_Msg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_PrintHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PrintHtml.Designer.cs">
+      <DependentUpon>Frm_PrintHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_ReadCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ReadCard.Designer.cs">
+      <DependentUpon>Frm_ReadCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SaveClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SaveClass.Designer.cs">
+      <DependentUpon>Frm_SaveClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_SelectDirCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SelectDirCompare.Designer.cs">
+      <DependentUpon>Frm_SelectDirCompare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Setup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,9 +225,81 @@
     <Compile Include="Frm_Tips.Designer.cs">
       <DependentUpon>Frm_Tips.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Validata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Validata.Designer.cs">
+      <DependentUpon>Frm_Validata.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceFunc.cs" />
+    <Compile Include="MZ\Frm_AddFeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_AddFeeDetails.Designer.cs">
+      <DependentUpon>Frm_AddFeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_FindPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_FindPatients.Designer.cs">
+      <DependentUpon>Frm_FindPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_MZSpecialDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_MZSpecialDisease.Designer.cs">
+      <DependentUpon>Frm_MZSpecialDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_Change.Designer.cs">
+      <DependentUpon>Frm_MZ_Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_Charge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_Charge.Designer.cs">
+      <DependentUpon>Frm_MZ_Charge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_FindChargedPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_FindChargedPatients.Designer.cs">
+      <DependentUpon>Frm_MZ_FindChargedPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_InfoQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MZ\Frm_MZ_InfoQuery.Designer.cs">
+      <DependentUpon>Frm_MZ_InfoQuery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Frm_Report_AllInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Frm_Report_AllInfo.Designer.cs">
+      <DependentUpon>Frm_Report_AllInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Frm_Report_MZ_AllBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Frm_Report_MZ_AllBusiness.Designer.cs">
+      <DependentUpon>Frm_Report_MZ_AllBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Frm_Report_MZ_BigClassFeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Frm_Report_MZ_BigClassFeeInfo.Designer.cs">
+      <DependentUpon>Frm_Report_MZ_BigClassFeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Frm_Report_ZY_AllBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Frm_Report_ZY_AllBusiness.Designer.cs">
+      <DependentUpon>Frm_Report_ZY_AllBusiness.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResImage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\PagerControl.resx">
       <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Diagnoise.resx">
+      <DependentUpon>Frm_Diagnoise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Dictionary.resx">
       <DependentUpon>Frm_Dictionary.cs</DependentUpon>
@@ -205,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_FuncTest.resx">
       <DependentUpon>Frm_FuncTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Fund.resx">
+      <DependentUpon>Frm_Fund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Interface.resx">
       <DependentUpon>Frm_Interface.cs</DependentUpon>
@@ -227,11 +350,47 @@
     <EmbeddedResource Include="Frm_Msg.resx">
       <DependentUpon>Frm_Msg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_PrintHtml.resx">
+      <DependentUpon>Frm_PrintHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_ReadCard.resx">
+      <DependentUpon>Frm_ReadCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SaveClass.resx">
+      <DependentUpon>Frm_SaveClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SelectDirCompare.resx">
+      <DependentUpon>Frm_SelectDirCompare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Setup.resx">
       <DependentUpon>Frm_Setup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Tips.resx">
       <DependentUpon>Frm_Tips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Validata.resx">
+      <DependentUpon>Frm_Validata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_AddFeeDetails.resx">
+      <DependentUpon>Frm_AddFeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_FindPatients.resx">
+      <DependentUpon>Frm_FindPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_MZSpecialDisease.resx">
+      <DependentUpon>Frm_MZSpecialDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_MZ_Change.resx">
+      <DependentUpon>Frm_MZ_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_MZ_Charge.resx">
+      <DependentUpon>Frm_MZ_Charge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_MZ_FindChargedPatients.resx">
+      <DependentUpon>Frm_MZ_FindChargedPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MZ\Frm_MZ_InfoQuery.resx">
+      <DependentUpon>Frm_MZ_InfoQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -244,9 +403,39 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\Frm_Report_AllInfo.resx">
+      <DependentUpon>Frm_Report_AllInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Frm_Report_MZ_AllBusiness.resx">
+      <DependentUpon>Frm_Report_MZ_AllBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Frm_Report_MZ_BigClassFeeInfo.resx">
+      <DependentUpon>Frm_Report_MZ_BigClassFeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Frm_Report_ZY_AllBusiness.resx">
+      <DependentUpon>Frm_Report_ZY_AllBusiness.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResImage.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResImage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_FeeDetails.resx">
+      <DependentUpon>Frm_FeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_OutHospitalSettlement.resx">
+      <DependentUpon>Frm_OutHospitalSettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_PatientInfo.resx">
+      <DependentUpon>Frm_PatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_Register.resx">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_RegisterUpdate.resx">
+      <DependentUpon>Frm_RegisterUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZY\Frm_UpdateForegift.resx">
+      <DependentUpon>Frm_UpdateForegift.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -256,6 +445,42 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ZY\Frm_FeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_FeeDetails.Designer.cs">
+      <DependentUpon>Frm_FeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZY\Frm_OutHospitalSettlement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_OutHospitalSettlement.Designer.cs">
+      <DependentUpon>Frm_OutHospitalSettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZY\Frm_PatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_PatientInfo.Designer.cs">
+      <DependentUpon>Frm_PatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZY\Frm_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_Register.Designer.cs">
+      <DependentUpon>Frm_Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZY\Frm_RegisterUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_RegisterUpdate.Designer.cs">
+      <DependentUpon>Frm_RegisterUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZY\Frm_UpdateForegift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZY\Frm_UpdateForegift.Designer.cs">
+      <DependentUpon>Frm_UpdateForegift.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -410,6 +635,24 @@
     </Content>
     <Content Include="Pictures\Interface.png" />
     <Content Include="Pictures\Keys.png" />
+    <Content Include="Pictures\money\money.png" />
+    <Content Include="Pictures\money\money_add.png" />
+    <Content Include="Pictures\money\money_delete.png" />
+    <Content Include="Pictures\money\money_dollar.png" />
+    <Content Include="Pictures\money\money_euro.png" />
+    <Content Include="Pictures\money\money_pound.png" />
+    <Content Include="Pictures\money\money_yen.png" />
+    <Content Include="Pictures\package\package.png" />
+    <Content Include="Pictures\package\package_add.png" />
+    <Content Include="Pictures\package\package_delete.png" />
+    <Content Include="Pictures\package\package_go.png" />
+    <Content Include="Pictures\package\package_green.png" />
+    <Content Include="Pictures\package\package_link.png" />
+    <Content Include="Pictures\printer\printer.png" />
+    <Content Include="Pictures\printer\printer_add.png" />
+    <Content Include="Pictures\printer\printer_delete.png" />
+    <Content Include="Pictures\printer\printer_empty.png" />
+    <Content Include="Pictures\printer\printer_error.png" />
     <Content Include="Pictures\tick.png" />
     <Content Include="Pictures\Tips.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -427,6 +670,8 @@
     <Content Include="Pictures\user\user_orange.png" />
     <Content Include="Pictures\user\user_red.png" />
     <Content Include="Pictures\user\user_suit.png" />
+    <Content Include="Print\MZ.htm" />
+    <Content Include="Print\ZY.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

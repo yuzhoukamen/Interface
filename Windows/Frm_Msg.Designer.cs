@@ -101,6 +101,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Msg";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "通知管理";
             this.Load += new System.EventHandler(this.Frm_Msg_Load);

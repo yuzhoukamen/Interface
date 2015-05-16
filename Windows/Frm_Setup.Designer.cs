@@ -30,22 +30,24 @@
         {
             this.tabControlSetup = new System.Windows.Forms.TabControl();
             this.tabPageConnectionString = new System.Windows.Forms.TabPage();
-            this.tabPageOther = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxUrl = new System.Windows.Forms.TextBox();
-            this.txtBoxDataBase = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxUserName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtBoxPasswd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxAppTitle = new System.Windows.Forms.TextBox();
+            this.txtBoxUserName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxDataBase = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBoxUrl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPageOther = new System.Windows.Forms.TabPage();
             this.txtBoxAppInfo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxAppTitle = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblTips = new System.Windows.Forms.Label();
+            this.txtBoxCommPort = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControlSetup.SuspendLayout();
             this.tabPageConnectionString.SuspendLayout();
             this.tabPageOther.SuspendLayout();
@@ -80,68 +82,6 @@
             this.tabPageConnectionString.Text = "服务器连接参数设置";
             this.tabPageConnectionString.UseVisualStyleBackColor = true;
             // 
-            // tabPageOther
-            // 
-            this.tabPageOther.Controls.Add(this.txtBoxAppInfo);
-            this.tabPageOther.Controls.Add(this.label6);
-            this.tabPageOther.Controls.Add(this.txtBoxAppTitle);
-            this.tabPageOther.Controls.Add(this.label5);
-            this.tabPageOther.Location = new System.Drawing.Point(4, 22);
-            this.tabPageOther.Name = "tabPageOther";
-            this.tabPageOther.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOther.Size = new System.Drawing.Size(366, 155);
-            this.tabPageOther.TabIndex = 1;
-            this.tabPageOther.Text = "其他参数设置";
-            this.tabPageOther.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "服务器地址：";
-            // 
-            // txtBoxUrl
-            // 
-            this.txtBoxUrl.Location = new System.Drawing.Point(90, 16);
-            this.txtBoxUrl.Name = "txtBoxUrl";
-            this.txtBoxUrl.Size = new System.Drawing.Size(268, 21);
-            this.txtBoxUrl.TabIndex = 1;
-            // 
-            // txtBoxDataBase
-            // 
-            this.txtBoxDataBase.Location = new System.Drawing.Point(90, 50);
-            this.txtBoxDataBase.Name = "txtBoxDataBase";
-            this.txtBoxDataBase.Size = new System.Drawing.Size(268, 21);
-            this.txtBoxDataBase.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "数据库：";
-            // 
-            // txtBoxUserName
-            // 
-            this.txtBoxUserName.Location = new System.Drawing.Point(90, 84);
-            this.txtBoxUserName.Name = "txtBoxUserName";
-            this.txtBoxUserName.Size = new System.Drawing.Size(268, 21);
-            this.txtBoxUserName.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "用户名：";
-            // 
             // txtBoxPasswd
             // 
             this.txtBoxPasswd.Location = new System.Drawing.Point(90, 121);
@@ -159,6 +99,102 @@
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "密码：";
+            // 
+            // txtBoxUserName
+            // 
+            this.txtBoxUserName.Location = new System.Drawing.Point(90, 84);
+            this.txtBoxUserName.Name = "txtBoxUserName";
+            this.txtBoxUserName.Size = new System.Drawing.Size(268, 21);
+            this.txtBoxUserName.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "用户名：";
+            // 
+            // txtBoxDataBase
+            // 
+            this.txtBoxDataBase.Location = new System.Drawing.Point(90, 50);
+            this.txtBoxDataBase.Name = "txtBoxDataBase";
+            this.txtBoxDataBase.Size = new System.Drawing.Size(268, 21);
+            this.txtBoxDataBase.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "数据库：";
+            // 
+            // txtBoxUrl
+            // 
+            this.txtBoxUrl.Location = new System.Drawing.Point(90, 16);
+            this.txtBoxUrl.Name = "txtBoxUrl";
+            this.txtBoxUrl.Size = new System.Drawing.Size(268, 21);
+            this.txtBoxUrl.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "服务器地址：";
+            // 
+            // tabPageOther
+            // 
+            this.tabPageOther.Controls.Add(this.txtBoxCommPort);
+            this.tabPageOther.Controls.Add(this.label7);
+            this.tabPageOther.Controls.Add(this.txtBoxAppInfo);
+            this.tabPageOther.Controls.Add(this.label6);
+            this.tabPageOther.Controls.Add(this.txtBoxAppTitle);
+            this.tabPageOther.Controls.Add(this.label5);
+            this.tabPageOther.Location = new System.Drawing.Point(4, 22);
+            this.tabPageOther.Name = "tabPageOther";
+            this.tabPageOther.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageOther.Size = new System.Drawing.Size(366, 155);
+            this.tabPageOther.TabIndex = 1;
+            this.tabPageOther.Text = "其他参数设置";
+            this.tabPageOther.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxAppInfo
+            // 
+            this.txtBoxAppInfo.Location = new System.Drawing.Point(91, 55);
+            this.txtBoxAppInfo.Name = "txtBoxAppInfo";
+            this.txtBoxAppInfo.Size = new System.Drawing.Size(258, 21);
+            this.txtBoxAppInfo.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "应用程序信息：";
+            // 
+            // txtBoxAppTitle
+            // 
+            this.txtBoxAppTitle.Location = new System.Drawing.Point(91, 16);
+            this.txtBoxAppTitle.Name = "txtBoxAppTitle";
+            this.txtBoxAppTitle.Size = new System.Drawing.Size(258, 21);
+            this.txtBoxAppTitle.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "应用程序标题：";
             // 
             // btnSave
             // 
@@ -186,38 +222,6 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "应用程序标题：";
-            // 
-            // txtBoxAppTitle
-            // 
-            this.txtBoxAppTitle.Location = new System.Drawing.Point(91, 16);
-            this.txtBoxAppTitle.Name = "txtBoxAppTitle";
-            this.txtBoxAppTitle.Size = new System.Drawing.Size(258, 21);
-            this.txtBoxAppTitle.TabIndex = 1;
-            // 
-            // txtBoxAppInfo
-            // 
-            this.txtBoxAppInfo.Location = new System.Drawing.Point(91, 55);
-            this.txtBoxAppInfo.Name = "txtBoxAppInfo";
-            this.txtBoxAppInfo.Size = new System.Drawing.Size(258, 21);
-            this.txtBoxAppInfo.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "应用程序信息：";
-            // 
             // lblTips
             // 
             this.lblTips.AutoSize = true;
@@ -225,6 +229,22 @@
             this.lblTips.Name = "lblTips";
             this.lblTips.Size = new System.Drawing.Size(0, 12);
             this.lblTips.TabIndex = 3;
+            // 
+            // txtBoxCommPort
+            // 
+            this.txtBoxCommPort.Location = new System.Drawing.Point(91, 91);
+            this.txtBoxCommPort.Name = "txtBoxCommPort";
+            this.txtBoxCommPort.Size = new System.Drawing.Size(70, 21);
+            this.txtBoxCommPort.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(42, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "串口号：";
             // 
             // Frm_Setup
             // 
@@ -239,6 +259,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Setup";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "服务器参数设置";
             this.Load += new System.EventHandler(this.Frm_Setup_Load);
@@ -272,5 +294,7 @@
         private System.Windows.Forms.TextBox txtBoxAppInfo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTips;
+        private System.Windows.Forms.TextBox txtBoxCommPort;
+        private System.Windows.Forms.Label label7;
     }
 }

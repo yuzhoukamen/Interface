@@ -58,6 +58,8 @@ namespace Windows
             this.pagerControlMedical.SetPageSize(20);
             this.pagerControlProject.SetPageSize(20);
             this.pagerControlDisease.SetPageSize(20);
+
+            SetApplicationIco(this);
         }
 
         /// <summary>
@@ -75,7 +77,7 @@ namespace Windows
 
                 string centerID = baseInterfaceHN.Oper_centerid;
                 string type = "version";
-                string condition = "bs_medi";
+                string condition = "bs_catalog_match";
                 string once_find = "1";
                 string first_row = this.pagerControlMedical.GetFirstRow().ToString();
                 string last_row = this.pagerControlMedical.GetLastRow().ToString();

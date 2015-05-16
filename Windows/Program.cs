@@ -13,9 +13,35 @@ namespace Windows
         [STAThread]
         static void Main()
         {
+            bool pblnGotOwnership = true;
+            System.Threading.Mutex pobjMyMutex = null;
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Interface(71));
+
+            try
+            {
+                //pobjMyMutex = new System.Threading.Mutex(true, "只能运行一个登陆进程", out   pblnGotOwnership);
+                if (pblnGotOwnership)
+                {
+                    Application.Run(new Frm_Interface(71));
+                }
+                else
+                {
+                    MessageBox.Show("只能运行一个应用程序", "警告",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (pobjMyMutex != null)
+                {
+                    pobjMyMutex.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString(), "提示",
+                    MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information);
+            }
         }
     }
 }

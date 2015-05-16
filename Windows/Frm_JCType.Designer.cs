@@ -62,6 +62,7 @@
             this.Controls.Add(this.c1FlexGridCompareTable);
             this.Controls.Add(this.c1FlexGridType);
             this.Name = "Frm_JCType";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "基础类别";
             this.Load += new System.EventHandler(this.Frm_JCType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGridType)).EndInit();

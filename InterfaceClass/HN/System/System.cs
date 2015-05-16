@@ -32,7 +32,7 @@ namespace InterfaceClass.HN.System
         /// </summary>
         /// <param name="loginID">登陆ID</param>
         /// <param name="loginPasswd">登陆密码</param>
-        public void Login(string loginID, string loginPasswd)
+        public string Login(string loginID, string loginPasswd)
         {
             Interface inter = new Interface(this.InterfaceHN);
 
@@ -43,10 +43,12 @@ namespace InterfaceClass.HN.System
 
             long value = inter.ExecInterface("0", list);
 
-            if (value != 0)
+            if (value < 0)
             {
                 throw new Exception("登陆到医保接口中心失败，失败原因：" + inter.GetMessage());
             }
+
+            return inter.GetMessage();
         }
 
         /// <summary>

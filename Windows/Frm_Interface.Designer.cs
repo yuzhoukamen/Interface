@@ -37,17 +37,30 @@
             this.lblUnitName = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCurrentTime = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.lblLoginStatus = new System.Windows.Forms.Label();
             this.lblFrmTitle = new System.Windows.Forms.Label();
             this.menuStripInterface = new System.Windows.Forms.MenuStrip();
             this.住院业务ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.普通门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.门诊特殊病ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工伤门诊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemMZ = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemMZSpecial = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolStripMenuItemBuyMedic = new System.Windows.Forms.ToolStripMenuItem();
             this.住院业务ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.普通住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工伤住院ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemZYRegister = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRegisterUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemZYDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.出院结算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.信息查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iC卡信息查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItemMZQuery = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItemPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemMZAllOrders = new System.Windows.Forms.ToolStripMenuItem();
+            this.门诊特殊病数据统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemZYAllOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.基础字典维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemInterfaceDic = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemJCType = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,10 +69,10 @@
             this.ToolStripMenuItemFuncTest = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemTest = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMZCharge = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblReadCard = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.label4 = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
@@ -70,6 +83,7 @@
             this.lblFlow = new System.Windows.Forms.Label();
             this.lblSetup = new System.Windows.Forms.Label();
             this.splitter6 = new System.Windows.Forms.Splitter();
+            this.toolStripMenuItemFeeDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStripInterface.SuspendLayout();
@@ -83,21 +97,21 @@
             // 
             // panelInterface
             // 
-            this.panelInterface.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelInterface.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelInterface.Location = new System.Drawing.Point(0, 59);
             this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(1184, 541);
+            this.panelInterface.Size = new System.Drawing.Size(1349, 561);
             this.panelInterface.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 600);
+            this.panel1.Location = new System.Drawing.Point(0, 620);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1184, 32);
+            this.panel1.Size = new System.Drawing.Size(1349, 32);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -106,10 +120,12 @@
             this.flowLayoutPanel1.Controls.Add(this.lblUnitName);
             this.flowLayoutPanel1.Controls.Add(this.lblUserName);
             this.flowLayoutPanel1.Controls.Add(this.lblCurrentTime);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogin);
+            this.flowLayoutPanel1.Controls.Add(this.lblLoginStatus);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 32);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1349, 32);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lblTips
@@ -163,6 +179,30 @@
             this.lblCurrentTime.TabIndex = 3;
             this.lblCurrentTime.Text = "当前时间：2015-03-26 00:00:00";
             // 
+            // btnLogin
+            // 
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Image = global::Windows.ResImage.accept;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.Location = new System.Drawing.Point(649, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "   登陆";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // lblLoginStatus
+            // 
+            this.lblLoginStatus.AutoSize = true;
+            this.lblLoginStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLoginStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblLoginStatus.Location = new System.Drawing.Point(730, 8);
+            this.lblLoginStatus.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblLoginStatus.Name = "lblLoginStatus";
+            this.lblLoginStatus.Size = new System.Drawing.Size(2, 14);
+            this.lblLoginStatus.TabIndex = 5;
+            // 
             // lblFrmTitle
             // 
             this.lblFrmTitle.AutoSize = true;
@@ -180,82 +220,176 @@
             this.menuStripInterface.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.住院业务ToolStripMenuItem,
             this.住院业务ToolStripMenuItem1,
+            this.信息查询ToolStripMenuItem,
+            this.数据统计ToolStripMenuItem,
             this.基础字典维护ToolStripMenuItem});
             this.menuStripInterface.Location = new System.Drawing.Point(0, 0);
             this.menuStripInterface.Name = "menuStripInterface";
-            this.menuStripInterface.Size = new System.Drawing.Size(1184, 25);
+            this.menuStripInterface.Size = new System.Drawing.Size(1349, 25);
             this.menuStripInterface.TabIndex = 0;
             this.menuStripInterface.Text = "menuStrip1";
             // 
             // 住院业务ToolStripMenuItem
             // 
             this.住院业务ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.普通门诊ToolStripMenuItem,
-            this.门诊特殊病ToolStripMenuItem,
-            this.工伤门诊ToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.ToolStripMenuItemBuyMedic});
+            this.ToolStripMenuItemMZ,
+            this.ToolStripMenuItemMZSpecial,
+            this.toolStripSeparator1});
             this.住院业务ToolStripMenuItem.Image = global::Windows.ResImage.user;
             this.住院业务ToolStripMenuItem.Name = "住院业务ToolStripMenuItem";
             this.住院业务ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
             this.住院业务ToolStripMenuItem.Text = "门诊业务";
             // 
-            // 普通门诊ToolStripMenuItem
+            // ToolStripMenuItemMZ
             // 
-            this.普通门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_green;
-            this.普通门诊ToolStripMenuItem.Name = "普通门诊ToolStripMenuItem";
-            this.普通门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.普通门诊ToolStripMenuItem.Text = "普通门诊";
+            this.ToolStripMenuItemMZ.Image = global::Windows.ResImage.user_green;
+            this.ToolStripMenuItemMZ.Name = "ToolStripMenuItemMZ";
+            this.ToolStripMenuItemMZ.Size = new System.Drawing.Size(136, 22);
+            this.ToolStripMenuItemMZ.Text = "普通门诊";
+            this.ToolStripMenuItemMZ.Click += new System.EventHandler(this.ToolStripMenuItemMZ_Click);
             // 
-            // 门诊特殊病ToolStripMenuItem
+            // ToolStripMenuItemMZSpecial
             // 
-            this.门诊特殊病ToolStripMenuItem.Image = global::Windows.ResImage.user_red;
-            this.门诊特殊病ToolStripMenuItem.Name = "门诊特殊病ToolStripMenuItem";
-            this.门诊特殊病ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.门诊特殊病ToolStripMenuItem.Text = "门诊特殊病";
-            // 
-            // 工伤门诊ToolStripMenuItem
-            // 
-            this.工伤门诊ToolStripMenuItem.Image = global::Windows.ResImage.user_gray;
-            this.工伤门诊ToolStripMenuItem.Name = "工伤门诊ToolStripMenuItem";
-            this.工伤门诊ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.工伤门诊ToolStripMenuItem.Text = "工伤门诊";
+            this.ToolStripMenuItemMZSpecial.Image = global::Windows.ResImage.user_red;
+            this.ToolStripMenuItemMZSpecial.Name = "ToolStripMenuItemMZSpecial";
+            this.ToolStripMenuItemMZSpecial.Size = new System.Drawing.Size(136, 22);
+            this.ToolStripMenuItemMZSpecial.Text = "门诊特殊病";
+            this.ToolStripMenuItemMZSpecial.Click += new System.EventHandler(this.ToolStripMenuItemMZSpecial_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
-            // ToolStripMenuItemBuyMedic
-            // 
-            this.ToolStripMenuItemBuyMedic.Image = global::Windows.ResImage.stop;
-            this.ToolStripMenuItemBuyMedic.Name = "ToolStripMenuItemBuyMedic";
-            this.ToolStripMenuItemBuyMedic.Size = new System.Drawing.Size(136, 22);
-            this.ToolStripMenuItemBuyMedic.Text = "(省直)购药";
-            // 
             // 住院业务ToolStripMenuItem1
             // 
             this.住院业务ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.普通住院ToolStripMenuItem,
-            this.工伤住院ToolStripMenuItem});
+            this.ToolStripMenuItemZYRegister,
+            this.ToolStripMenuItemRegisterUpdate,
+            this.ToolStripMenuItemZYDetails,
+            this.toolStripSeparator4,
+            this.toolStripMenuItemFeeDetails,
+            this.出院结算ToolStripMenuItem});
             this.住院业务ToolStripMenuItem1.Image = global::Windows.ResImage.group;
             this.住院业务ToolStripMenuItem1.Name = "住院业务ToolStripMenuItem1";
             this.住院业务ToolStripMenuItem1.Size = new System.Drawing.Size(84, 21);
             this.住院业务ToolStripMenuItem1.Text = "住院业务";
             // 
-            // 普通住院ToolStripMenuItem
+            // ToolStripMenuItemZYRegister
             // 
-            this.普通住院ToolStripMenuItem.Image = global::Windows.ResImage.group_add;
-            this.普通住院ToolStripMenuItem.Name = "普通住院ToolStripMenuItem";
-            this.普通住院ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.普通住院ToolStripMenuItem.Text = "普通住院";
+            this.ToolStripMenuItemZYRegister.Image = global::Windows.ResImage.group_add;
+            this.ToolStripMenuItemZYRegister.Name = "ToolStripMenuItemZYRegister";
+            this.ToolStripMenuItemZYRegister.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemZYRegister.Text = "入院登记";
+            this.ToolStripMenuItemZYRegister.Click += new System.EventHandler(this.ToolStripMenuItemZYRegister_Click);
             // 
-            // 工伤住院ToolStripMenuItem
+            // ToolStripMenuItemRegisterUpdate
             // 
-            this.工伤住院ToolStripMenuItem.Image = global::Windows.ResImage.group_error;
-            this.工伤住院ToolStripMenuItem.Name = "工伤住院ToolStripMenuItem";
-            this.工伤住院ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.工伤住院ToolStripMenuItem.Text = "工伤住院";
+            this.ToolStripMenuItemRegisterUpdate.Image = global::Windows.ResImage.group_edit;
+            this.ToolStripMenuItemRegisterUpdate.Name = "ToolStripMenuItemRegisterUpdate";
+            this.ToolStripMenuItemRegisterUpdate.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemRegisterUpdate.Text = "住院信息修改";
+            this.ToolStripMenuItemRegisterUpdate.Click += new System.EventHandler(this.ToolStripMenuItemRegisterUpdate_Click);
+            // 
+            // ToolStripMenuItemZYDetails
+            // 
+            this.ToolStripMenuItemZYDetails.Image = global::Windows.ResImage.application_cascade;
+            this.ToolStripMenuItemZYDetails.Name = "ToolStripMenuItemZYDetails";
+            this.ToolStripMenuItemZYDetails.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemZYDetails.Text = "住院信息查询";
+            this.ToolStripMenuItemZYDetails.Click += new System.EventHandler(this.ToolStripMenuItemZYDetails_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // 出院结算ToolStripMenuItem
+            // 
+            this.出院结算ToolStripMenuItem.Image = global::Windows.ResImage.sum;
+            this.出院结算ToolStripMenuItem.Name = "出院结算ToolStripMenuItem";
+            this.出院结算ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.出院结算ToolStripMenuItem.Text = "出院结算";
+            // 
+            // 信息查询ToolStripMenuItem
+            // 
+            this.信息查询ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iC卡信息查询ToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.ToolStripMenuItemMZQuery,
+            this.toolStripSeparator5,
+            this.ToolStripMenuItemPersonInfo});
+            this.信息查询ToolStripMenuItem.Image = global::Windows.ResImage.application_side_boxes;
+            this.信息查询ToolStripMenuItem.Name = "信息查询ToolStripMenuItem";
+            this.信息查询ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
+            this.信息查询ToolStripMenuItem.Text = "信息查询";
+            // 
+            // iC卡信息查询ToolStripMenuItem
+            // 
+            this.iC卡信息查询ToolStripMenuItem.Image = global::Windows.ResImage.application_view_columns;
+            this.iC卡信息查询ToolStripMenuItem.Name = "iC卡信息查询ToolStripMenuItem";
+            this.iC卡信息查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iC卡信息查询ToolStripMenuItem.Text = "IC卡信息查询";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // ToolStripMenuItemMZQuery
+            // 
+            this.ToolStripMenuItemMZQuery.Image = global::Windows.ResImage.application_side_expand;
+            this.ToolStripMenuItemMZQuery.Name = "ToolStripMenuItemMZQuery";
+            this.ToolStripMenuItemMZQuery.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemMZQuery.Text = "门诊信息查询";
+            this.ToolStripMenuItemMZQuery.Click += new System.EventHandler(this.ToolStripMenuItemMZQuery_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            // 
+            // ToolStripMenuItemPersonInfo
+            // 
+            this.ToolStripMenuItemPersonInfo.Image = global::Windows.ResImage.application_double;
+            this.ToolStripMenuItemPersonInfo.Name = "ToolStripMenuItemPersonInfo";
+            this.ToolStripMenuItemPersonInfo.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemPersonInfo.Text = "患者基本信息";
+            this.ToolStripMenuItemPersonInfo.Click += new System.EventHandler(this.ToolStripMenuItemPersonInfo_Click);
+            // 
+            // 数据统计ToolStripMenuItem
+            // 
+            this.数据统计ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemMZAllOrders,
+            this.门诊特殊病数据统计ToolStripMenuItem,
+            this.ToolStripMenuItemZYAllOrders});
+            this.数据统计ToolStripMenuItem.Image = global::Windows.ResImage.package;
+            this.数据统计ToolStripMenuItem.Name = "数据统计ToolStripMenuItem";
+            this.数据统计ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
+            this.数据统计ToolStripMenuItem.Text = "数据统计";
+            // 
+            // ToolStripMenuItemMZAllOrders
+            // 
+            this.ToolStripMenuItemMZAllOrders.Image = global::Windows.ResImage.user;
+            this.ToolStripMenuItemMZAllOrders.Name = "ToolStripMenuItemMZAllOrders";
+            this.ToolStripMenuItemMZAllOrders.Size = new System.Drawing.Size(184, 22);
+            this.ToolStripMenuItemMZAllOrders.Text = "普通门诊数据统计";
+            this.ToolStripMenuItemMZAllOrders.Click += new System.EventHandler(this.ToolStripMenuItemMZAllOrders_Click);
+            // 
+            // 门诊特殊病数据统计ToolStripMenuItem
+            // 
+            this.门诊特殊病数据统计ToolStripMenuItem.Image = global::Windows.ResImage.user_red;
+            this.门诊特殊病数据统计ToolStripMenuItem.Name = "门诊特殊病数据统计ToolStripMenuItem";
+            this.门诊特殊病数据统计ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.门诊特殊病数据统计ToolStripMenuItem.Text = "门诊特殊病数据统计";
+            // 
+            // ToolStripMenuItemZYAllOrders
+            // 
+            this.ToolStripMenuItemZYAllOrders.Image = global::Windows.ResImage.group;
+            this.ToolStripMenuItemZYAllOrders.Name = "ToolStripMenuItemZYAllOrders";
+            this.ToolStripMenuItemZYAllOrders.Size = new System.Drawing.Size(184, 22);
+            this.ToolStripMenuItemZYAllOrders.Text = "普通住院数据统计";
+            this.ToolStripMenuItemZYAllOrders.Click += new System.EventHandler(this.ToolStripMenuItemZYAllOrders_Click);
             // 
             // 基础字典维护ToolStripMenuItem
             // 
@@ -317,10 +451,11 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.PowderBlue;
+            this.flowLayoutPanel2.Controls.Add(this.lblMZCharge);
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.splitter1);
-            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.lblReadCard);
             this.flowLayoutPanel2.Controls.Add(this.splitter2);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.splitter3);
@@ -335,21 +470,22 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1184, 28);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1349, 28);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
-            // label1
+            // lblMZCharge
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Image = global::Windows.ResImage.user_green;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "   普通门诊报销";
+            this.lblMZCharge.AutoSize = true;
+            this.lblMZCharge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMZCharge.Image = global::Windows.ResImage.user_green;
+            this.lblMZCharge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMZCharge.Location = new System.Drawing.Point(3, 8);
+            this.lblMZCharge.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblMZCharge.Name = "lblMZCharge";
+            this.lblMZCharge.Size = new System.Drawing.Size(95, 12);
+            this.lblMZCharge.TabIndex = 1;
+            this.lblMZCharge.Text = "   普通门诊收费";
+            this.lblMZCharge.Click += new System.EventHandler(this.lblMZCharge_Click);
             // 
             // label2
             // 
@@ -362,7 +498,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "   普通住院报销";
+            this.label2.Text = "   普通住院收费";
             // 
             // splitter1
             // 
@@ -373,18 +509,19 @@
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
-            // label3
+            // lblReadCard
             // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Image = global::Windows.ResImage.accept;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(214, 8);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "   读卡";
+            this.lblReadCard.AutoSize = true;
+            this.lblReadCard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblReadCard.Image = global::Windows.ResImage.accept;
+            this.lblReadCard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblReadCard.Location = new System.Drawing.Point(214, 8);
+            this.lblReadCard.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.lblReadCard.Name = "lblReadCard";
+            this.lblReadCard.Size = new System.Drawing.Size(47, 12);
+            this.lblReadCard.TabIndex = 4;
+            this.lblReadCard.Text = "   读卡";
+            this.lblReadCard.Click += new System.EventHandler(this.lblReadCard_Click);
             // 
             // splitter2
             // 
@@ -500,11 +637,19 @@
             this.splitter6.TabIndex = 14;
             this.splitter6.TabStop = false;
             // 
+            // toolStripMenuItemFeeDetails
+            // 
+            this.toolStripMenuItemFeeDetails.Image = global::Windows.ResImage.accept;
+            this.toolStripMenuItemFeeDetails.Name = "toolStripMenuItemFeeDetails";
+            this.toolStripMenuItemFeeDetails.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemFeeDetails.Text = "费用记帐";
+            this.toolStripMenuItemFeeDetails.Click += new System.EventHandler(this.toolStripMenuItemFeeDetails_Click);
+            // 
             // Frm_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 632);
+            this.ClientSize = new System.Drawing.Size(1349, 652);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panelInterface);
             this.Controls.Add(this.panel1);
@@ -532,13 +677,11 @@
         private System.Windows.Forms.ToolStripMenuItem 住院业务ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 住院业务ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 基础字典维护ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 普通门诊ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 门诊特殊病ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 工伤门诊ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemMZ;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemMZSpecial;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemBuyMedic;
-        private System.Windows.Forms.ToolStripMenuItem 普通住院ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 工伤住院ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemZYRegister;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemZYDetails;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemJCType;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemInterfaceFunc;
         private System.Windows.Forms.Panel panel1;
@@ -555,10 +698,10 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemInterfaceDic;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMZCharge;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblReadCard;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Splitter splitter3;
@@ -569,5 +712,21 @@
         private System.Windows.Forms.Label lblFlow;
         private System.Windows.Forms.Label lblSetup;
         private System.Windows.Forms.Splitter splitter6;
+        private System.Windows.Forms.ToolStripMenuItem 信息查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem iC卡信息查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemMZQuery;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label lblLoginStatus;
+        private System.Windows.Forms.ToolStripMenuItem 数据统计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemMZAllOrders;
+        private System.Windows.Forms.ToolStripMenuItem 门诊特殊病数据统计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRegisterUpdate;
+        private System.Windows.Forms.ToolStripMenuItem 出院结算ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemZYAllOrders;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemPersonInfo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFeeDetails;
     }
 }

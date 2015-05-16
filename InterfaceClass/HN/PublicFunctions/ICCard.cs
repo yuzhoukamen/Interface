@@ -48,6 +48,8 @@ namespace InterfaceClass.HN.PublicFunctions
                 throw new Exception("读卡失败，失败原因：" + inter.GetMessage());
             }
 
+            string errorInfo = inter.GetMessage();
+
             Card card = new Card();
 
             try
@@ -125,7 +127,7 @@ namespace InterfaceClass.HN.PublicFunctions
             }
             catch (Exception e)
             {
-                throw new Exception("通过设置读卡数据集获取数据失败，失败原因：" + e.Message);
+                throw new Exception("通过设置读卡数据集获取数据失败，失败原因：" + errorInfo + "\n" + e.Message);
             }
 
             return card;
@@ -155,6 +157,17 @@ namespace InterfaceClass.HN.PublicFunctions
             {
                 throw new Exception("修改密码发生错误，错误原因：" + inter.GetMessage());
             }
+        }
+
+        /// <summary>
+        /// 设置IC卡设备的串口号(设置串口号出错将抛出异常)
+        /// </summary>
+        /// <param name="port">串口号</param>
+        public void SetICCommPort(int port)
+        {
+            Interface inter = new Interface(this.InterfaceHN);
+
+            inter.SetICCommPort(port);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using InterfaceClass;
+using C1.Win.C1FlexGrid;
 
 namespace Windows
 {
@@ -17,8 +18,6 @@ namespace Windows
         public Frm_FuncTest()
         {
             InitializeComponent();
-
-
         }
 
         /// <summary>
@@ -39,6 +38,8 @@ namespace Windows
 
             BindC1FlexGridDisplayLineNumbers(this.c1FlexGridDataset);
             SetC1FlexGridNullDataTable(this.c1FlexGridDataset);
+
+            SetApplicationIco(this);
 
             InitBind();
         }
@@ -111,7 +112,6 @@ namespace Windows
                 this.c1FlexGridPara.DataSource = ds.Tables[2];
 
                 this.c1FlexGridPara.Cols["ID"].Visible = false;
-                this.c1FlexGridPara.Cols["参数说明"].Visible = false;
                 this.c1FlexGridPara.Cols["最大长度"].Visible = false;
                 this.c1FlexGridPara.Cols["是否为空"].Visible = false;
                 this.c1FlexGridPara.Cols["备注"].Visible = false;
@@ -156,57 +156,90 @@ namespace Windows
 
                 InterfaceClass.Interface inter = new InterfaceClass.Interface(baseInterfaceHN);
 
+                string datasetName = string.Empty;
                 List<Parameter> listPara = new List<Parameter>();
+                List<Parameter> listDatasetPara = new List<Parameter>();
+                List<Parameter> listDatasetParameter = new List<Parameter>();
+
 
                 foreach (C1.Win.C1FlexGrid.Row row in this.c1FlexGridPara.Rows)
                 {
                     if (row.Index > 0)
                     {
-                        listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["默认值"].ToString().Trim()));
+                        string paraDesc = row["参数说明"].ToString().Trim();
+
+                        if (paraDesc == string.Empty)
+                        {
+                            listPara.Add(new Parameter(row["入参"].ToString().Trim(), row["默认值"].ToString().Trim()));
+                        }
+                        else
+                        {
+                            datasetName = row["参数说明"].ToString().Trim();
+
+                            listDatasetPara.Add(new Parameter(row["入参"].ToString().Trim(), row["默认值"].ToString().Trim()));
+                        }
                     }
                 }
 
-                long value = inter.ExecInterface(this.lblID.Text.Trim(), listPara);
+                List<List<Parameter>> listListParameter = new List<List<Parameter>>();
+
+                listListParameter.Add(listDatasetPara);
+
+                listDatasetParameter.Add(new Parameter(datasetName, listListParameter));
+
+                long value = inter.ExecInterface(this.lblID.Text.Trim(), listPara, listDatasetParameter);
 
                 this.lblReturnValue.Text = string.Format(@"返回值：{0}", value.ToString());
 
-                inter.SetResultset(this.cBoxDataset.Text.Trim());
+                string errorInfo = inter.GetMessage();
 
-                DataTable dt = new DataTable();
-
-                string p_name = string.Empty;
-                string p_value = string.Empty;
-
-                foreach (DataRow dr in this.interfacHNDataset.Rows)
+                try
                 {
-                    DataColumn dc = new DataColumn();
+                    inter.SetResultset(this.cBoxDataset.Text.Trim());
 
-                    dc.ColumnName = dr["字段"].ToString().Trim();
-                    dc.Caption = dr["字段说明"].ToString().Trim();
+                    DataTable dt = new DataTable();
 
-                    dt.Columns.Add(dc);
-                }
+                    string p_name = string.Empty;
+                    string p_value = string.Empty;
 
-                string str = string.Empty;
-                int temp = 0;
-
-                do
-                {
-                    DataRow dataRow = dt.NewRow();
-
-                    foreach (DataColumn dc in dt.Columns)
+                    foreach (DataRow dr in this.interfacHNDataset.Rows)
                     {
-                        temp++;
+                        if (dr["数据集"].ToString().Trim() == this.cBoxDataset.Text.Trim())
+                        {
+                            DataColumn dc = new DataColumn();
 
-                        str = string.Empty;
+                            dc.ColumnName = dr["字段"].ToString().Trim();
+                            dc.Caption = dr["字段说明"].ToString().Trim();
 
-                        inter.GetByName(dc.ColumnName, ref str);
-                        dataRow[dc.ColumnName] = str;
+                            dt.Columns.Add(dc);
+                        }
                     }
-                    dt.Rows.Add(dataRow);
-                } while (0 < inter.NextRow());
 
-                this.c1FlexGridDataset.DataSource = dt;
+                    string str = string.Empty;
+                    int temp = 0;
+
+                    do
+                    {
+                        DataRow dataRow = dt.NewRow();
+
+                        foreach (DataColumn dc in dt.Columns)
+                        {
+                            temp++;
+
+                            str = string.Empty;
+
+                            inter.GetByName(dc.ColumnName, ref str);
+                            dataRow[dc.ColumnName] = str;
+                        }
+                        dt.Rows.Add(dataRow);
+                    } while (0 < inter.NextRow());
+
+                    this.c1FlexGridDataset.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(errorInfo + "\n" + ex.Message);
+                }
             }
             catch (Exception ee)
             {
@@ -238,7 +271,7 @@ namespace Windows
                         fileName += ".xls";
                     }
 
-                    this.c1FlexGridDataset.SaveExcel(fileName);
+                    this.c1FlexGridDataset.SaveGrid(fileName, FileFormatEnum.Excel, FileFlags.IncludeFixedCells);
 
                     CloseTips();
 

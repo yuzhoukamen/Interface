@@ -6,15 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using InterfaceClass;
+using Windows.Class;
 
 namespace Windows
 {
     public partial class Frm_Interface : BaseForm
     {
-        /// <summary>
-        /// 用户编号
-        /// </summary>
-        private long userID = 0;
+        private Thread _thread = null;
 
         /// <summary>
         /// 
@@ -22,11 +22,13 @@ namespace Windows
         /// <param name="userID"></param>
         public Frm_Interface(long userID)
         {
-            this.userID = userID;
+            this._userID = userID;
 
             InitializeComponent();
 
             baseInterfaceHN = new InterfaceClass.InterfaceHN();
+
+            this._SynchronizationContext = SynchronizationContext.Current;
 
             SetDebug();
         }
@@ -41,7 +43,7 @@ namespace Windows
             InitFormInfo(this);
 
             this.menuStripInterface.Renderer = new Class.MyMenuRender();
-            QueryAndSetUserInfo();
+            UserInfo();
 
             this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -50,7 +52,9 @@ namespace Windows
 
             AddFormToPanelInterface(frm);
 
-            DisaplayMsg();
+            //DisaplayMsg();
+
+            this.btnLogin.PerformClick();
         }
 
         /// <summary>
@@ -74,7 +78,9 @@ namespace Windows
         {
             Frm_InterfaceFunc frm = new Frm_InterfaceFunc();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -86,7 +92,9 @@ namespace Windows
         {
             Frm_Main frm = new Frm_Main(71);
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -119,8 +127,14 @@ namespace Windows
 
             frm.Dock = DockStyle.Fill;
 
+            //this.Width = frm.Width;
+            //this.Height = this.Height + frm.Height - this.panelInterface.Height;
+
+            //this.panelInterface.Height = frm.Height;
+
             this.panelInterface.Controls.Add(frm);
             this.lblFrmTitle.Text = string.Format("当前操作窗体：{0}", frm.Text.Trim());
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             frm.Show();
 
@@ -130,26 +144,14 @@ namespace Windows
         /// <summary>
         /// 查询和设置用户信息
         /// </summary>
-        private void QueryAndSetUserInfo()
+        private void UserInfo()
         {
-            string SQLString = string.Format(@"SELECT  UnitName ,
-                                                        UserName
-                                                FROM    alfHospital.dbo.TbMedicalPersonInfo
-                                                        INNER JOIN alfHospital.dbo.TbUnitInfo ON alfHospital.dbo.TbUnitInfo.UnitID = alfHospital.dbo.TbMedicalPersonInfo.UnitID
-                                                WHERE   ID = {0}", this.userID);
 
-            try
-            {
-                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+            QueryAndSetUserInfo();
 
-                this.lblUnitName.Text = string.Format("单位：{0}", ds.Tables[0].Rows[0]["UnitName"].ToString().Trim());
+            this.lblUnitName.Text = string.Format("单位：{0}", this._unitName);
 
-                this.lblUserName.Text = string.Format("操作人员：{0}", ds.Tables[0].Rows[0]["UserName"].ToString().Trim());
-            }
-            catch (Exception e)
-            {
-                CommonFunctions.MsgError("获取用户信息失败，失败原因：" + e.Message);
-            }
+            this.lblUserName.Text = string.Format("操作人员：{0}", this._userName);
         }
 
         /// <summary>
@@ -161,7 +163,9 @@ namespace Windows
         {
             Frm_FuncTest frm = new Frm_FuncTest();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -173,7 +177,9 @@ namespace Windows
         {
             Frm_Dictionary frm = new Frm_Dictionary();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -185,7 +191,9 @@ namespace Windows
         {
             Frm_JCType frm = new Frm_JCType();
 
-            AddFormToPanelInterface(frm);
+            frm.ShowDialog();
+
+            frm = null;
         }
 
         /// <summary>
@@ -220,19 +228,358 @@ namespace Windows
         /// <param name="e"></param>
         private void lblSetup_Click(object sender, EventArgs e)
         {
-            Frm_Setup frm = new Frm_Setup();
+            Frm_Validata frmValidata = new Frm_Validata();
+
+            frmValidata.ShowDialog();
+
+            bool isValidata = frmValidata._isValidata;
+
+            frmValidata = null;
+
+            if (isValidata)
+            {
+                Frm_Setup frm = new Frm_Setup();
+
+                frm.ShowDialog();
+
+                frm = null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelDirCompare_Click(object sender, EventArgs e)
+        {
+            Frm_Validata frmValidata = new Frm_Validata();
+
+            frmValidata.ShowDialog();
+
+            bool isValidata = frmValidata._isValidata;
+
+            frmValidata = null;
+
+            if (isValidata)
+            {
+                Frm_DirCompare frm = new Frm_DirCompare(this._userID);
+
+                frm.ShowDialog();
+
+                frm = null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZReg_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZ_Change frm = new Windows.MZ.Frm_MZ_Change(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZCharge_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZ_Charge frm = new Windows.MZ.Frm_MZ_Charge(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZRefund_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZ_Change frm = new Windows.MZ.Frm_MZ_Change(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblReadCard_Click(object sender, EventArgs e)
+        {
+            Frm_ReadCard frm = new Frm_ReadCard(this._userID);
 
             frm.ShowDialog();
 
             frm = null;
         }
 
-        private void labelDirCompare_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblMZCharge_Click(object sender, EventArgs e)
         {
-            Frm_DirCompare frm = new Frm_DirCompare();
+            MZ.Frm_MZ_Charge frm = new Windows.MZ.Frm_MZ_Charge(this._userID);
 
             AddFormToPanelInterface(frm);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZQuery_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZ_InfoQuery frm = new Windows.MZ.Frm_MZ_InfoQuery(this._userID);
+
+            frm.ShowDialog();
+
+            frm = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            CreateAndStartThread(this._thread, ThreadLogin);
+        }
+
+        /// <summary>
+        /// 登陆线程
+        /// </summary>
+        private void ThreadLogin()
+        {
+            SendUIMsg(InterfaceUIMsg.DisabledLoginButton);
+
+            LoginInterface();
+
+            SendUIMsg(InterfaceUIMsg.EnabledLoginButton);
+        }
+
+        /// <summary>
+        /// 登陆中心
+        /// </summary>
+        private void LoginInterface()
+        {
+            try
+            {
+                string SQLString = string.Format(@"SELECT  [ID] ,
+                                                        [Account] ,
+                                                        [Passwd] ,
+                                                        [HIS_UserID]
+                                                FROM    [HIS_InterfaceHN].[dbo].[JC_UserInfo]
+                                                WHERE   HIS_UserID = {0}", this._userID);
+                SendUIMsg(UIMsg.Display, "正在登陆中心，请稍后......");
+                SendUIMsg(InterfaceUIMsg.SetLoginStatus, "正在登陆......");
+
+                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+
+                string account = ds.Tables[0].Rows[0]["Account"].ToString().Trim();
+                string passwd = ds.Tables[0].Rows[0]["Passwd"].ToString().Trim();
+
+                InterfaceClass.HN.System.System system = new InterfaceClass.HN.System.System(baseInterfaceHN);
+
+                string value = system.Login(account, passwd);
+
+                SendUIMsg(InterfaceUIMsg.SetLoginStatus, value);
+
+                SendUIMsg(UIMsg.Close);
+            }
+            catch (Exception ex)
+            {
+                SendUIMsg(UIMsg.Close);
+
+                SendUIMsg(UIMsg.MsgError, ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        private void SetLoginStatus(object p)
+        {
+            this.lblLoginStatus.Text = "登陆状态：" + p.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        public override void UpdateUIControlContext(object context)
+        {
+            try
+            {
+                base.UpdateUIControlContext(context);
+
+                Parameter parameter = (Parameter)context;
+
+                switch (parameter.Name)
+                {
+                    case InterfaceUIMsg.DisabledLoginButton:
+                        this.btnLogin.Enabled = false;
+                        break;
+                    case InterfaceUIMsg.EnabledLoginButton:
+                        this.btnLogin.Enabled = true;
+                        break;
+                    case InterfaceUIMsg.SetLoginStatus:
+                        SetLoginStatus(parameter.Value);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunctions.MsgError(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public class InterfaceUIMsg
+        {
+            public const string DisabledLoginButton = "DisabledLoginButton";
+            public const string EnabledLoginButton = "EnabledLoginButton";
+            public const string SetLoginStatus = "SetLoginStatus";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZSpecial_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZSpecialDisease frm = new Windows.MZ.Frm_MZSpecialDisease(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 普通门诊收费
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZ_Click(object sender, EventArgs e)
+        {
+            MZ.Frm_MZ_Charge frm = new Windows.MZ.Frm_MZ_Charge(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemMZAllOrders_Click(object sender, EventArgs e)
+        {
+            Report.Frm_Report_MZ_AllBusiness frm = new Windows.Report.Frm_Report_MZ_AllBusiness(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemZYRegister_Click(object sender, EventArgs e)
+        {
+            ZY.Frm_Register frm = new Windows.ZY.Frm_Register(this._userID);
+
+            frm.ShowDialog();
+
+            frm = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemZYAllOrders_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemRegisterUpdate_Click(object sender, EventArgs e)
+        {
+            ZY.Frm_RegisterUpdate frm = new Windows.ZY.Frm_RegisterUpdate(this._userID);
+
+            frm.ShowDialog();
+            frm = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemPersonInfo_Click(object sender, EventArgs e)
+        {
+            Report.Frm_Report_AllInfo frm = new Windows.Report.Frm_Report_AllInfo(this._userID);
+
+            frm.ShowDialog();
+
+            frm = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemZYDetails_Click(object sender, EventArgs e)
+        {
+            Report.Frm_Report_ZY_AllBusiness frm = new Windows.Report.Frm_Report_ZY_AllBusiness(this._userID);
+
+            AddFormToPanelInterface(frm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemFeeDetails_Click(object sender, EventArgs e)
+        {
+            ZY.Frm_FeeDetails frm = new Windows.ZY.Frm_FeeDetails(this._userID);
+
+            frm.ShowDialog();
+
+            frm = null;
+        }
     }
 }

@@ -6,11 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Windows
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Frm_Login : BaseForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Frm_Login()
         {
             InitializeComponent();
@@ -36,6 +43,7 @@ namespace Windows
             InitFormInfo(this);
 
             this.lblAppTitle.Text = AppTitle();
+            SetApplicationIco(this);
         }
 
         /// <summary>
@@ -136,15 +144,16 @@ namespace Windows
             passwd = DEncrypt.DESEncrypt.Encrypt(passwd);
 
             long id = 0;
-            string SQLString = string.Format(@"SELECT  *
-                                                FROM    alfHospital.dbo.TbMedicalPersonInfo
-                                                WHERE   UnitID = N'{0}'
-                                                        AND LoginUserID = N'{1}'
-                                                        AND LoginUserPasswd = N'{2}'", unitID, userID, passwd);
 
             try
             {
-                DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
+                IDataParameter[] parameter = new IDataParameter[3];
+
+                parameter[0] = new SqlParameter("@UnitID", unitID);
+                parameter[1] = new SqlParameter("@UserID", userID);
+                parameter[2] = new SqlParameter("@UserPasswd", passwd);
+
+                DataSet ds = Alif.DBUtility.DbHelperSQL.RunProcedure("HIS_InterfaceHN.dbo.P_CheckUser", parameter, "P_CheckUser");
 
                 if (ds.Tables.Count == 1 && ds.Tables[0].Rows.Count == 1)
                 {
@@ -155,9 +164,9 @@ namespace Windows
                     throw new Exception(string.Empty);
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                CommonFunctions.MsgError("单位编号、用户编号或用户密码错误，请重试！！！");
+                CommonFunctions.MsgError(ex.Message);
                 return;
             }
 

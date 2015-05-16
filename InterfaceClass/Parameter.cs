@@ -38,6 +38,15 @@ namespace InterfaceClass
             set { this._value = value; }
         }
 
+        private object _object = null;
+
+
+        public object Object
+        {
+            get { return this._object; }
+            set { this._object = value; }
+        }
+
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -47,6 +56,12 @@ namespace InterfaceClass
         {
             this.Name = name;
             this.Value = value;
+        }
+
+        public Parameter(string name, object obj)
+        {
+            this.Name = name;
+            this.Object = obj;
         }
 
         /// <summary>

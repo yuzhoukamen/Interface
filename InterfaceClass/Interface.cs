@@ -73,11 +73,52 @@ namespace InterfaceClass
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="funcID"></param>
+        /// <param name="listParameter"></param>
+        /// <param name="listResultsetAndParameters"></param>
+        /// <returns></returns>
+        public long ExecInterface(string funcID, List<Parameter> listParameter, List<Parameter> listResultsetAndParameters)
+        {
+            this.InterfaceHN.Func_ID = funcID;
+            this.InterfaceHN.Start();
+            this.InterfaceHN.ClearParameterList();
+
+            if (listParameter != null)
+            {
+                foreach (Parameter para in listParameter)
+                {
+                    this.InterfaceHN.AddParameter(para.Name, para.Value);
+                }
+            }
+
+            this.InterfaceHN.PutCols();
+
+            foreach (Parameter parameterResultsetAndParameter in listResultsetAndParameters)
+            {
+                string result_name = parameterResultsetAndParameter.Name;
+                List<List<Parameter>> listListParameter = (List<List<Parameter>>)parameterResultsetAndParameter.Object;
+
+                this.InterfaceHN.Puts(result_name, listListParameter);
+            }
+            return this.InterfaceHN.Run();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="interfaceHN"></param>
         /// <returns></returns>
         public string GetMessage()
         {
             return this.InterfaceHN.GetMessage();
+        }
+
+        /// <summary>
+        /// 获取异常信息
+        /// </summary>
+        /// <returns></returns>
+        public string GetException() {
+            return this.InterfaceHN.GetException();
         }
 
         /// <summary>
@@ -120,9 +161,34 @@ namespace InterfaceClass
             return this.InterfaceHN.NextRow();
         }
 
+        /// <summary>
+        /// 从接口取得返回的当前记录集的记录行数
+        /// </summary>
+        /// <returns></returns>
+        public long GetRowCount() {
+            return this.InterfaceHN.GetRowCount();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public int GetByIndex(int index, ref string name, ref string value)
         {
             return this.InterfaceHN.GetByIndex(index, ref name, ref value);
+        }
+
+        /// <summary>
+        /// 设置IC卡设备的串口号
+        /// </summary>
+        /// <param name="port">串口号</param>
+        /// <returns></returns>
+        public long SetICCommPort(int port)
+        {
+            return this.InterfaceHN.SetICCommPort(port);
         }
     }
 }

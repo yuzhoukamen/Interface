@@ -29,6 +29,8 @@ namespace Windows
             QueryJCType();
 
             BindEvents();
+
+            SetApplicationIco(this);
         }
 
         private void BindEvents()
@@ -68,6 +70,8 @@ namespace Windows
                 DataSet ds = Alif.DBUtility.DbHelperSQL.Query(SQLString);
 
                 this.c1FlexGridCompareTable.DataSource = ds.Tables[0];
+
+                this.c1FlexGridCompareTable.Cols["长度"].Width = 70;
             }
             catch (Exception e)
             {

@@ -51,6 +51,7 @@ namespace Windows
             string connectionString = Alif.DBUtility.PubConstant.GetKeyValue("ConnectionString");
             string appInfo = Alif.DBUtility.PubConstant.GetKeyValue("AppInfo");
             string appTitle = Alif.DBUtility.PubConstant.GetKeyValue("AppTitle");
+            string commPort = Alif.DBUtility.PubConstant.GetKeyValue("CommPort");
 
             string[] strSplit = connectionString.Split(';');
 
@@ -60,6 +61,7 @@ namespace Windows
             this.txtBoxPasswd.Text = strSplit[3].Trim().Split('=')[1].Trim();
             this.txtBoxAppTitle.Text = appTitle;
             this.txtBoxAppInfo.Text = appInfo;
+            this.txtBoxCommPort.Text = commPort;
         }
 
         /// <summary>
@@ -78,10 +80,12 @@ namespace Windows
                 string dataBase = this.txtBoxDataBase.Text.Trim();
                 string userName = this.txtBoxUserName.Text.Trim();
                 string passwd = this.txtBoxPasswd.Text.Trim();
+                string commPort=this.txtBoxCommPort.Text.Trim();
 
                 Alif.DBUtility.PubConstant.UpdateConfig(configPath, "AppInfo", appInfo);
                 Alif.DBUtility.PubConstant.UpdateConfig(configPath, "AppTitle", appTitle);
                 Alif.DBUtility.PubConstant.UpdateConfig(configPath, "ConnectionString", string.Format("server={0};database={1};uid={2};pwd={3}", url, dataBase, userName, passwd));
+                Alif.DBUtility.PubConstant.UpdateConfig(configPath, "CommPort", commPort);
 
                 this.lblTips.Text = "参数修改成功！！！";
                 this.lblTips.ForeColor = Color.Green;

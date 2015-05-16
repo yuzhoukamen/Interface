@@ -40,6 +40,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnToClass = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.c1FlexGridPara = new C1.Win.C1FlexGrid.C1FlexGrid();
@@ -63,6 +64,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNameID = new System.Windows.Forms.Label();
             this.c1FlexGridFunc = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.btnParameterToClass = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -184,6 +186,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnParameterToClass);
+            this.groupBox3.Controls.Add(this.btnToClass);
             this.groupBox3.Controls.Add(this.tabControl1);
             this.groupBox3.Controls.Add(this.richTextBoxReturnValue);
             this.groupBox3.Controls.Add(this.label8);
@@ -200,11 +204,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "接口功能编码详细信息";
             // 
+            // btnToClass
+            // 
+            this.btnToClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToClass.Image = global::Windows.ResImage.accept;
+            this.btnToClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnToClass.Location = new System.Drawing.Point(368, 20);
+            this.btnToClass.Name = "btnToClass";
+            this.btnToClass.Size = new System.Drawing.Size(145, 23);
+            this.btnToClass.TabIndex = 13;
+            this.btnToClass.Text = "   生成数据集对应的类";
+            this.btnToClass.UseVisualStyleBackColor = true;
+            this.btnToClass.Click += new System.EventHandler(this.btnToClass_Click);
+            // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(6, 248);
@@ -239,8 +256,8 @@
             this.c1FlexGridPara.Size = new System.Drawing.Size(682, 342);
             this.c1FlexGridPara.TabIndex = 9;
             this.c1FlexGridPara.AfterSelChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGridPara_AfterSelChange);
-            this.c1FlexGridPara.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridPara_AfterEdit);
             this.c1FlexGridPara.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridPara_OwnerDrawCell);
+            this.c1FlexGridPara.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridPara_AfterEdit);
             // 
             // contextMenuStripPara
             // 
@@ -302,8 +319,8 @@
             this.c1FlexGridDataset.Size = new System.Drawing.Size(682, 342);
             this.c1FlexGridDataset.TabIndex = 11;
             this.c1FlexGridDataset.AfterSelChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGridDataset_AfterSelChange);
-            this.c1FlexGridDataset.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridDataset_AfterEdit);
             this.c1FlexGridDataset.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridDataset_OwnerDrawCell);
+            this.c1FlexGridDataset.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridDataset_AfterEdit);
             // 
             // contextMenuStripDataset
             // 
@@ -425,9 +442,22 @@
             this.c1FlexGridFunc.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.c1FlexGridFunc.Size = new System.Drawing.Size(405, 622);
             this.c1FlexGridFunc.TabIndex = 1;
+            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
             this.c1FlexGridFunc.SelChange += new System.EventHandler(this.c1FlexGridFunc_SelChange);
             this.c1FlexGridFunc.AfterEdit += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGridFunc_AfterEdit);
-            this.c1FlexGridFunc.OwnerDrawCell += new C1.Win.C1FlexGrid.OwnerDrawCellEventHandler(this.c1FlexGridFunc_OwnerDrawCell);
+            // 
+            // btnParameterToClass
+            // 
+            this.btnParameterToClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParameterToClass.Image = global::Windows.ResImage.anchor;
+            this.btnParameterToClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnParameterToClass.Location = new System.Drawing.Point(528, 21);
+            this.btnParameterToClass.Name = "btnParameterToClass";
+            this.btnParameterToClass.Size = new System.Drawing.Size(145, 23);
+            this.btnParameterToClass.TabIndex = 14;
+            this.btnParameterToClass.Text = "   生成参数对应的类";
+            this.btnParameterToClass.UseVisualStyleBackColor = true;
+            this.btnParameterToClass.Click += new System.EventHandler(this.btnParameterToClass_Click);
             // 
             // Frm_InterfaceFunc
             // 
@@ -436,8 +466,6 @@
             this.ClientSize = new System.Drawing.Size(1116, 689);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Frm_InterfaceFunc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "湖南创智接口编码维护";
@@ -496,6 +524,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddDataset;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Button btnToClass;
+        private System.Windows.Forms.Button btnParameterToClass;
 
     }
 }

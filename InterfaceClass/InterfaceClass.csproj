@@ -11,6 +11,10 @@
     <AssemblyName>InterfaceClass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,18 +59,90 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Func\Func.cs" />
+    <Compile Include="HN\BaseHN.cs" />
+    <Compile Include="HN\BusCostInfo\AllOrders\AllOrders.cs" />
+    <Compile Include="HN\BusCostInfo\AllOrders\GetAllOrdersParameters.cs" />
+    <Compile Include="HN\BusCostInfo\AllOrders\Info.cs" />
+    <Compile Include="HN\BusCostInfo\MZBigClassFeeInfo\GetBigClassFeeInfo.cs" />
+    <Compile Include="HN\BusCostInfo\MZBigClassFeeInfo\Info.cs" />
+    <Compile Include="HN\BusCostInfo\MZFeeDetailInfo\Info.cs" />
+    <Compile Include="HN\BusCostInfo\MZFeeDetailInfo\InParameters.cs" />
+    <Compile Include="HN\BusCostInfo\MZFeeDetailInfo\MZFeeDetailInfo.cs" />
+    <Compile Include="HN\BusCostInfo\MZOrders\Fund.cs" />
+    <Compile Include="HN\BusCostInfo\MZOrders\GetMZOrdersOutParameters.cs" />
+    <Compile Include="HN\BusCostInfo\MZOrders\Info.cs" />
+    <Compile Include="HN\BusCostInfo\MZOrders\MZOrders.cs" />
     <Compile Include="HN\HealthNews\HealthMessage.cs" />
     <Compile Include="HN\HealthNews\Message.cs" />
+    <Compile Include="HN\HosDirManage\AddHospitalDirMatch.cs" />
+    <Compile Include="HN\HosDirManage\effectdetail.cs" />
+    <Compile Include="HN\HosDirManage\GetHospitalDirMatchedInfo.cs" />
     <Compile Include="HN\HosDirManage\Info.cs" />
+    <Compile Include="HN\HosDirManage\InsertInfo.cs" />
+    <Compile Include="HN\HosDirManage\MatchedOutParameter.cs" />
+    <Compile Include="HN\HosDirManage\MatchedPageInfo.cs" />
     <Compile Include="HN\HosDirManage\Medic.cs" />
     <Compile Include="HN\HosDirManage\Disease.cs" />
     <Compile Include="HN\HosDirManage\Project.cs" />
+    <Compile Include="HN\MZ\BizInfo.cs" />
+    <Compile Include="HN\MZ\CheckAndSaveFeeDetails.cs" />
+    <Compile Include="HN\MZ\FeeInfo.cs" />
+    <Compile Include="HN\MZ\FreezeInfo.cs" />
+    <Compile Include="HN\MZ\GetPersonInfoByFlag.cs" />
+    <Compile Include="HN\MZ\MZRegChange.cs" />
+    <Compile Include="HN\MZ\MZRegCharge.cs" />
+    <Compile Include="HN\MZ\MZ_ChangeParameter.cs" />
+    <Compile Include="HN\MZ\MZRegOutParameter.cs" />
+    <Compile Include="HN\MZ\MZ_ChargeParameter.cs" />
+    <Compile Include="HN\MZ\PayInfo.cs" />
+    <Compile Include="HN\MZ\PersonInfo.cs" />
+    <Compile Include="HN\MZ\TotalbizInfo.cs" />
+    <Compile Include="HN\ZY\BIZC131204\BizInfo.cs" />
+    <Compile Include="HN\ZY\BIZC131204\DiagnoseInfo.cs" />
+    <Compile Include="HN\ZY\BIZC131204\Function.cs" />
+    <Compile Include="HN\ZY\BIZC131204\InParameter.cs" />
+    <Compile Include="HN\ZY\CancelInHospitalRegister\Function.cs" />
+    <Compile Include="HN\ZY\CancelInHospitalSettlement\Function.cs" />
+    <Compile Include="HN\ZY\CheckAndSaveFeeDetails\FeeInfo.cs" />
+    <Compile Include="HN\ZY\CheckAndSaveFeeDetails\Function.cs" />
+    <Compile Include="HN\ZY\CheckAndSaveFeeDetails\InParameter.cs" />
+    <Compile Include="HN\ZY\DeleteInHospitalFeeDetails\Function.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\Fee.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\Fund.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\Function.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\Info.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\OutParameter.cs" />
+    <Compile Include="HN\ZY\GetOutHospitalSettlementOrders\Seg.cs" />
+    <Compile Include="HN\ZY\GetPersonInfoAndBizInfo\BizInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfoAndBizInfo\Function.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\ElseInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\FreezeInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\Function.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\LastBizInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\PersonInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\SPInfo.cs" />
+    <Compile Include="HN\ZY\GetPersonInfo\TotalBizInfo.cs" />
+    <Compile Include="HN\ZY\GetUploadedFeeDetails\FeeInfo.cs" />
+    <Compile Include="HN\ZY\GetUploadedFeeDetails\Function.cs" />
+    <Compile Include="HN\ZY\InHospitalFeeCalc\Function.cs" />
+    <Compile Include="HN\ZY\InHospitalFeeCalc\InParameter.cs" />
+    <Compile Include="HN\ZY\InHospitalFeeCalc\PayInfo.cs" />
+    <Compile Include="HN\ZY\OutHospitalSettlement\BizInfo.cs" />
+    <Compile Include="HN\ZY\OutHospitalSettlement\Function.cs" />
+    <Compile Include="HN\ZY\OutHospitalSettlement\InParameter.cs" />
+    <Compile Include="HN\ZY\OutHospitalSettlement\OutParameter.cs" />
+    <Compile Include="HN\ZY\OutHospitalSettlement\PayInfo.cs" />
+    <Compile Include="HN\ZY\RegisterUpdate\Function.cs" />
+    <Compile Include="HN\ZY\RegisterUpdate\InParameter.cs" />
+    <Compile Include="HN\ZY\SaveDiagnoseInfo\DiagnoseInfo.cs" />
+    <Compile Include="HN\ZY\SaveDiagnoseInfo\Function.cs" />
+    <Compile Include="HN\ZY\SaveDiagnoseInfo\InParameter.cs" />
+    <Compile Include="HN\ZY\UpdateForegift\Function.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="DllInvoke.cs" />
     <Compile Include="HN\PublicFunctions\Card.cs" />
@@ -78,26 +154,35 @@
     <Compile Include="InterfaceHNDll.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HN\BusCostInfo\" />
-    <Folder Include="HN\BuyMedic\" />
-    <Folder Include="HN\CivilServantsHealthyManage\" />
-    <Folder Include="HN\InjuryJobMZ\" />
-    <Folder Include="HN\InjuryJobZY\" />
-    <Folder Include="HN\MZSpecialDis\" />
-    <Folder Include="HN\MZ\" />
-    <Folder Include="HN\PayDeclare\" />
-    <Folder Include="HN\SpecialBusApplication\" />
-    <Folder Include="HN\StatisticalReporters\" />
-    <Folder Include="HN\ZYAdviceWriteQuery\" />
-    <Folder Include="HN\ZY\" />
+    <Compile Include="TypeCompareTable\accident_type_code.cs" />
+    <Compile Include="TypeCompareTable\biz_type.cs" />
+    <Compile Include="TypeCompareTable\fund_id.cs" />
+    <Compile Include="TypeCompareTable\injury_degree_code.cs" />
+    <Compile Include="TypeCompareTable\injury_property_code.cs" />
+    <Compile Include="TypeCompareTable\medi_item_type.cs" />
+    <Compile Include="TypeCompareTable\official_code.cs" />
+    <Compile Include="TypeCompareTable\pers_type.cs" />
+    <Compile Include="TypeCompareTable\report_type.cs" />
+    <Compile Include="TypeCompareTable\staple_flag.cs" />
+    <Compile Include="TypeCompareTable\stat_type.cs" />
+    <Compile Include="TypeCompareTable\treatment_type.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
       <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
       <Name>DBUtility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HN\BuyMedic\" />
+    <Folder Include="HN\CivilServantsHealthyManage\" />
+    <Folder Include="HN\InjuryJobMZ\" />
+    <Folder Include="HN\InjuryJobZY\" />
+    <Folder Include="HN\MZSpecialDis\" />
+    <Folder Include="HN\PayDeclare\" />
+    <Folder Include="HN\SpecialBusApplication\" />
+    <Folder Include="HN\StatisticalReporters\" />
+    <Folder Include="HN\ZYAdviceWriteQuery\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -131,6 +131,13 @@ namespace Windows
         public void WriteMsg(string msg)
         {
             this.lblTips.Text = msg;
+
+            //if (this.Width < this.lblTips.Width + 60)
+            //{
+            //    this.Width = this.lblTips.Width + 60;
+            //}
+
+            this.Width = this.lblTips.Width + 60;
         }
     }
 }
